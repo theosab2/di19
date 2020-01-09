@@ -1,9 +1,45 @@
-<html>
-<head>
+{% extends "index.html.twig" %}
+{% block title %} Liste des articles - {{ parent() }}{% endblock %}
 
-</head>
-<body>
-<h1>Voici la liste des articles</h1>
-{{ dump(articleList) }}
-</body>
-</html>
+{% block body %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Liste des articles</h1>
+        <form name="recherche" method="POST" class="form-inline my-2 my-lg-0">
+            <div class="col-2">
+                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-8"></div>
+            <div class="col-2"><a class="btn btn-primary" href="/?controller=Article&action=Add">Ajouter</a></div>
+        </form>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Auteur</th>
+            <th scope="col">Date</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articleList %}
+            <tr>
+                <th scope="row"><a href="/?controller=Article&action=Show&Id={{ article.id }}">#{{ article.id }}</a></th>
+                <td>{{ article.Titre }}</td>
+                <td>{{ article.Auteur }}</td>
+                <td>{{ article.DateAjout|date("d/m/Y") }}</td>
+                <td>
+                    <a class="btn btn-success" href="/?controller=Article&action=Show&Id={{ article.id }}">Voir</a>
+                    <a class="btn btn-warning" href="/?controller=Article&action=Update&Id={{ article.id }}">Editer</a>
+                    <a class="btn btn-danger" href="/?controller=Article&action=Delete&Id={{ article.id }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+{% endblock %}

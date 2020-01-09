@@ -41,6 +41,7 @@ class Article extends Contenu {
             $listArticle = [];
             foreach ($arrayArticle as $articleSQL){
                 $article = new Article();
+                $article->setId($articleSQL['Id']);
                 $article->setTitre($articleSQL['Titre']);
                 $article->setAuteur($articleSQL['Auteur']);
                 $article->setDescription($articleSQL['Description']);
@@ -52,7 +53,67 @@ class Article extends Contenu {
             }
             return $listArticle;
     }
+    public function SqlGet(\PDO $bdd,$idArticle){
+        $requete = $bdd->prepare('SELECT * FROM articles where Id = :idArticle');
+        $requete->execute([
+            'idArticle' => $idArticle
+        ]);
 
+        $datas =  $requete->fetch();
+
+        $article = new Article();
+        $article->setId($datas['Id']);
+        $article->setTitre($datas['Titre']);
+        $article->setAuteur($datas['Auteur']);
+        $article->setDescription($datas['Description']);
+        $article->setDateAjout($datas['DateAjout']);
+        $article->setImageRepository($datas['ImageRepository']);
+        $article->setImageFileName($datas['ImageFileName']);
+
+        return $article;
+
+
+    }
+
+    public function SqlUpdate(\PDO $bdd){
+        try{
+            $requete = $bdd->prepare('UPDATE articles set Titre=:Titre, Description=:Description, DateAjout=:DateAjout, Auteur=:Auteur, ImageRepository=:ImageRepository, ImageFileName=:ImageFileName WHERE id=:IDARTICLE');
+            $requete->execute([
+                'Titre' => $this->getTitre()
+                ,'Description' => $this->getDescription()
+                ,'DateAjout' => $this->getDateAjout()
+                ,'Auteur' => $this->getAuteur()
+                ,'ImageRepository' => $this->getImageRepository()
+                ,'ImageFileName' => $this->getImageFileName()
+                ,'IDARTICLE' => $this->getId()
+            ]);
+            return array("0", "[OK] Update");
+        }catch (\Exception $e){
+            return array("1", "[ERREUR] ".$e->getMessage());
+        }
+    }
+
+    public function SqlDelete (\PDO $bdd,$idArticle){
+        try{
+            $requete = $bdd->prepare('DELETE FROM articles where Id = :idArticle');
+            $requete->execute([
+                'idArticle' => $idArticle
+            ]);
+            return true;
+        }catch (\Exception $e){
+            return false;
+        }
+    }
+
+    public function SqlTruncate (\PDO $bdd){
+        try{
+            $requete = $bdd->prepare('TRUNCATE TABLE articles');
+            $requete->execute();
+            return true;
+        }catch (\Exception $e){
+            return false;
+        }
+    }
 
     /**
      * @return mixed

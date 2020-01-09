@@ -1,0 +1,24 @@
+{% extends "index.html.twig" %}
+{% block title %}{{ parent() }} - Ajout article {% endblock %}
+
+{% block body %}
+
+    <form name="addArticle" method="post" enctype="multipart/form-data">
+        <input type="text" name="Titre">
+        <textarea name="Description"></textarea>
+        <input type="date" name="DateAjout">
+        <select name="Auteur">
+            <option value="Brice">Brice</option>
+            <option value="Bruno">Bruno</option>
+            <option value="Fabien">Fabien</option>
+            <option value="Marion">Marion</option>
+            <option value="Marion">Jean-Pierre</option>
+            <option value="Marion">Benoit</option>
+            <option value="Marion">Emmanuel</option>
+            <option value="Marion">Sylvie</option>
+        </select>
+        <input type="file" name="image">
+        <input type="submit">
+    </form>
+
+{% endblock %}
