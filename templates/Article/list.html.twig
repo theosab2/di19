@@ -29,7 +29,7 @@
                 <th scope="row"><a href="/?controller=Article&action=Show&Id={{ article.id }}">#{{ article.id }}</a></th>
                 <td>{{ article.Titre }}</td>
                 <td>{{ article.Auteur }}</td>
-                <td>{{ article.DateAjout|date("d/m/Y") }}</td>
+                <td>{{ article.DateAjout }}</td>
                 <td>
                     <a class="btn btn-success" href="/?controller=Article&action=Show&Id={{ article.id }}">Voir</a>
                     <a class="btn btn-warning" href="/?controller=Article&action=Update&Id={{ article.id }}">Editer</a>
