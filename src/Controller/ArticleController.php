@@ -155,4 +155,28 @@ class ArticleController extends AbstractController {
         ]);
     }
 
+    public function WriteOne($idArticle){
+        $article = new Article();
+        $articleData = $article->SqlGet(Bdd::GetInstance(), $idArticle);
+
+        $file = 'article_'.$idArticle.'.json';
+        if(!is_dir('./uploads/file/')){
+            mkdir('./uploads/file/', 0777, true);
+        }
+        file_put_contents('./uploads/file/'.$file, json_encode($articleData));
+
+        header('location:/Article/');
+    }
+
+    public function ReadOne($idArticle){
+
+        $file = 'article_'.$idArticle.'.json';
+        $datas = file_get_contents('./uploads/file/'.$file);
+        $contenu = json_decode($datas);
+
+        return $this->twig->render('Article/readfile.html.twig', [
+            'fileData' => $contenu
+        ]);
+    }
+
 }
