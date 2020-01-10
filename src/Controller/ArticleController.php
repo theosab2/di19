@@ -79,7 +79,7 @@ class ArticleController extends AbstractController {
                     }
                     move_uploaded_file($_FILES['image']['tmp_name'], $repository.'/'.$nomImage);
                     // suppression ancienne image si existante
-                    if($_POST['imageAncienne'] != ''){
+                    if($_POST['imageAncienne'] != '/'){
                         unlink('./uploads/images/'.$_POST['imageAncienne']);
                     }
                 }
@@ -101,7 +101,7 @@ class ArticleController extends AbstractController {
         ]);
     }
 
-    public function delete($articleID){
+    public function Delete($articleID){
         $articleSQL = new Article();
         $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
         $article->SqlDelete(BDD::getInstance(),$articleID);
@@ -109,7 +109,7 @@ class ArticleController extends AbstractController {
             unlink('./uploads/images/'.$article->getImageRepository().'/'.$article->getImageFileName());
         }
 
-        header('Location:/Article');
+        header('Location:/');
     }
 
     public function fixtures(){
