@@ -79,6 +79,7 @@ class ArticleController extends AbstractController {
                     }
                     move_uploaded_file($_FILES['image']['tmp_name'], $repository.'/'.$nomImage);
                     // suppression ancienne image si existante
+
                     if($_POST['imageAncienne'] != '/'){
                         unlink('./uploads/images/'.$_POST['imageAncienne']);
                     }
@@ -134,18 +135,45 @@ class ArticleController extends AbstractController {
         //header('Location:/Article');
     }
 
-    public function  Write(){
+
+    public function Write(){
+
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 
         $file = 'article.json';
         if(!is_dir('./uploads/file/')){
-            mkdir('./uploads/file/', 0777,true);
-        }
-        file_put_contents('./uploads/file/'.$file,json_encode($listArticle));
 
-        header('location:/Article');
+            mkdir('./uploads/file/', 0777, true);
+        }
+        file_put_contents('./uploads/file/'.$file, json_encode($listArticle));
+
+        header('location:/Article/');
     }
+
+    public function Read(){
+        $file='article.json';
+        $datas = file_get_contents('./uploads/file/'.$file);
+        $contenu = json_decode($datas);
+
+        return $this->twig->render('Article/readfile.html.twig', [
+            'fileData' => $contenu
+        ]);
+    }
+
+    public function WriteOne($idArticle){
+        $article = new Article();
+        $articleData = $article->SqlGet(Bdd::GetInstance(), $idArticle);
+
+        $file = 'article_'.$idArticle.'.json';
+        if(!is_dir('./uploads/file/')){
+            mkdir('./uploads/file/', 0777, true);
+        }
+        file_put_contents('./uploads/file/'.$file, json_encode($articleData));
+
+        header('location:/Article/');
+    }
+
 
     public function  Read(){
         $file = 'article.json';
@@ -156,6 +184,7 @@ class ArticleController extends AbstractController {
         return $this->twig->render('Article/readfile.html.twig',[
             'fileData' => $contenu
         ]);
+
 
     }
 

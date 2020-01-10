@@ -24,6 +24,7 @@ if(class_exists($className)){
     if(method_exists($className,$action)){
         echo $classController->$action($param);
     }else{
+        var_dump($_POST);
         echo 'L\'action '.$action.' n\'existe pas';
     }
 }else{

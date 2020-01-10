@@ -8,6 +8,7 @@
     <hr class="my-4">
     <div class="row">
         <div class="card col-lg-4 ml" style="width: 15rem;">
+
             {% if article.ImageFileName != '' and    file_exist('./uploads/images/'~article.ImageRepository~'/'~article.ImageFileName) %}
                 <img class='card-img-top' alt='Article' src='/uploads/images/{{ article.ImageRepository }}/{{article.ImageFileName}}'/>
             {% else %}

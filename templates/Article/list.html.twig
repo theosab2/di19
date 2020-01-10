@@ -2,10 +2,11 @@
 {% block title %} Liste des articles - {{ parent() }}{% endblock %}
 
 {% block body %}
-    <div class="container">
+
     <div class="jumbotron">
         <h1 class="display-4">Liste des articles</h1>
     </div>
+    <div class="container">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -24,9 +25,13 @@
                 <td>{{ article.Auteur }}</td>
                 <td>{{ article.DateAjout | date("d/m/Y") }}</td>
                 <td>
-                    <a class="btn btn-success" href="/Article/Show/{{ article.id }}">Voir</a>
-                    <a class="btn btn-warning" href="/Article/Update/{{ article.id }}">Editer</a>
-                    <a class="btn btn-danger" href="/Article/Delete/{{ article.id }}">Supprimer</a>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-success" href="/Article/Show/{{ article.id }}"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-warning" href="/Article/Update/{{ article.id }}"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-danger" href="/Article/Delete/{{ article.id }}"><i class="far fa-trash-alt"></i></a>
+                    </div>
+                    <a class="btn btn-secondary" href="/Article/WriteOne/{{ article.id }}"><i class="fas fa-file-download"></i></a>
+
                 </td>
             </tr>
         {% endfor %}
