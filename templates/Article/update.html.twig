@@ -50,7 +50,7 @@
                     <select name="Auteur" class="form-control">
                         {% set Auteurs = ['Brice','Bruno','Fabien','Marion','Jean-Pierre','Benoit','Emmanuel','Sylvie'] %}
                         {% for Auteur in Auteurs %}
-                            <option value="Auteur" {% if Auteur == article.Auteur %}selected{% endif %}>{{ Auteur }}</option>
+                            <option value="{{Auteur}}" {% if Auteur == article.Auteur %}selected{% endif %}>{{ Auteur }}</option>
                         {% endfor %}
                     </select>
                 </div>

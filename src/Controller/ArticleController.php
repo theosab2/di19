@@ -134,4 +134,20 @@ class ArticleController extends AbstractController {
         //header('Location:/Article');
     }
 
+    public function  Write(){
+        $article = new Article();
+        $listArticle = $article->SqlGetAll(Bdd::GetInstance());
+
+        $file = 'article.json';
+        if(!is_dir('./uploads/file/')){
+            mkdir('./uploads/file/', 0777,true);
+        }
+        file_put_contents('./uploads/file/'.$file,json_encode($listArticle));
+
+        header('location:/Article');
+
+
+
+    }
+
 }
