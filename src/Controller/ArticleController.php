@@ -145,8 +145,17 @@ class ArticleController extends AbstractController {
         file_put_contents('./uploads/file/'.$file,json_encode($listArticle));
 
         header('location:/Article');
+    }
 
+    public function  Read(){
+        $file = 'article.json';
+        $dataFile = file_get_contents('./uploads/file/'.$file);
 
+        $contenu = json_decode($dataFile);
+
+        return $this->twig->render('Article/readfile.html.twig',[
+            'fileData' => $contenu
+        ]);
 
     }
 

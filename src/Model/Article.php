@@ -1,7 +1,7 @@
 <?php
 namespace src\Model;
 
-class Article extends Contenu {
+class Article extends Contenu implements \JsonSerializable {
     private $Auteur;
     private $DateAjout;
     private $ImageRepository;
@@ -114,6 +114,20 @@ class Article extends Contenu {
             return false;
         }
     }
+
+    public function jsonSerialize()
+    {
+        return [
+            'Id' => $this->getId()
+            ,'Titre' => $this->getTitre()
+            ,'Description' => $this->getDescription()
+            ,'DateAjout' => $this->getDateAjout()
+            ,'ImageRepository' => $this->getImageRepository()
+            ,'ImageFileName' => $this->getImageFileName()
+            ,'Auteur' => $this->getAuteur()
+        ];
+    }
+
 
     /**
      * @return mixed
