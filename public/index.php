@@ -13,6 +13,7 @@ function chargerClasse($classe){
 }
 spl_autoload_register('chargerClasse');
 //http://www.git.local/?controller=Article&action=Add
+
 $controller = (!empty($_GET['controller'])? $_GET['controller']: 'Article');
 $action = (!empty($_GET['action'])? $_GET['action'] : 'Index');
 $param = (!empty($_GET['Id'])? $_GET['Id'] : '');

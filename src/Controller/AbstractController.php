@@ -16,13 +16,14 @@ class AbstractController {
             ]
         );
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
-        $fileExist = new \Twig\TwigFunction('file_exist', function($cheminFichier)
-        {
-            if (file_exists($cheminFichier)) {
-                return true;
-            } else {
-                return false;
-            }
+
+        // Ajout d'une fonction PHP
+        $fileExist = new \Twig\TwigFunction('file_exist', function($cheminFichier){
+                if(file_exists($cheminFichier)){
+                    return true;
+                }else{
+                    return false;
+                }
         });
         $this->twig->addFunction($fileExist);
     }

@@ -115,6 +115,20 @@ class Article extends Contenu implements \JsonSerializable {
         }
     }
 
+    public function jsonSerialize()
+    {
+        return [
+            'Id' => $this->getId()
+            ,'Titre' => $this->getTitre()
+            ,'Description' => $this->getDescription()
+            ,'DateAjout' => $this->getDateAjout()
+            ,'ImageRepository' => $this->getImageRepository()
+            ,'ImageFileName' => $this->getImageFileName()
+            ,'Auteur' => $this->getAuteur()
+        ];
+    }
+
+
     /**
      * @return mixed
      */
