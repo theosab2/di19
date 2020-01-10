@@ -15,13 +15,13 @@ spl_autoload_register('chargerClasse');
 //http://www.git.local/?controller=Article&action=Add
 $controller = (isset($_GET['controller'])? $_GET['controller']: 'Article');
 $action = (isset($_GET['action'])? $_GET['action'] : 'Index');
-$param = (isset($_GET['param'])? $_GET['param'] : '');
+$param = (isset($_GET['Id'])? $_GET['Id'] : '');
 
 $className = 'src\Controller\\'.$controller.'Controller';
 if(class_exists($className)){
     $classController = new $className;
     if(method_exists($className,$action)){
-        echo $classController->$action();
+        echo $classController->$action($param);
     }else{
         echo 'L\'action '.$action.' n\'existe pas';
     }
