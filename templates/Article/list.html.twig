@@ -2,16 +2,9 @@
 {% block title %} Liste des articles - {{ parent() }}{% endblock %}
 
 {% block body %}
-
+    <div class="container">
     <div class="jumbotron">
         <h1 class="display-4">Liste des articles</h1>
-        <form name="recherche" method="POST" class="form-inline my-2 my-lg-0">
-            <div class="col-2">
-                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-            </div>
-            <div class="col-8"></div>
-            <div class="col-2"><a class="btn btn-primary" href="/?controller=Article&action=Add">Ajouter</a></div>
-        </form>
     </div>
     <table class="table table-striped">
         <thead>
@@ -29,7 +22,7 @@
                 <th scope="row"><a href="/?controller=Article&action=Show&Id={{ article.id }}">#{{ article.id }}</a></th>
                 <td>{{ article.Titre }}</td>
                 <td>{{ article.Auteur }}</td>
-                <td>{{ article.DateAjout }}</td>
+                <td>{{ article.DateAjout | date("d/m/Y") }}</td>
                 <td>
                     <a class="btn btn-success" href="/?controller=Article&action=Show&Id={{ article.id }}">Voir</a>
                     <a class="btn btn-warning" href="/?controller=Article&action=Update&Id={{ article.id }}">Editer</a>
@@ -40,6 +33,7 @@
 
         </tbody>
     </table>
+    </div>
 
 
 {% endblock %}

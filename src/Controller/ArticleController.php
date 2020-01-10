@@ -8,7 +8,7 @@ use DateTime;
 class ArticleController extends AbstractController {
 
     public function Index(){
-        return 'bonjour';
+        return $this->ListAll();
     }
 
     public function ListAll(){
@@ -131,7 +131,7 @@ class ArticleController extends AbstractController {
                 ->setAuteur($arrayAuteur[0]);
             $article->SqlAdd(BDD::getInstance());
         }
-        header('Location:/Article');
+        //header('Location:/Article');
     }
 
 }
