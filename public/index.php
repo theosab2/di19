@@ -13,9 +13,9 @@ function chargerClasse($classe){
 }
 spl_autoload_register('chargerClasse');
 //http://www.git.local/?controller=Article&action=Add
-$controller = (isset($_GET['controller'])? $_GET['controller']: 'Article');
-$action = (isset($_GET['action'])? $_GET['action'] : 'Index');
-$param = (isset($_GET['Id'])? $_GET['Id'] : '');
+$controller = (!empty($_GET['controller'])? $_GET['controller']: 'Article');
+$action = (!empty($_GET['action'])? $_GET['action'] : 'Index');
+$param = (!empty($_GET['Id'])? $_GET['Id'] : '');
 
 $className = 'src\Controller\\'.$controller.'Controller';
 if(class_exists($className)){
@@ -23,6 +23,7 @@ if(class_exists($className)){
     if(method_exists($className,$action)){
         echo $classController->$action($param);
     }else{
+        var_dump($_POST);
         echo 'L\'action '.$action.' n\'existe pas';
     }
 }else{

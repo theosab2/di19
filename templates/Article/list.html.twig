@@ -24,9 +24,9 @@
                 <td>{{ article.Auteur }}</td>
                 <td>{{ article.DateAjout | date("d/m/Y") }}</td>
                 <td>
-                    <a class="btn btn-success" href="/?controller=Article&action=Show&Id={{ article.id }}">Voir</a>
-                    <a class="btn btn-warning" href="/?controller=Article&action=Update&Id={{ article.id }}">Editer</a>
-                    <a class="btn btn-danger" href="/?controller=Article&action=Delete&Id={{ article.id }}">Supprimer</a>
+                    <a class="btn btn-success" href="/Article/Show/{{ article.id }}">Voir</a>
+                    <a class="btn btn-warning" href="/Article/Update/{{ article.id }}">Editer</a>
+                    <a class="btn btn-danger" href="/Article/Delete/{{ article.id }}">Supprimer</a>
                 </td>
             </tr>
         {% endfor %}

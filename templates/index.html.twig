@@ -13,7 +13,7 @@
 
 <nav class="navbar sticky-top nav-pills navbar-expand-lg navbar-dark bg-dark">
 
-    <a class="navbar-brand" href="/?controller=Article&action=ListAll">Blog du CESI</a>
+    <a class="navbar-brand" href="/Article/ListAll">Blog du CESI</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,17 +22,17 @@
 
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/?controller=Article&action=ListAll">Liste des articles</a>
+                <a class="nav-link" href="/Article/ListAll">Liste des articles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/?controller=Article&action=Add">Ajout d'un article</a>
+                <a class="nav-link" href="/Article/Add">Ajout d'un article</a>
             </li>
 
         </ul>
 
 
 
-        <form class="form-inline" method="post" action="/?controller=Article&action=Show&Id={{ post.search }}">
+        <form class="form-inline" method="post" action="/Article/Show/{{ post.search }}">
             <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un article" name="search">
             <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Rechercher" name="searchSubmit">
         </form>
