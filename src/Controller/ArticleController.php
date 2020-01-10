@@ -79,9 +79,7 @@ class ArticleController extends AbstractController {
                     }
                     move_uploaded_file($_FILES['image']['tmp_name'], $repository.'/'.$nomImage);
                     // suppression ancienne image si existante
-                    if($_POST['imageAncienne'] != ''){
-                        unlink('./uploads/images/'.$_POST['imageAncienne']);
-                    }
+
                 }
             }
 
