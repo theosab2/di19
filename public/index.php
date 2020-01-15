@@ -11,24 +11,26 @@ function chargerClasse($classe){
         require_once $file;
     }
 }
+
 spl_autoload_register('chargerClasse');
-//http://www.git.local/?controller=Article&action=Add
 
-$controller = (!empty($_GET['controller'])? $_GET['controller']: 'Article');
-$action = (!empty($_GET['action'])? $_GET['action'] : 'Index');
-$param = (!empty($_GET['Id'])? $_GET['Id'] : '');
+$router = new \src\Router\Router($_GET['url']);
+$router->get('/', "Article#ListAll");
+$router->get('/Article', "Article#ListAll");
+$router->get('/Article/Update/:id', "Article#Update#id");
+$router->post('/Article/Update/:id', "Article#Update#id");
+$router->get('/Article/Add', "Article#Add");
+$router->get('/Article/Delete/:id', "Article#Delete#id");
+$router->get('/Article/Fixtures', "Article#Fixtures");
+$router->get('/Article/Write', "Article#Write");
+$router->get('/Article/Read', "Article#Read");
+$router->get('/Article/WriteOne§:id', "Article#Read#id");
+$router->get('/Api/Article', "Api#ArticleGet");
+$router->post('/Api/Article', "Api#ArticlePost");
+$router->put('/Api/Article/:id/:json', "Api#ArticlePut");
 
-$className = 'src\Controller\\'.$controller.'Controller';
-if(class_exists($className)){
-    $classController = new $className;
-    if(method_exists($className,$action)){
-        echo $classController->$action($param);
-    }else{
-        var_dump($_POST);
-        echo 'L\'action '.$action.' n\'existe pas';
-    }
-}else{
-    echo 'Pas de controller pour cette page';
-}
+
+echo $router->run();
+
 
 
