@@ -24,7 +24,8 @@ class ArticleController extends AbstractController {
     }
 
     public function add(){
-        if($_POST){
+        UserController::roleNeed('redacteur');
+        if($_POST AND $_SESSION['token'] == $_POST['token']){
             $sqlRepository = null;
             $nomImage = null;
             if(!empty($_FILES['image']['name']) )
@@ -52,9 +53,15 @@ class ArticleController extends AbstractController {
                 ->setImageFileName($nomImage)
             ;
             $article->SqlAdd(BDD::getInstance());
-            header('Location:/Article&action/getAll');
+            header('Location:/Article');
         }else{
-            return $this->twig->render('Article/add.html.twig');
+            // Génération d'un TOKEN
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['token'] = $token;
+            return $this->twig->render('Article/add.html.twig',
+                [
+                    'token' => $token
+                ]);
         }
     }
 
@@ -174,5 +181,9 @@ class ArticleController extends AbstractController {
         header('location:/Article/');
     }
 
+    public function test($param1,$param2){
+        var_dump($param1);
+        var_dump($param2);
+    }
 
 }
