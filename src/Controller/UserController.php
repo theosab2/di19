@@ -43,8 +43,6 @@ class UserController extends  AbstractController {
             header('Location:/Login');
         }
 
-
-
     }
 
     public static function roleNeed($roleATester){

@@ -3,6 +3,7 @@
         "twig/twig": "^3.0",
         "swiftmailer/swiftmailer": "^6.2",
       "ext-json": "*",
-      "ext-pdo": "*"
+      "ext-pdo": "*",
+      "ext-mysqli": "*"
     }
 }

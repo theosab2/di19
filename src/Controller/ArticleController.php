@@ -193,6 +193,7 @@ class ArticleController extends AbstractController {
         ]);
     }
 
+//Sert à voir l'Article en tant que visiteur
     public function Show($articleID){
         $articleSQL = new Article();
         $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
@@ -203,17 +204,17 @@ class ArticleController extends AbstractController {
     }
 
     public function Val($articleID){
-        if(UserController::roleNeed('Administrateur')) {
+        //if(UserController::roleNeed('Administrateur')) {
             $articleSQL = new Article();
             $article = $articleSQL->Sqlchange(Bdd::GetInstance(), $articleID);
 
             return $this->twig->render('Article/Validation.html.twig', [
                 'article' => $article
             ]);
-        }else{
-            return 'Article/Validation.html.twig';
-        }
-    }
+        }//else{
+            //return 'Article/Validation.html.twig';
+        //}
+    //}
 
     public function WriteOne($idArticle){
         $article = new Article();
