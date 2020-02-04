@@ -203,12 +203,16 @@ class ArticleController extends AbstractController {
     }
 
     public function Val($articleID){
-        $articleSQL = new Article();
-        $article = $articleSQL->Sqlchange(Bdd::GetInstance(),$articleID);
+        if(UserController::roleNeed('Administrateur')) {
+            $articleSQL = new Article();
+            $article = $articleSQL->Sqlchange(Bdd::GetInstance(), $articleID);
 
-        return $this->twig->render('Article/Validation.html.twig',[
-            'article' => $article
-        ]);
+            return $this->twig->render('Article/Validation.html.twig', [
+                'article' => $article
+            ]);
+        }else{
+            return 'Article/Validation.html.twig';
+        }
     }
 
     public function WriteOne($idArticle){

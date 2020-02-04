@@ -39,7 +39,6 @@ class ApiController {
         $result = $article->SqlUpdate(BDD::getInstance());
 
         return json_encode($result);
-
     }
 
 }

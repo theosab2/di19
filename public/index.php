@@ -17,31 +17,56 @@ function chargerClasse($classe){
 spl_autoload_register('chargerClasse');
 
 $router = new \src\Router\Router($_GET['url']);
+
+//Route pour afficher les article
 $router->get('/', "Article#ListAll");
 $router->get('/Article', "Article#ListAll");
+
+//Route pour modifier les articles
 $router->get('/Article/Update/:id', "Article#Update#id");
 $router->post('/Article/Update/:id', "Article#Update#id");
+
+//Route pour ajouter un article
 $router->get('/Article/Add', "Article#Add");
 $router->post('/Article/Add', "Article#Add");
+
+//Route pour supprimer un article
 $router->get('/Article/Delete/:id', "Article#Delete#id");
+
+//Route aucune idée
 $router->get('/Article/Fixtures', "Article#Fixtures");
 $router->get('/Article/Write', "Article#Write");
 $router->get('/Article/Read', "Article#Read");
 $router->get('/Article/WriteOne/:id', "Article#Read#id");
+
+//Route de l'Api pour je sais pas quoi
 $router->get('/Api/Article', "Api#ArticleGet");
 $router->post('/Api/Article', "Api#ArticlePost");
 $router->post('/Article', "Api#ArticlePost");
 $router->put('/Api/Article/:id/:json', "Api#ArticlePut#id#json");
 $router->get('/Article/ListAll','Article#listAll');
-$router->get('/coucou/di/:param1/:param2','Article#test#param1#param2');
+
+//Route pour l'envoie de mail
 $router->get('/Contact', 'Contact#showForm');
 $router->post('/Contact/sendMail', 'Contact#sendMail');
+
+//Route pour accèder a la page qui permet de se connecter
 $router->get('/Login', 'User#loginForm');
+
+//Route pour verifier le statue d'un utilisateur
 $router->post('/Login', 'User#loginCheck');
+
+//Route pour ce deconnecter
 $router->get('/Logout', 'User#logout');
-$router->get('/Article/Validation', 'Article#ListValidator');
+
+//Route montrer les articles
 $router->get('/Article/Show/:id', "Article#Show#id");
 $router->post('/Article/Show/:id', "Article#Show#id");
+
+//route pour accèder à la page de validation des article
+$router->get('/Article/Validation', 'Article#ListValidator');
+
+//Route validation article
 $router->get ('/Article/Val/:id', 'Article#Val#id');
 
 echo $router->run();

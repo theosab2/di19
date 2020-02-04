@@ -55,7 +55,7 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
     {
         $macros = $this->macros;
         // line 6
-        echo "
+        echo "    <!-- Liste des articles à valider pour les administrateurs -->
     <table class=\"table table-striped\">
     <thead>
     <tr>
@@ -95,13 +95,15 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
             echo "</td>
             <td>
                 <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
+                    <!--Bouton qui permet à l'administrateur de voir le contenu d'un article -->
                     <a class=\"btn btn-success\" href=\"/Article/Show/";
-            // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 27), "html", null, true);
-            echo "\"><i class=\"far fa-eye\"></i></a>
-                    <a class=\"btn btn-success\" href=\"/Article/Val/";
             // line 28
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 28), "html", null, true);
+            echo "\"><i class=\"far fa-eye\"></i></a>
+                    <!-- Bouton qui permet à l'administrateur de valider un article -->
+                    <a class=\"btn btn-success\" href=\"/Article/Val/";
+            // line 30
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 30), "html", null, true);
             echo "\"><i class=\"fas fa-check-circle\"></i></a>
                 </div>
             </td>
@@ -112,7 +114,7 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 36
         echo "    </tbody>
 
 ";
@@ -130,7 +132,7 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
 
     public function getDebugInfo()
     {
-        return array (  116 => 34,  104 => 28,  100 => 27,  94 => 24,  90 => 23,  86 => 22,  80 => 21,  76 => 19,  72 => 18,  58 => 6,  54 => 5,  47 => 2,  36 => 1,);
+        return array (  118 => 36,  106 => 30,  101 => 28,  94 => 24,  90 => 23,  86 => 22,  80 => 21,  76 => 19,  72 => 18,  58 => 6,  54 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -140,7 +142,7 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
 
 
 {% block body %}
-
+    <!-- Liste des articles à valider pour les administrateurs -->
     <table class=\"table table-striped\">
     <thead>
     <tr>
@@ -161,7 +163,9 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
             <td>{{ article.DateAjout | date(\"d/m/Y\") }}</td>
             <td>
                 <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
+                    <!--Bouton qui permet à l'administrateur de voir le contenu d'un article -->
                     <a class=\"btn btn-success\" href=\"/Article/Show/{{ article.id }}\"><i class=\"far fa-eye\"></i></a>
+                    <!-- Bouton qui permet à l'administrateur de valider un article -->
                     <a class=\"btn btn-success\" href=\"/Article/Val/{{ article.id }}\"><i class=\"fas fa-check-circle\"></i></a>
                 </div>
             </td>
