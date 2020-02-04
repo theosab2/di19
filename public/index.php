@@ -1,5 +1,6 @@
 <?php
 //test
+//paul
 session_start();
 require '../vendor/autoload.php';
 //Théo
