@@ -1,5 +1,6 @@
 <?php
-session_start();
+// Essai push Tony
+//session_start();
 require '../vendor/autoload.php';
 
 function chargerClasse($classe){
