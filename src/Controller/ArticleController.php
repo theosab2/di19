@@ -22,6 +22,31 @@ class ArticleController extends AbstractController {
         );
     }
 
+    public function ListValidator(){
+        $article = new Article();
+        $listArticle = $article->SqlValidator(Bdd::GetInstance());
+
+        //Lancer la vue TWIG
+        return $this->twig->render(
+            'Article/Validation.html.twig',[
+                'articleList' => $listArticle
+            ]
+        );
+    }
+
+
+    public function Validation(){
+        $article = new Article();
+        $listArticle = $article->SqlGetAll(Bdd::GetInstance());
+
+        //Lancer la vue TWIG
+        return $this->twig->render(
+            'Article/Validation.html.twig',[
+                'articleList' => $listArticle
+            ]
+        );
+    }
+
     public function add(){
         UserController::roleNeed('redacteur');
         if($_POST AND $_SESSION['token'] == $_POST['token']){
@@ -50,6 +75,7 @@ class ArticleController extends AbstractController {
                 ->setDateAjout($_POST['DateAjout'])
                 ->setImageRepository($sqlRepository)
                 ->setImageFileName($nomImage)
+                //->setEtat(1)
             ;
             $article->SqlAdd(BDD::getInstance());
             header('Location:/Article');
@@ -172,6 +198,15 @@ class ArticleController extends AbstractController {
         $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
 
         return $this->twig->render('Article/view.html.twig',[
+            'article' => $article
+        ]);
+    }
+
+    public function Val($articleID){
+        $articleSQL = new Article();
+        $article = $articleSQL->Sqlchange(Bdd::GetInstance(),$articleID);
+
+        return $this->twig->render('Article/Validation.html.twig',[
             'article' => $article
         ]);
     }

@@ -19,6 +19,7 @@
         </thead>
         <tbody>
         {% for article in articleList %}
+
             <tr>
                 <th scope="row"><a href="/Article/Show/{{ article.id }}">#{{ article.id }}</a></th>
                 <td>{{ article.Titre }}</td>
@@ -34,6 +35,7 @@
 
                 </td>
             </tr>
+
         {% endfor %}
 
         </tbody>

@@ -30,6 +30,7 @@ $router->get('/Article/Read', "Article#Read");
 $router->get('/Article/WriteOne/:id', "Article#Read#id");
 $router->get('/Api/Article', "Api#ArticleGet");
 $router->post('/Api/Article', "Api#ArticlePost");
+$router->post('/Article', "Api#ArticlePost");
 $router->put('/Api/Article/:id/:json', "Api#ArticlePut#id#json");
 $router->get('/Article/ListAll','Article#listAll');
 $router->get('/coucou/di/:param1/:param2','Article#test#param1#param2');
@@ -38,8 +39,10 @@ $router->post('/Contact/sendMail', 'Contact#sendMail');
 $router->get('/Login', 'User#loginForm');
 $router->post('/Login', 'User#loginCheck');
 $router->get('/Logout', 'User#logout');
+$router->get('/Article/Validation', 'Article#ListValidator');
 $router->get('/Article/Show/:id', "Article#Show#id");
 $router->post('/Article/Show/:id', "Article#Show#id");
+$router->get ('/Article/Val/:id', 'Article#Val#id');
 
 echo $router->run();
 
