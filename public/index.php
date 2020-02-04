@@ -1,4 +1,7 @@
 <?php
+//test
+//paul
+session_start();
 // Essai push Tony
 //session_start();
 require '../vendor/autoload.php';
