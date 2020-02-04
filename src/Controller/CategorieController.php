@@ -18,8 +18,14 @@ class CategorieController extends AbstractController{
         );
     }
 
-    public function Show(){
 
+    public function Show($categorieID){
+        $categorieSQL = new Categorie();
+        $categorie = $categorieSQL->SqlGet(BDD::getInstance(),$categorieID);
+
+        //Lancer la vue TWIG
+        return $this->twig->render('Categorie/show.html.twig',['categorie' => $categorie]
+        );
     }
 
     public function add(){
@@ -52,6 +58,7 @@ class CategorieController extends AbstractController{
             $categorie->setDescription($_POST['Description']);
 
             $categorie->SqlUpdate(BDD::getInstance());
+            header('Location:/Categorie');
         }
 
         return $this->twig->render('Categorie/update.html.twig',[

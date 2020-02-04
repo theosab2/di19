@@ -49,6 +49,7 @@ class Article extends Contenu implements \JsonSerializable {
                 $article->setImageRepository($articleSQL['ImageRepository']);
                 $article->setImageFileName($articleSQL['ImageFileName']);
                 $article->setCategorie($articleSQL['Categorie']);
+                $article->setEtat($articleSQL['Etat']);
 
                 $listArticle[] = $article;
             }
@@ -73,6 +74,7 @@ class Article extends Contenu implements \JsonSerializable {
             $article->setImageRepository($articleSQL['ImageRepository']);
             $article->setImageFileName($articleSQL['ImageFileName']);
             $article->setCategorie($articleSQL['Categorie']);
+            $article->setEtat($articleSQL['Etat']);
 
             $listArticle[] = $article;
         }
@@ -152,6 +154,7 @@ class Article extends Contenu implements \JsonSerializable {
             ,'ImageFileName' => $this->getImageFileName()
             ,'Auteur' => $this->getAuteur()
             ,"Categorie" => $this->getCategorie()
+            ,"Etat" => $this->getEtat()
         ];
     }
 
