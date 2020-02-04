@@ -33,6 +33,4 @@ class AbstractController {
     public function getTwig(){
         return $this->twig;
     }
-
-
 }

@@ -17,7 +17,7 @@ class Article extends Contenu implements \JsonSerializable {
 
     public function SqlAdd(\PDO $bdd) {
         try{
-            $requete = $bdd->prepare('INSERT INTO articles (Titre, Description, DateAjout, Auteur, ImageRepository, ImageFileName,Etat) VALUES(:Titre, :Description, :DateAjout, :Auteur, :ImageRepository, :ImageFileName, 1)');
+            $requete = $bdd->prepare('INSERT INTO articles (Titre, Description, DateAjout, Auteur, ImageRepository, ImageFileName) VALUES(:Titre, :Description, :DateAjout, :Auteur, :ImageRepository, :ImageFileName)');
             $requete->execute([
                 "Titre" => $this->getTitre(),
                 "Description" => $this->getDescription(),
@@ -25,6 +25,7 @@ class Article extends Contenu implements \JsonSerializable {
                 "Auteur" => $this->getAuteur(),
                 "ImageRepository" => $this->getImageRepository(),
                 "ImageFileName" => $this->getImageFileName(),
+                "Categorie" => $this->getCategorie(),
             ]);
             return array("result"=>true,"message"=>$bdd->lastInsertId());
         }catch (\Exception $e){
@@ -32,18 +33,8 @@ class Article extends Contenu implements \JsonSerializable {
         }
     }
 
-    public function SqlValider(\PDO $bdd) {
-        try{
-            $requete = $bdd->prepare('INSERT INTO articles (Etat) VALUES(2) where id = id.Article');
-            $requete->execute();
-            return array("result"=>true,"message"=>$bdd->lastInsertId());
-        }catch (\Exception $e){
-            return array("result"=>false,"message"=>$e->getMessage());
-        }
-    }
-
     public function SqlGetAll(\PDO $bdd){
-            $requete = $bdd->prepare('SELECT * FROM articles WHERE Etat = 2');
+            $requete = $bdd->prepare('SELECT * FROM articles');
             $requete->execute();
             $arrayArticle = $requete->fetchAll();
 
@@ -57,15 +48,18 @@ class Article extends Contenu implements \JsonSerializable {
                 $article->setDateAjout($articleSQL['DateAjout']);
                 $article->setImageRepository($articleSQL['ImageRepository']);
                 $article->setImageFileName($articleSQL['ImageFileName']);
+                $article->setCategorie($articleSQL['Categorie']);
 
                 $listArticle[] = $article;
             }
             return $listArticle;
     }
 
-    public function SqlValidator(\PDO $bdd){
-        $requete = $bdd->prepare('SELECT * FROM articles WHERE Etat = 1');
-        $requete->execute();
+    public function SqlGetCherche(\PDO $bdd,$MotCle){
+        $requete = $bdd->prepare('SELECT * FROM articles where Titre LIKE :search');
+        $requete->execute(
+            ['search' => "%".$MotCle."%"]
+        );
         $arrayArticle = $requete->fetchAll();
 
         $listArticle = [];
@@ -78,17 +72,11 @@ class Article extends Contenu implements \JsonSerializable {
             $article->setDateAjout($articleSQL['DateAjout']);
             $article->setImageRepository($articleSQL['ImageRepository']);
             $article->setImageFileName($articleSQL['ImageFileName']);
+            $article->setCategorie($articleSQL['Categorie']);
 
             $listArticle[] = $article;
         }
         return $listArticle;
-    }
-
-    public function Sqlchange($bdd,$idArticle){
-        $requete = $bdd->prepare('update articles set Etat = 2 where Id=:idArticle');
-        $requete->execute([
-            'idArticle' => $idArticle
-        ]);
     }
 
     public function SqlGet(\PDO $bdd,$idArticle){
@@ -107,9 +95,9 @@ class Article extends Contenu implements \JsonSerializable {
         $article->setDateAjout($datas['DateAjout']);
         $article->setImageRepository($datas['ImageRepository']);
         $article->setImageFileName($datas['ImageFileName']);
+        $article->setCategorie($datas['Categorie']);
 
         return $article;
-
     }
 
     public function SqlUpdate(\PDO $bdd){
@@ -123,6 +111,7 @@ class Article extends Contenu implements \JsonSerializable {
                 ,'ImageRepository' => $this->getImageRepository()
                 ,'ImageFileName' => $this->getImageFileName()
                 ,'IDARTICLE' => $this->getId()
+                ,'Categorie' => $this->getCategorie()
             ]);
             return array("0", "[OK] Update");
         }catch (\Exception $e){
@@ -162,6 +151,7 @@ class Article extends Contenu implements \JsonSerializable {
             ,'ImageRepository' => $this->getImageRepository()
             ,'ImageFileName' => $this->getImageFileName()
             ,'Auteur' => $this->getAuteur()
+            ,"Categorie" => $this->getCategorie()
         ];
     }
 
@@ -238,9 +228,5 @@ class Article extends Contenu implements \JsonSerializable {
         return $this;
     }
 
-    /*public function setEtat($Etat)
-    {
-        $this->Etat = $Etat;
-        return $this;
-    }*/
+
 }

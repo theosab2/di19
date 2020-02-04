@@ -73,15 +73,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/Add\">Ajout d'un article</a>
             </li>
-
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
+            </li>
         </ul>
 
 
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/";
-        // line 35
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 35), "html", null, true);
-        echo "\">
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Cherche\">
             <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
@@ -114,9 +112,9 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 
 
     ";
-        // line 67
-        $this->displayBlock('body', $context, $blocks);
         // line 68
+        $this->displayBlock('body', $context, $blocks);
+        // line 69
         echo "
 
 
@@ -127,9 +125,9 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 77
-        $this->displayBlock('javascript', $context, $blocks);
         // line 78
+        $this->displayBlock('javascript', $context, $blocks);
+        // line 79
         echo "</body>
 </html>
 ";
@@ -148,13 +146,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
         $macros = $this->macros;
     }
 
-    // line 67
+    // line 68
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 77
+    // line 78
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -165,14 +163,9 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
         return "index.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  158 => 77,  152 => 67,  146 => 10,  139 => 5,  133 => 78,  131 => 77,  120 => 68,  118 => 67,  83 => 35,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+        return array (  156 => 78,  150 => 68,  144 => 10,  137 => 5,  131 => 79,  129 => 78,  118 => 69,  116 => 68,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -206,12 +199,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/Add\">Ajout d'un article</a>
             </li>
-
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
+            </li>
         </ul>
 
 
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/{{ post.search }}\">
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Cherche\">
             <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>

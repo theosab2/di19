@@ -5,6 +5,7 @@ class Contenu {
     private $Id;
     private $Titre;
     private $Description;
+    private $Nom;
 
 
     /**
@@ -61,6 +62,13 @@ class Contenu {
         return $this;
     }
 
+    public function getNom(){
+        return $this->Nom;
+    }
 
+    public function setNom($Nom){
+        $this->Nom = $Nom;
+        return $Nom;
+    }
 
 }
