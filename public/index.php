@@ -1,7 +1,7 @@
 <?php
-//session_start();
+session_start();
 require '../vendor/autoload.php';
-
+//TP Mardi
 function chargerClasse($classe){
     $ds = DIRECTORY_SEPARATOR;
     $dir = __DIR__."{$ds}.."; //Remonte d'un cran par rapport à index.php
