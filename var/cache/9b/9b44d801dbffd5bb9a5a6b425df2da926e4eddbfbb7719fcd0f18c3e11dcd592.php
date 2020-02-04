@@ -88,7 +88,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
     </div>
 
 </nav>
-<!--
+
 <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
     <a class=\"navbar-brand\" href=\"#\">Menu</a>
     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -109,7 +109,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             </li>
         </ul>
     </div>
-</nav>-->
+</nav>
 
 
 
@@ -218,7 +218,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
     </div>
 
 </nav>
-<!--
+
 <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
     <a class=\"navbar-brand\" href=\"#\">Menu</a>
     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -239,7 +239,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             </li>
         </ul>
     </div>
-</nav>-->
+</nav>
 
 
 

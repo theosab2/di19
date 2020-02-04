@@ -1,12 +1,8 @@
 <?php
-// Essai 2 push Tony
-//test
-//paul
 session_start();
-// Essai push Tony
-//session_start();
+
 require '../vendor/autoload.php';
-//Théo
+
 function chargerClasse($classe){
     $ds = DIRECTORY_SEPARATOR;
     $dir = __DIR__."{$ds}.."; //Remonte d'un cran par rapport à index.php
