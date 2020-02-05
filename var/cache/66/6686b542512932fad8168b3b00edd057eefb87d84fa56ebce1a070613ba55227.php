@@ -114,14 +114,10 @@ class __TwigTemplate_8b1475aacd23314e2b12a6d595b68eb1ef876a08792b8d6831bede19668
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 33), "html", null, true);
             echo "\"><i class=\"far fa-trash-alt\"></i></a>
                     </div>
-                    <a class=\"btn btn-secondary\" href=\"/Article/WriteOne/";
-            // line 35
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 35), "html", null, true);
-            echo "\"><i class=\"fas fa-file-download\"></i></a>
                 </td>
                 <td>";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Categorie", [], "any", false, false, false, 37), "html", null, true);
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "Categorie", [], "any", false, false, false, 36), "Nom", [], "any", false, false, false, 36), "html", null, true);
             echo "</td>
             </tr>
 
@@ -130,7 +126,7 @@ class __TwigTemplate_8b1475aacd23314e2b12a6d595b68eb1ef876a08792b8d6831bede19668
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
+        // line 40
         echo "
         </tbody>
     </table>
@@ -152,7 +148,7 @@ class __TwigTemplate_8b1475aacd23314e2b12a6d595b68eb1ef876a08792b8d6831bede19668
 
     public function getDebugInfo()
     {
-        return array (  134 => 41,  124 => 37,  119 => 35,  114 => 33,  110 => 32,  106 => 31,  100 => 28,  96 => 27,  92 => 26,  86 => 25,  82 => 23,  78 => 22,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  130 => 40,  120 => 36,  114 => 33,  110 => 32,  106 => 31,  100 => 28,  96 => 27,  92 => 26,  86 => 25,  82 => 23,  78 => 22,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -191,9 +187,8 @@ class __TwigTemplate_8b1475aacd23314e2b12a6d595b68eb1ef876a08792b8d6831bede19668
                         <a class=\"btn btn-warning\" href=\"/Article/Update/{{ article.id }}\"><i class=\"fas fa-edit\"></i></a>
                         <a class=\"btn btn-danger\" href=\"/Article/Delete/{{ article.id }}\"><i class=\"far fa-trash-alt\"></i></a>
                     </div>
-                    <a class=\"btn btn-secondary\" href=\"/Article/WriteOne/{{ article.id }}\"><i class=\"fas fa-file-download\"></i></a>
                 </td>
-                <td>{{ article.Categorie }}</td>
+                <td>{{ article.Categorie.Nom }}</td>
             </tr>
 
         {% endfor %}

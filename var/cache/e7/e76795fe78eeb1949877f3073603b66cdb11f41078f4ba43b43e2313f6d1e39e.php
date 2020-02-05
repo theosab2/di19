@@ -51,11 +51,11 @@ class __TwigTemplate_190680a068eaea18fc5b8efb8bcdcd1d1e8a4d63901fef684c70ef26bd1
         echo " - Ajout d'un article ";
     }
 
-    // line 4
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 5
+        // line 7
         echo "
     <div class=\"container-fluid mt-2\">
 
@@ -106,35 +106,28 @@ class __TwigTemplate_190680a068eaea18fc5b8efb8bcdcd1d1e8a4d63901fef684c70ef26bd1
                 <div class=\"col-sm-10\">
                     <select name=\"Categorie\" class=\"form-control\">
                         ";
-        // line 54
-        $context["Categories"] = [0 => "1", 1 => "2", 2 => "3", 3 => "4", 4 => "5", 5 => "6", 6 => "7", 7 => "8"];
-        // line 55
-        echo "                        ";
+        // line 56
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["Categories"] ?? null));
+        $context['_seq'] = twig_ensure_traversable(($context["listCat"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["Categorie"]) {
-            // line 56
+            // line 57
             echo "                            <option value=\"";
-            echo twig_escape_filter($this->env, $context["Categorie"], "html", null, true);
-            echo "\" ";
-            if (0 === twig_compare($context["Categorie"], twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Categorie", [], "any", false, false, false, 56))) {
-                echo "selected";
-            }
-            echo ">";
-            echo twig_escape_filter($this->env, $context["Categorie"], "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 57), "html", null, true);
+            echo "\" >";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Nom", [], "any", false, false, false, 57), "html", null, true);
             echo "</option>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['Categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 58
+        // line 59
         echo "                    </select>
                 </div>
             </div>
 
             <input type=\"hidden\" name=\"token\" value=\"";
-        // line 62
+        // line 63
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
             <input type=\"submit\" class=\"btn btn-primary my-1\">
@@ -156,13 +149,15 @@ class __TwigTemplate_190680a068eaea18fc5b8efb8bcdcd1d1e8a4d63901fef684c70ef26bd1
 
     public function getDebugInfo()
     {
-        return array (  138 => 62,  132 => 58,  117 => 56,  112 => 55,  110 => 54,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  131 => 63,  125 => 59,  114 => 57,  110 => 56,  59 => 7,  55 => 6,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
 {% block title %}{{ parent() }} - Ajout d'un article {% endblock %}
+
+
 
 {% block body %}
 
@@ -214,9 +209,8 @@ class __TwigTemplate_190680a068eaea18fc5b8efb8bcdcd1d1e8a4d63901fef684c70ef26bd1
                 <label for=\"Categorie\" class=\"col-sm-2 col-form-label\">Categorie</label>
                 <div class=\"col-sm-10\">
                     <select name=\"Categorie\" class=\"form-control\">
-                        {% set Categories = ['1','2','3','4','5','6','7','8'] %}
-                        {% for Categorie in Categories %}
-                            <option value=\"{{Categorie}}\" {% if Categorie == article.Categorie %}selected{% endif %}>{{ Categorie }}</option>
+                        {% for Categorie in listCat %}
+                            <option value=\"{{Categorie.Id}}\" >{{ Categorie.Nom }}</option>
                         {% endfor %}
                     </select>
                 </div>

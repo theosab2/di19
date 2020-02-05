@@ -50,11 +50,11 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
         echo "Validation d'article";
     }
 
-    // line 5
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 6
+        // line 7
         echo "
 <table class=\"table table-striped\">
     <thead>
@@ -68,40 +68,40 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
     </thead>
     <tbody>
     ";
-        // line 18
+        // line 19
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["articleList"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 19
+            // line 20
             echo "
         <tr>
             <th scope=\"row\"><a href=\"/Article/Show/";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 21), "html", null, true);
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 22), "html", null, true);
             echo "\">#";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 21), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 22), "html", null, true);
             echo "</a></th>
             <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Titre", [], "any", false, false, false, 22), "html", null, true);
-            echo "</td>
-            <td>";
             // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Auteur", [], "any", false, false, false, 23), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Titre", [], "any", false, false, false, 23), "html", null, true);
             echo "</td>
             <td>";
             // line 24
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "DateAjout", [], "any", false, false, false, 24), "d/m/Y"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "Auteur", [], "any", false, false, false, 24), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 25
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "DateAjout", [], "any", false, false, false, 25), "d/m/Y"), "html", null, true);
             echo "</td>
             <td>
                 <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
                     <a class=\"btn btn-success\" href=\"/Article/Show/";
-            // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 27), "html", null, true);
-            echo "\"><i class=\"far fa-eye\"></i></a>
-                    <a class=\"btn btn-success\" href=\"/Article/Val/";
             // line 28
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 28), "html", null, true);
+            echo "\"><i class=\"far fa-eye\"></i></a>
+                    <a class=\"btn btn-success\" href=\"/Article/Val/";
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 29), "html", null, true);
             echo "\"><i class=\"fas fa-check-circle\"></i></a>
                 </div>
             </td>
@@ -112,7 +112,7 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 35
         echo "    </tbody>
 
     ";
@@ -130,13 +130,14 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
 
     public function getDebugInfo()
     {
-        return array (  116 => 34,  104 => 28,  100 => 27,  94 => 24,  90 => 23,  86 => 22,  80 => 21,  76 => 19,  72 => 18,  58 => 6,  54 => 5,  47 => 2,  36 => 1,);
+        return array (  116 => 35,  104 => 29,  100 => 28,  94 => 25,  90 => 24,  86 => 23,  80 => 22,  76 => 20,  72 => 19,  58 => 7,  54 => 6,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
 {% block title %}Validation d'article{% endblock %}
+
 
 
 {% block body %}

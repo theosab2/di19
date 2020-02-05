@@ -36,7 +36,7 @@ class __TwigTemplate_47756b8761e502619451a8a536fe1a6c6edd9d758714fb0a5498685e2c2
         // line 1
         echo "<!DOCTYPE html>
 
-<html lang=\"en\">
+<html lang=\"fr\">
 
 
 
@@ -63,9 +63,14 @@ class __TwigTemplate_47756b8761e502619451a8a536fe1a6c6edd9d758714fb0a5498685e2c2
 <div class=\"content\">
 
     <div class=\"container\">
+        <p>";
+        // line 30
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", false, false, false, 30), "html", null, true);
+        echo "</p>
 
 
         <div class=\"menu\">
+
 
             <a href=\"connexion\" class=\"btn-connexion\">
 
@@ -119,19 +124,16 @@ active\">
 
                     <h3>Restez connecté</h3>
 
+
                 </div>
 
-                <input class=\"submit\" value=\"Connexion\" type=\"submit\">
+                <input class=\"submit\" value=\"login\" type=\"submit\">
+
 
             </form>
 
             <hr>
 
-            <a href=\"https://www.grandvincent-marion.fr/\" target=\"_blank\">
-
-                <h4>Mot de passe Oublié ? </h4>
-
-            </a>
 
         </div>
 
@@ -153,16 +155,21 @@ active\">
         return "User/login.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  37 => 1,);
+        return array (  68 => 30,  37 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<!DOCTYPE html>
 
-<html lang=\"en\">
+<html lang=\"fr\">
 
 
 
@@ -189,9 +196,11 @@ active\">
 <div class=\"content\">
 
     <div class=\"container\">
+        <p>{{ session.errorlogin }}</p>
 
 
         <div class=\"menu\">
+
 
             <a href=\"connexion\" class=\"btn-connexion\">
 
@@ -245,19 +254,16 @@ active\">
 
                     <h3>Restez connecté</h3>
 
+
                 </div>
 
-                <input class=\"submit\" value=\"Connexion\" type=\"submit\">
+                <input class=\"submit\" value=\"login\" type=\"submit\">
+
 
             </form>
 
             <hr>
 
-            <a href=\"https://www.grandvincent-marion.fr/\" target=\"_blank\">
-
-                <h4>Mot de passe Oublié ? </h4>
-
-            </a>
 
         </div>
 
