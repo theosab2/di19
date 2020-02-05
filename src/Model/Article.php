@@ -153,7 +153,7 @@ class Article extends Contenu implements \JsonSerializable {
 
     public function SqlGetCherche(\PDO $bdd,$MotCle){
         // requete de recherche par mot clé dans titre
-        $requete = $bdd->prepare('SELECT * FROM articles where Titre LIKE :search');
+        $requete = $bdd->prepare('SELECT * FROM articles where Etat = 2 and Titre LIKE :search');
         $requete->execute(
             ['search' => "%".$MotCle."%"]
         );
