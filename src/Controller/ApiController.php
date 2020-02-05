@@ -5,7 +5,7 @@ use src\Model\Article;
 use src\Model\Bdd;
 
 
-class ApiController
+class ApiController extends AbstractController
 {
 
     public function ArticleGet()
@@ -54,7 +54,14 @@ class ApiController
     {
         $article = new Article();
         $listArticle = $article->SqlGetLast(Bdd::GetInstance());
-        return json_encode($listArticle);
+        //return json_encode($listArticle);
+
+        //Lancer la vue TWIG
+        return $this->twig->render(
+            'Article/list.html.twig',[
+                'articleList' => $listArticle
+            ]
+        );
     }
 
 }
