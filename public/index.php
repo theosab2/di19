@@ -53,8 +53,8 @@ $router->post('/Contact/sendMail', 'Contact#sendMail');
 $router->get('/inscription','User#inscriptionForm');
 $router->post('/inscription','User#inscriptionCheck');
 
-$router->get('/login', 'User#loginForm');
-$router->post('/login', 'User#loginCheck');
+$router->get('/login','User#loginForm');
+$router->post('/login','User#loginCheck');
 
 $router->get('/Logout', 'User#logout');
 

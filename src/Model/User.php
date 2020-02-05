@@ -26,7 +26,7 @@ class User implements \JsonSerializable
      */
     public function setUSERID($USERID)
     {
-        $this->iduti = $USERID;
+        $this->USERID = $USERID;
     }
 
     /**
@@ -176,7 +176,7 @@ class User implements \JsonSerializable
         $emailUsers = [];
         foreach ($arrayUser as $userSQL){
             $user = new User();
-            $user->setUSEREMAIL(strtolower($userSQL['USER_EMAIL']));
+            $user->setUSEREMAIL(strtolower($userSQL['usermail']));
 
             $emailUsers[] = $user;
         }
@@ -191,8 +191,8 @@ class User implements \JsonSerializable
 
         $UserInfoLog = $query->fetch();
         $user = new User();
-        $user->setUSERPASSWORD($UserInfoLog['USER_PASSWORD']);
-        $user->setUSERID($UserInfoLog['USER_ID']);
+        $user->setUSERPASSWORD($UserInfoLog['userpassword']);
+        $user->setUSERID($UserInfoLog['userpassword']);
 
         $UserInfoLog[] = $user;
 

@@ -24,6 +24,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/Article/ListAll">Liste des articles</a>
             </li>
+            {% if session.login is defined %}
             <li class="nav-item">
                 <a class="nav-link" href="/Article/Add">Ajout d'un article</a>
             </li>
@@ -33,6 +34,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="/Categorie/Add">Ajout d'une categorie</a>
             </li>
+            {% endif %}
+
 
         </ul>
 
@@ -58,10 +61,16 @@
                     Admin
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/?controller=Article&action=ListAll">Liste</a>
-                    <a class="dropdown-item" href="/?controller=Article&action=Add">Ajout</a>
+
+                    {% if not session.login is defined %}
+                    <a class="dropdown-item" href="/inscription">Inscription</a>
+                    <a class="dropdown-item" href="/login">Connexion</a>
+                    {% endif %}
+                    {% if session.login is defined %}
+                    <a class="dropdown-item" href="/logout">Deconnexion</a>
+                    {% endif %}
                     <div class="dropdown-divider"></div>
-                </div>
+
             </li>
 
             <li class="nav-item">
@@ -72,7 +81,7 @@
 </nav>
 
     {% block body %}{% endblock %}
-//
+
 
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
