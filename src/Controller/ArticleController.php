@@ -3,6 +3,7 @@ namespace src\Controller;
 use src\Model\Article;
 use src\Model\Bdd;
 use DateTime;
+use src\Model\Categorie;
 
 class ArticleController extends AbstractController {
 
@@ -11,6 +12,7 @@ class ArticleController extends AbstractController {
     }
 
     public function ListAll(){
+        // Affiche de la liste des articles
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 
@@ -22,7 +24,19 @@ class ArticleController extends AbstractController {
         );
     }
 
-    //Affiche la liste des articles qui ont l'Id 1
+    public function Cherche(){
+        // Moteur de recherche par mot clé
+        $article = new Article();
+        $listArticle = $article->SqlGetCherche(Bdd::GetInstance(),$_POST['search']);
+
+        //Lancer la vue TWIG
+        return $this->twig->render(
+            'Article/list.html.twig',[
+                'articleList' => $listArticle
+            ]
+        );
+    }
+
     public function ListValidator(){
         $article = new Article();
         $listArticle = $article->SqlValidator(Bdd::GetInstance());
@@ -35,7 +49,7 @@ class ArticleController extends AbstractController {
         );
     }
 
-    //Fonction d'affichage de la liste des articles qui possède l'état 2
+
     public function Validation(){
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
@@ -49,6 +63,7 @@ class ArticleController extends AbstractController {
     }
 
     public function add(){
+        // Ajout d'un article
         UserController::roleNeed('redacteur');
         if($_POST AND $_SESSION['token'] == $_POST['token']){
             $sqlRepository = null;
@@ -85,14 +100,18 @@ class ArticleController extends AbstractController {
             // Génération d'un TOKEN
             $token = bin2hex(random_bytes(32));
             $_SESSION['token'] = $token;
+            $Categorie = new Categorie();
+            $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
             return $this->twig->render('Article/add.html.twig',
                 [
                     'token' => $token
+                    ,'listCat' => $listCategorie
                 ]);
         }
     }
 
     public function update($articleID){
+        // modification d'un article
         $articleSQL = new Article();
         $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
         if($_POST){
@@ -130,14 +149,19 @@ class ArticleController extends AbstractController {
             ;
 
             $article->SqlUpdate(BDD::getInstance());
+            header('Location:/Article');
         }
 
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
         return $this->twig->render('Article/update.html.twig',[
             'article' => $article
+            ,'listCat' => $listCategorie
         ]);
     }
 
     public function Delete($articleID){
+        // suppression d'un article
         $articleSQL = new Article();
         $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
         $article->SqlDelete(BDD::getInstance(),$articleID);
@@ -149,6 +173,7 @@ class ArticleController extends AbstractController {
     }
 
     public function fixtures(){
+        // Génère des articles pour test
         $arrayAuteur = array('Fabien', 'Brice', 'Bruno', 'Jean-Pierre', 'Benoit', 'Emmanuel', 'Sylvie', 'Marion');
         $arrayTitre = array('PHP en force', 'React JS une valeur montante', 'C# toujours au top', 'Java en légère baisse'
         , 'Les entreprises qui recrutent', 'Les formations à ne pas rater', 'Les langages populaires en 2020', 'L\'année du Javascript');
@@ -172,7 +197,6 @@ class ArticleController extends AbstractController {
 
 
     public function Write(){
-
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 
@@ -196,8 +220,9 @@ class ArticleController extends AbstractController {
         ]);
     }
 
-//Sert à voir l'Article en tant que visiteur
+
     public function Show($articleID){
+        // affiche un article seul
         $articleSQL = new Article();
         $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
 
@@ -206,7 +231,6 @@ class ArticleController extends AbstractController {
         ]);
     }
 
-    //Recupère les articles dans la base de donnée et les envoi vers l'onglet validation
     public function Val($articleID){
         //if(UserController::roleNeed('Administrateur')) {
             $articleSQL = new Article();
@@ -231,11 +255,6 @@ class ArticleController extends AbstractController {
         file_put_contents('./uploads/file/'.$file, json_encode($articleData));
 
         header('location:/Article/');
-    }
-
-    public function test($param1,$param2){
-        var_dump($param1);
-        var_dump($param2);
     }
 
 }

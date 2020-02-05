@@ -79,6 +79,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
             </li>
+
         </ul>
 
 
@@ -108,16 +109,18 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
                     <div class=\"dropdown-divider\"></div>
                 </div>
             </li>
+
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Api/Article/Last\">Affiche les 5 derniers articles</a>
+            </li>
         </ul>
     </div>
 </nav>
 
-
-
     ";
-        // line 71
+        // line 74
         $this->displayBlock('body', $context, $blocks);
-        // line 72
+        // line 75
         echo "
 
 
@@ -128,9 +131,9 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 81
+        // line 84
         $this->displayBlock('javascript', $context, $blocks);
-        // line 82
+        // line 85
         echo "</body>
 </html>
 ";
@@ -149,13 +152,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
         $macros = $this->macros;
     }
 
-    // line 71
+    // line 74
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 81
+    // line 84
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -168,7 +171,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 
     public function getDebugInfo()
     {
-        return array (  159 => 81,  153 => 71,  147 => 10,  140 => 5,  134 => 82,  132 => 81,  121 => 72,  119 => 71,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+        return array (  162 => 84,  156 => 74,  150 => 10,  143 => 5,  137 => 85,  135 => 84,  124 => 75,  122 => 74,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -208,6 +211,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
             </li>
+
         </ul>
 
 
@@ -237,11 +241,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
                     <div class=\"dropdown-divider\"></div>
                 </div>
             </li>
+
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Api/Article/Last\">Affiche les 5 derniers articles</a>
+            </li>
         </ul>
     </div>
 </nav>
-
-
 
     {% block body %}{% endblock %}
 
