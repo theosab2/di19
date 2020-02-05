@@ -70,7 +70,11 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/ListAll\">Liste des articles</a>
             </li>
-            <li class=\"nav-item\">
+            ";
+        // line 27
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 27)) {
+            // line 28
+            echo "            <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/Add\">Ajout d'un article</a>
             </li>
             <li class=\"nav-item\">
@@ -79,6 +83,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
             </li>
+            <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
+                <a class=\"nav-link\" href=\"/Article/Validation\">Valider un article</a>
+            <li/>
+            ";
+        }
+        // line 41
+        echo "
 
         </ul>
 
@@ -104,9 +115,24 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
                     Admin
                 </a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                    <a class=\"dropdown-item\" href=\"/?controller=Article&action=ListAll\">Liste</a>
-                    <a class=\"dropdown-item\" href=\"/?controller=Article&action=Add\">Ajout</a>
-                    <div class=\"dropdown-divider\"></div>
+
+                    ";
+        // line 68
+        if ( !twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 68)) {
+            // line 69
+            echo "                    <a class=\"dropdown-item\" href=\"/inscription\">Inscription</a>
+                    <a class=\"dropdown-item\" href=\"/login\">Connexion</a>
+                    ";
+        }
+        // line 72
+        echo "                    ";
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 72)) {
+            // line 73
+            echo "                    <a class=\"dropdown-item\" href=\"/logout\">Deconnexion</a>
+                    ";
+        }
+        // line 75
+        echo "                    <div class=\"dropdown-divider\"></div>
                 </div>
             </li>
 
@@ -118,9 +144,9 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 </nav>
 
     ";
-        // line 74
+        // line 86
         $this->displayBlock('body', $context, $blocks);
-        // line 75
+        // line 87
         echo "
 
 
@@ -131,9 +157,9 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 84
+        // line 96
         $this->displayBlock('javascript', $context, $blocks);
-        // line 85
+        // line 97
         echo "</body>
 </html>
 ";
@@ -152,13 +178,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
         $macros = $this->macros;
     }
 
-    // line 74
+    // line 86
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 84
+    // line 96
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -169,9 +195,14 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
         return "index.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  162 => 84,  156 => 74,  150 => 10,  143 => 5,  137 => 85,  135 => 84,  124 => 75,  122 => 74,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+        return array (  188 => 96,  182 => 86,  176 => 10,  169 => 5,  163 => 97,  161 => 96,  150 => 87,  148 => 86,  135 => 75,  131 => 73,  128 => 72,  123 => 69,  121 => 68,  92 => 41,  77 => 28,  75 => 27,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -202,6 +233,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/ListAll\">Liste des articles</a>
             </li>
+            {% if session.login is defined %}
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/Add\">Ajout d'un article</a>
             </li>
@@ -211,6 +243,11 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
             </li>
+            <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
+                <a class=\"nav-link\" href=\"/Article/Validation\">Valider un article</a>
+            <li/>
+            {% endif %}
+
 
         </ul>
 
@@ -236,8 +273,14 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
                     Admin
                 </a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                    <a class=\"dropdown-item\" href=\"/?controller=Article&action=ListAll\">Liste</a>
-                    <a class=\"dropdown-item\" href=\"/?controller=Article&action=Add\">Ajout</a>
+
+                    {% if not session.login is defined %}
+                    <a class=\"dropdown-item\" href=\"/inscription\">Inscription</a>
+                    <a class=\"dropdown-item\" href=\"/login\">Connexion</a>
+                    {% endif %}
+                    {% if session.login is defined %}
+                    <a class=\"dropdown-item\" href=\"/logout\">Deconnexion</a>
+                    {% endif %}
                     <div class=\"dropdown-divider\"></div>
                 </div>
             </li>

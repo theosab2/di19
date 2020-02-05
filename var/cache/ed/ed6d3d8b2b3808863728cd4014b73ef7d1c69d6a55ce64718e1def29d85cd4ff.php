@@ -51,11 +51,11 @@ class __TwigTemplate_90a34986ea647f6573a0b201549f4c741aac77c3829e7ca8866f21d9416
         echo " - Mise à jour d'un article ";
     }
 
-    // line 5
+    // line 6
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 6
+        // line 7
         echo "    <div class=\"container-fluid mt-2\">
         <h2 class=\"display-3\">Voir l'article</h2>
         <hr class=\"my-4\">
@@ -63,30 +63,30 @@ class __TwigTemplate_90a34986ea647f6573a0b201549f4c741aac77c3829e7ca8866f21d9416
             <div class=\"card col-lg-4 ml\" style=\"width: 15rem;\">
 
                 ";
-        // line 12
-        if ((0 !== twig_compare(twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 12), "") && call_user_func_array($this->env->getFunction('file_exist')->getCallable(), [((("./uploads/images/" . twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 12)) . "/") . twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 12))]))) {
-            // line 13
+        // line 13
+        if ((0 !== twig_compare(twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 13), "") && call_user_func_array($this->env->getFunction('file_exist')->getCallable(), [((("./uploads/images/" . twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 13)) . "/") . twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 13))]))) {
+            // line 14
             echo "                    <img class='card-img-top' alt='Article' src='/uploads/images/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 13), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 14), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 13), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 14), "html", null, true);
             echo "'/>
                 ";
         } else {
-            // line 15
+            // line 16
             echo "                    <h6 class=\"display-4\">Pas d'image</h6>
                 ";
         }
-        // line 17
+        // line 18
         echo "
                 <div class=\"card-body\">
                     <h5 class=\"card-title\">";
-        // line 19
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Titre", [], "any", false, false, false, 19), "html", null, true);
+        // line 20
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Titre", [], "any", false, false, false, 20), "html", null, true);
         echo "</h5>
                     <p class=\"card-text\">";
-        // line 20
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Description", [], "any", false, false, false, 20), "html", null, true);
+        // line 21
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Description", [], "any", false, false, false, 21), "html", null, true);
         echo "</p>
                 </div>
             </div>
@@ -123,13 +123,14 @@ class __TwigTemplate_90a34986ea647f6573a0b201549f4c741aac77c3829e7ca8866f21d9416
 
     public function getDebugInfo()
     {
-        return array (  89 => 20,  85 => 19,  81 => 17,  77 => 15,  69 => 13,  67 => 12,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  89 => 21,  85 => 20,  81 => 18,  77 => 16,  69 => 14,  67 => 13,  59 => 7,  55 => 6,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
 {% block title %}{{ parent() }} - Mise à jour d'un article {% endblock %}
+
 
 
 {% block body %}

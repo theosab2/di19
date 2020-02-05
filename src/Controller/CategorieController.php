@@ -34,8 +34,8 @@ class CategorieController extends AbstractController{
         if($_POST AND $_SESSION['token'] == $_POST['token']){
 
             $categorie = new categorie();
-            $categorie->setNom($_POST['Nom']);
-            $categorie->setDescription($_POST['Description']);
+            $categorie->setNom(strip_tags($_POST['Nom']));
+            $categorie->setDescription(strip_tags($_POST['Description']));
 
             $categorie->SqlAdd(BDD::getInstance());
             header('Location:/Categorie');
@@ -55,8 +55,8 @@ class CategorieController extends AbstractController{
         $categorie = $categorieSQL->SqlGet(BDD::getInstance(),$categorieID);
 
         if($_POST){
-            $categorie->setNom($_POST['Nom']);
-            $categorie->setDescription($_POST['Description']);
+            $categorie->setNom(strip_tags($_POST['Nom']));
+            $categorie->setDescription(strip_tags($_POST['Description']));
 
             $categorie->SqlUpdate(BDD::getInstance());
             header('Location:/Categorie');

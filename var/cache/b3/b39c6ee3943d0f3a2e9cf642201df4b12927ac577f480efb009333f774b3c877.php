@@ -51,11 +51,11 @@ class __TwigTemplate_3772ce1ea742990c513b2563c504279e5c6f24f016849cecb5cc942b2b3
         echo " - Mise à jour d'une categorie ";
     }
 
-    // line 5
+    // line 4
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 6
+        // line 5
         echo "    <div class=\"container-fluid mt-2\">
         <h2 class=\"display-3\">Mise à jour d'une categorie</h2>
         <hr class=\"my-4\">
@@ -67,8 +67,8 @@ class __TwigTemplate_3772ce1ea742990c513b2563c504279e5c6f24f016849cecb5cc942b2b3
                     <label for=\"Nom\" class=\"col-sm-2 col-form-label\">Nom de categorie</label>
                     <div class=\"col-sm-10\">
                         <input type=\"text\" name=\"Nom\" class=\"form-control form-control-lg\" value=\"";
-        // line 16
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["categorie"] ?? null), "Nom", [], "any", false, false, false, 16), "html", null, true);
+        // line 15
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["categorie"] ?? null), "Nom", [], "any", false, false, false, 15), "html", null, true);
         echo "\" >
                     </div>
                 </div>
@@ -77,8 +77,8 @@ class __TwigTemplate_3772ce1ea742990c513b2563c504279e5c6f24f016849cecb5cc942b2b3
                     <label for=\"Description\" class=\"col-sm-2 col-form-label\">Description</label>
                     <div class=\"col-sm-10\">
                         <textarea name=\"Description\" class=\"form-control\" rows=\"7\">";
-        // line 23
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["categorie"] ?? null), "Description", [], "any", false, false, false, 23), "html", null, true);
+        // line 22
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["categorie"] ?? null), "Description", [], "any", false, false, false, 22), "html", null, true);
         echo "</textarea>
                     </div>
                 </div>
@@ -104,14 +104,13 @@ class __TwigTemplate_3772ce1ea742990c513b2563c504279e5c6f24f016849cecb5cc942b2b3
 
     public function getDebugInfo()
     {
-        return array (  81 => 23,  71 => 16,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  81 => 22,  71 => 15,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
 {% block title %}{{ parent() }} - Mise à jour d'une categorie {% endblock %}
-
 
 {% block body %}
     <div class=\"container-fluid mt-2\">

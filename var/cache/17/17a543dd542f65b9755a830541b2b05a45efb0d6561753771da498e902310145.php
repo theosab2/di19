@@ -51,11 +51,11 @@ class __TwigTemplate_78fae4fe8cf74519ccee82f900fcf58af1725a825c03803d9be75b391be
         echo " - Mise à jour d'un article ";
     }
 
-    // line 5
+    // line 4
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 6
+        // line 5
         echo "<div class=\"container-fluid mt-2\">
     <h2 class=\"display-3\">Mise à jour d'un article</h2>
     <hr class=\"my-4\">
@@ -63,30 +63,30 @@ class __TwigTemplate_78fae4fe8cf74519ccee82f900fcf58af1725a825c03803d9be75b391be
         <div class=\"card col-lg-4 ml\" style=\"width: 15rem;\">
 
             ";
-        // line 12
-        if ((0 !== twig_compare(twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 12), "") && call_user_func_array($this->env->getFunction('file_exist')->getCallable(), [((("./uploads/images/" . twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 12)) . "/") . twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 12))]))) {
-            // line 13
+        // line 11
+        if ((0 !== twig_compare(twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 11), "") && call_user_func_array($this->env->getFunction('file_exist')->getCallable(), [((("./uploads/images/" . twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 11)) . "/") . twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 11))]))) {
+            // line 12
             echo "                <img class='card-img-top' alt='Article' src='/uploads/images/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 13), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 12), "html", null, true);
             echo "/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 13), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 12), "html", null, true);
             echo "'/>
             ";
         } else {
-            // line 15
+            // line 14
             echo "                <h6 class=\"display-4\">Pas d'image</h6>
             ";
         }
-        // line 17
+        // line 16
         echo "
             <div class=\"card-body\">
                 <h5 class=\"card-title\">";
-        // line 19
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Titre", [], "any", false, false, false, 19), "html", null, true);
+        // line 18
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Titre", [], "any", false, false, false, 18), "html", null, true);
         echo "</h5>
                 <p class=\"card-text\">";
-        // line 20
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Description", [], "any", false, false, false, 20), "html", null, true);
+        // line 19
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Description", [], "any", false, false, false, 19), "html", null, true);
         echo "</p>
             </div>
         </div>
@@ -98,8 +98,8 @@ class __TwigTemplate_78fae4fe8cf74519ccee82f900fcf58af1725a825c03803d9be75b391be
                 <label for=\"Titre\" class=\"col-sm-2 col-form-label\">Titre de l'article</label>
                 <div class=\"col-sm-10\">
                     <input type=\"text\" name=\"Titre\" class=\"form-control form-control-lg\" value=\"";
-        // line 30
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Titre", [], "any", false, false, false, 30), "html", null, true);
+        // line 29
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Titre", [], "any", false, false, false, 29), "html", null, true);
         echo "\" >
                 </div>
             </div>
@@ -108,8 +108,8 @@ class __TwigTemplate_78fae4fe8cf74519ccee82f900fcf58af1725a825c03803d9be75b391be
                 <label for=\"Description\" class=\"col-sm-2 col-form-label\">Description</label>
                 <div class=\"col-sm-10\">
                     <textarea name=\"Description\" class=\"form-control\" rows=\"7\">";
-        // line 37
-        echo nl2br(twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Description", [], "any", false, false, false, 37), "html", null, true));
+        // line 36
+        echo nl2br(twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Description", [], "any", false, false, false, 36), "html", null, true));
         echo "</textarea>
                 </div>
             </div>
@@ -118,8 +118,8 @@ class __TwigTemplate_78fae4fe8cf74519ccee82f900fcf58af1725a825c03803d9be75b391be
                 <label for=\"DateAjout\" class=\"col-sm-2 col-form-label\">Date</label>
                 <div class=\"col-sm-10\">
                     <input type=\"date\" name=\"DateAjout\" class=\"form-control disabled\" value=\"";
-        // line 44
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "DateAjout", [], "any", false, false, false, 44), "html", null, true);
+        // line 43
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "DateAjout", [], "any", false, false, false, 43), "html", null, true);
         echo "\">
                 </div>
             </div>
@@ -129,18 +129,18 @@ class __TwigTemplate_78fae4fe8cf74519ccee82f900fcf58af1725a825c03803d9be75b391be
                 <div class=\"col-sm-10\">
                     <select name=\"Auteur\" class=\"form-control\">
                         ";
-        // line 52
+        // line 51
         $context["Auteurs"] = [0 => "Brice", 1 => "Bruno", 2 => "Fabien", 3 => "Marion", 4 => "Jean-Pierre", 5 => "Benoit", 6 => "Emmanuel", 7 => "Sylvie"];
-        // line 53
+        // line 52
         echo "                        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["Auteurs"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["Auteur"]) {
-            // line 54
+            // line 53
             echo "                            <option value=\"";
             echo twig_escape_filter($this->env, $context["Auteur"], "html", null, true);
             echo "\" ";
-            if (0 === twig_compare($context["Auteur"], twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Auteur", [], "any", false, false, false, 54))) {
+            if (0 === twig_compare($context["Auteur"], twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Auteur", [], "any", false, false, false, 53))) {
                 echo "selected";
             }
             echo ">";
@@ -151,7 +151,7 @@ class __TwigTemplate_78fae4fe8cf74519ccee82f900fcf58af1725a825c03803d9be75b391be
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['Auteur'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 56
+        // line 55
         echo "                    </select>
                 </div>
             </div>
@@ -172,36 +172,36 @@ class __TwigTemplate_78fae4fe8cf74519ccee82f900fcf58af1725a825c03803d9be75b391be
                 <div class=\"col-sm-10\">
                     <select name=\"Categorie\" class=\"form-control\">
                         ";
-        // line 75
+        // line 74
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listCat"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["Categorie"]) {
-            // line 76
+            // line 75
             echo "                            <option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 76), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 75), "html", null, true);
             echo "\" ";
-            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 76), twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Categorie", [], "any", false, false, false, 76))) {
+            if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 75), twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Categorie", [], "any", false, false, false, 75))) {
                 echo "selected";
             }
             echo ">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Nom", [], "any", false, false, false, 76), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Nom", [], "any", false, false, false, 75), "html", null, true);
             echo "</option>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['Categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 78
+        // line 77
         echo "                    </select>
                 </div>
             </div>
 
             <input type=\"hidden\" name=\"imageAncienne\"
             value=\"";
-        // line 83
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 83), "html", null, true);
+        // line 82
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 82), "html", null, true);
         echo "/";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 83), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 82), "html", null, true);
         echo "\"
             >
 
@@ -228,14 +228,13 @@ class __TwigTemplate_78fae4fe8cf74519ccee82f900fcf58af1725a825c03803d9be75b391be
 
     public function getDebugInfo()
     {
-        return array (  202 => 83,  195 => 78,  180 => 76,  176 => 75,  155 => 56,  140 => 54,  135 => 53,  133 => 52,  122 => 44,  112 => 37,  102 => 30,  89 => 20,  85 => 19,  81 => 17,  77 => 15,  69 => 13,  67 => 12,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  202 => 82,  195 => 77,  180 => 75,  176 => 74,  155 => 55,  140 => 53,  135 => 52,  133 => 51,  122 => 43,  112 => 36,  102 => 29,  89 => 19,  85 => 18,  81 => 16,  77 => 14,  69 => 12,  67 => 11,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
 {% block title %}{{ parent() }} - Mise à jour d'un article {% endblock %}
-
 
 {% block body %}
 <div class=\"container-fluid mt-2\">

@@ -26,9 +26,10 @@ class ArticleController extends AbstractController {
     }
 
     public function Cherche(){
-        /// Moteur de recherche par mot clé
+        // Moteur de recherche par mot clé
         $article = new Article();
-        $listArticle = $article->SqlGetCherche(Bdd::GetInstance(),$_POST['search']);
+        $MotCle = strip_tags($_POST['search']);
+        $listArticle = $article->SqlGetCherche(Bdd::GetInstance(),$MotCle);
 
         //Lancer la vue TWIG
         return $this->twig->render(
@@ -50,7 +51,6 @@ class ArticleController extends AbstractController {
         );
     }
 
-
     public function Validation(){
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
@@ -61,6 +61,13 @@ class ArticleController extends AbstractController {
                 'articleList' => $listArticle
             ]
         );
+    }
+
+    public function Val($articleID){
+        $articleSQL = new Article();
+        $article = $articleSQL->Sqlchange(Bdd::GetInstance(), $articleID);
+
+        header('Location:/Article/Validation');
     }
 
     public function add(){
@@ -86,16 +93,16 @@ class ArticleController extends AbstractController {
                 }
             }
             $article = new Article();
-            $article->setTitre($_POST['Titre'])
-                ->setDescription($_POST['Description'])
-                ->setAuteur($_POST['Auteur'])
-                ->setDateAjout($_POST['DateAjout'])
+            $article->setTitre(strip_tags($_POST['Titre']))
+                ->setDescription(strip_tags($_POST['Description']))
+                ->setAuteur(strip_tags($_POST['Auteur']))
+                ->setDateAjout(strip_tags($_POST['DateAjout']))
                 ->setImageRepository($sqlRepository)
                 ->setImageFileName($nomImage)
-                ->setCategorie($_POST['Categorie'])
+                ->setCategorie(strip_tags($_POST['Categorie']))
             ;
             $article->SqlAdd(BDD::getInstance());
-            //var_dump($article);
+
             header('Location:/Article');
         }else{
             // Génération d'un TOKEN
@@ -140,13 +147,13 @@ class ArticleController extends AbstractController {
                 }
             }
 
-            $article->setTitre($_POST['Titre'])
-                ->setDescription($_POST['Description'])
-                ->setAuteur($_POST['Auteur'])
-                ->setDateAjout($_POST['DateAjout'])
+            $article->setTitre(strip_tags($_POST['Titre']))
+                ->setDescription(strip_tags($_POST['Description']))
+                ->setAuteur(strip_tags($_POST['Auteur']))
+                ->setDateAjout(strip_tags($_POST['DateAjout']))
                 ->setImageRepository($sqlRepository)
                 ->setImageFileName($nomImage)
-                ->setCategorie($_POST['Categorie'])
+                ->setCategorie(strip_tags($_POST['Categorie']))
             ;
 
             $article->SqlUpdate(BDD::getInstance());
@@ -232,18 +239,7 @@ class ArticleController extends AbstractController {
         ]);
     }
 
-    public function Val($articleID){
-        //if(UserController::roleNeed('Administrateur')) {
-            $articleSQL = new Article();
-            $article = $articleSQL->Sqlchange(Bdd::GetInstance(), $articleID);
 
-            return $this->twig->render('Article/Validation.html.twig', [
-                'article' => $article
-            ]);
-        }//else{
-            //return 'Article/Validation.html.twig';
-        //}
-    //}
 
     public function WriteOne($idArticle){
         $article = new Article();
