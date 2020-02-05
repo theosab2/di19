@@ -159,6 +159,48 @@ class Article extends Contenu implements \JsonSerializable {
         return $listArticle;
     }
 
+    public function SqlGetFiltreCategorie(\PDO $bdd,$IdCategorie){
+        // requete de recherche par categorie
+        //$requete = $bdd->prepare('SELECT * FROM articles where Categorie = :IdCategorie');
+        $requete = $bdd->prepare('SELECT 
+                   articles.Id as \'Id\',
+                   articles.Titre as \'Titre\',
+                   articles.Description as \'Description\',
+                   articles.DateAjout as \'DateAjout\',
+                   articles.Auteur as \'Auteur\',
+                   articles.ImageRepository as \'ImageRepository\',
+                   articles.ImageFileName as \'ImageFileName\',
+                   articles.Categorie as \'Categorie\',                                    
+                   categories.Nom as \'NomC\'                                                  
+                   FROM articles inner join categories on categories.Id = articles.Categorie 
+                   where Etat = 2 and Categorie = :IdCategorie
+                   ORDER BY articles.Id');
+
+        $requete->execute(
+            ['IdCategorie' => $IdCategorie]
+        );
+        $arrayArticle = $requete->fetchAll();
+
+        $listArticle = [];
+        foreach ($arrayArticle as $articleSQL){
+            $categorie = new Categorie();
+            $article = new Article();
+
+            $article->setId($articleSQL['Id']);
+            $article->setTitre($articleSQL['Titre']);
+            $article->setAuteur($articleSQL['Auteur']);
+            $article->setDescription($articleSQL['Description']);
+            $article->setDateAjout($articleSQL['DateAjout']);
+            $article->setImageRepository($articleSQL['ImageRepository']);
+            $article->setImageFileName($articleSQL['ImageFileName']);
+            $categorie->setNom($articleSQL['NomC']);
+            $article->setCategorie($categorie);
+
+            $listArticle[] = $article;
+        }
+        return $listArticle;
+    }
+
     public function SqlGet(\PDO $bdd,$idArticle){
         // requete de lecture d'un article
         $requete = $bdd->prepare('SELECT * FROM articles where Id = :idArticle');

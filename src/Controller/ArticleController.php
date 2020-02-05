@@ -7,7 +7,6 @@ use src\Model\Categorie;
 
 class ArticleController extends AbstractController {
 
-
     public function Index(){
         return $this->ListAll();
     }
@@ -18,9 +17,12 @@ class ArticleController extends AbstractController {
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 
         //Lancer la vue TWIG
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
         return $this->twig->render(
             'Article/list.html.twig',[
                 'articleList' => $listArticle
+                ,'listCat' => $listCategorie
             ]
         );
     }
@@ -30,6 +32,20 @@ class ArticleController extends AbstractController {
         $article = new Article();
         $MotCle = strip_tags($_POST['search']);
         $listArticle = $article->SqlGetCherche(Bdd::GetInstance(),$MotCle);
+
+        //Lancer la vue TWIG
+        return $this->twig->render(
+            'Article/list.html.twig',[
+                'articleList' => $listArticle
+            ]
+        );
+    }
+
+    public function FiltreCategorie($IdCategorie){
+        // Moteur de recherche par mot clé
+        echo $IdCategorie;
+        $article = new Article();
+        $listArticle = $article->SqlGetFiltreCategorie(Bdd::GetInstance(),$IdCategorie);
 
         //Lancer la vue TWIG
         return $this->twig->render(

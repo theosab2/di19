@@ -36,6 +36,8 @@ $router->put('/Api/Article/:id/:json', "Api#ArticlePut#id#json");
 $router->get('/Article/ListAll','Article#listAll');
 $router->post('/Article/Cherche', "Article#Cherche");
 $router->get('/Article/Val/:id', 'Article#Val#id');
+$router->get('/Article/FiltreCategorie/:id', 'Article#FiltreCategorie#id');
+
 
 // categorie
 $router->get('/Categorie', "Categorie#ListAll");

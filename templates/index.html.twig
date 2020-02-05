@@ -38,15 +38,13 @@
                 <a class="nav-link" href="/Article/Validation">Valider un article</a>
             <li/>
             {% endif %}
-
-
         </ul>
-
 
         <form class="form-inline" method="post" action="/Article/Cherche">
             <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un article" name="search">
             <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Rechercher" name="searchSubmit">
         </form>
+
     </div>
 
 </nav>
@@ -78,6 +76,18 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="/Api/Article/Last">Affiche les 5 derniers articles</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filtre Categorie
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for Categorie in listCat %}
+                        <a class="dropdown-item" name="FiltreCategorie" href="/Article/FiltreCategorie/{{ Categorie.Id }}">{{ Categorie.Nom }}</a>
+                    {% endfor %}
+                    <div class="dropdown-divider"></div>
+                </div>
             </li>
         </ul>
     </div>

@@ -1,10 +1,6 @@
 {% extends "index.html.twig" %}
 {% block title %}{{ parent() }} - Article n°{% endblock %}
 
-{% block css %}
-    <link rel="stylesheet" href="/css/styles.css">
-{% endblock %}
-
 {% block body %}
     <div class="container-fluid mt-2">
 
@@ -17,7 +13,6 @@
                 {% else %}
                     <h6 class="display-4">Pas d'image</h6>
                 {% endif %}
-
 
                 <div class="card-body">
                     <h5 class="card-title">{{ article.Titre }}</h5>

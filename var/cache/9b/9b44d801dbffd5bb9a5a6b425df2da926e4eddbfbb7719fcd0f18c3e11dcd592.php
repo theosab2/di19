@@ -89,15 +89,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             ";
         }
         // line 41
-        echo "
-
-        </ul>
-
+        echo "        </ul>
 
         <form class=\"form-inline\" method=\"post\" action=\"/Article/Cherche\">
             <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
+
     </div>
 
 </nav>
@@ -117,21 +115,21 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
 
                     ";
-        // line 68
-        if ( !twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 68)) {
-            // line 69
+        // line 66
+        if ( !twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 66)) {
+            // line 67
             echo "                    <a class=\"dropdown-item\" href=\"/inscription\">Inscription</a>
                     <a class=\"dropdown-item\" href=\"/login\">Connexion</a>
                     ";
         }
-        // line 72
+        // line 70
         echo "                    ";
-        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 72)) {
-            // line 73
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 70)) {
+            // line 71
             echo "                    <a class=\"dropdown-item\" href=\"/logout\">Deconnexion</a>
                     ";
         }
-        // line 75
+        // line 73
         echo "                    <div class=\"dropdown-divider\"></div>
                 </div>
             </li>
@@ -139,14 +137,40 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Api/Article/Last\">Affiche les 5 derniers articles</a>
             </li>
+
+            <li class=\"nav-item dropdown\">
+                <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                    Filtre Categorie
+                </a>
+                <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                    ";
+        // line 86
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["listCat"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["Categorie"]) {
+            // line 87
+            echo "                        <a class=\"dropdown-item\" name=\"FiltreCategorie\" href=\"/Article/FiltreCategorie/";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 87), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Nom", [], "any", false, false, false, 87), "html", null, true);
+            echo "</a>
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['Categorie'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 89
+        echo "                    <div class=\"dropdown-divider\"></div>
+                </div>
+            </li>
         </ul>
     </div>
 </nav>
 
     ";
-        // line 86
+        // line 96
         $this->displayBlock('body', $context, $blocks);
-        // line 87
+        // line 97
         echo "
 
 
@@ -157,9 +181,9 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 96
+        // line 106
         $this->displayBlock('javascript', $context, $blocks);
-        // line 97
+        // line 107
         echo "</body>
 </html>
 ";
@@ -178,13 +202,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
         $macros = $this->macros;
     }
 
-    // line 86
+    // line 96
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 96
+    // line 106
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -202,7 +226,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 
     public function getDebugInfo()
     {
-        return array (  188 => 96,  182 => 86,  176 => 10,  169 => 5,  163 => 97,  161 => 96,  150 => 87,  148 => 86,  135 => 75,  131 => 73,  128 => 72,  123 => 69,  121 => 68,  92 => 41,  77 => 28,  75 => 27,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+        return array (  212 => 106,  206 => 96,  200 => 10,  193 => 5,  187 => 107,  185 => 106,  174 => 97,  172 => 96,  163 => 89,  152 => 87,  148 => 86,  133 => 73,  129 => 71,  126 => 70,  121 => 67,  119 => 66,  92 => 41,  77 => 28,  75 => 27,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -247,15 +271,13 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
                 <a class=\"nav-link\" href=\"/Article/Validation\">Valider un article</a>
             <li/>
             {% endif %}
-
-
         </ul>
-
 
         <form class=\"form-inline\" method=\"post\" action=\"/Article/Cherche\">
             <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
+
     </div>
 
 </nav>
@@ -287,6 +309,18 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Api/Article/Last\">Affiche les 5 derniers articles</a>
+            </li>
+
+            <li class=\"nav-item dropdown\">
+                <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                    Filtre Categorie
+                </a>
+                <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                    {% for Categorie in listCat %}
+                        <a class=\"dropdown-item\" name=\"FiltreCategorie\" href=\"/Article/FiltreCategorie/{{ Categorie.Id }}\">{{ Categorie.Nom }}</a>
+                    {% endfor %}
+                    <div class=\"dropdown-divider\"></div>
+                </div>
             </li>
         </ul>
     </div>
