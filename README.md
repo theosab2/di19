@@ -10,3 +10,5 @@ create table user
     USER_ACCEPT_EMAIL tinyint(1)   null,
     USER_STATUS       int          null
 );
+
+ <a class="btn btn-secondary" href="/Article/WriteOne/{{ article.id }}"><i class="fas fa-file-download"></i></a>
