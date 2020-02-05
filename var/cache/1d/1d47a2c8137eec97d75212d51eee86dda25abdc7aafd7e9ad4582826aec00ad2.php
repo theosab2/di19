@@ -90,10 +90,21 @@ class __TwigTemplate_aec24ed1b876e5e4a370c21da53fc8e855b01c366343533a033b9def01a
         echo "</p>
                 </div>
             </div>
-
         </div>
+    </div>
 
 
+    <div class=\"container-fluid mt-2\">
+        <form method=\"post\" action=\"/Contact/sendMail\">
+            <label>Nom de l'Article</label>
+            <input type=\"text\" name=\"nom\">
+            <label>email</label>
+            <input type=\"email\" name=\"email\">
+            <label>Objet de la demande</label>
+                <textarea name=\"content\"></textarea>
+
+            <input type=\"submit\">
+        </form>
     </div>
 
 
@@ -139,10 +150,21 @@ class __TwigTemplate_aec24ed1b876e5e4a370c21da53fc8e855b01c366343533a033b9def01a
                     <p class=\"card-text\">{{ article.Description }}</p>
                 </div>
             </div>
-
         </div>
+    </div>
 
 
+    <div class=\"container-fluid mt-2\">
+        <form method=\"post\" action=\"/Contact/sendMail\">
+            <label>Nom de l'Article</label>
+            <input type=\"text\" name=\"nom\">
+            <label>email</label>
+            <input type=\"email\" name=\"email\">
+            <label>Objet de la demande</label>
+                <textarea name=\"content\"></textarea>
+
+            <input type=\"submit\">
+        </form>
     </div>
 
 

@@ -73,18 +73,19 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/Add\">Ajout d'un article</a>
             </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Categorie\">Liste des categories</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
+            </li>
             <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
                 <a class=\"nav-link\" href=\"/Article/Validation\">Valider un article</a>
             <li/>
-
         </ul>
 
 
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/";
-        // line 38
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "search", [], "any", false, false, false, 38), "html", null, true);
-        echo "\">
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Cherche\">
             <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
@@ -105,21 +106,26 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
                     Admin
                 </a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                    <a class=\"dropdown-item\" href=\"/?controller=Article&action=ListAll\">Liste</a>
-                    <a class=\"dropdown-item\" href=\"/?controller=Article&action=Add\">Ajout</a>
+                    <a class=\"dropdown-item\" href=\"/inscription\">Inscription</a>
+                    <a class=\"dropdown-item\" href=\"/login\">Connexion</a>
+                    <a class=\"dropdown-item\" href=\"/logout\">Deconnexion</a>
                     <div class=\"dropdown-divider\"></div>
                 </div>
             </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Api/Article/Last\">Affiche les 5 derniers articles</a>
+            </li>
         </ul>
     </div>
+
 </nav>
 
 
 
     ";
-        // line 70
+        // line 79
         $this->displayBlock('body', $context, $blocks);
-        // line 71
+        // line 80
         echo "
 
 
@@ -130,9 +136,9 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 80
+        // line 89
         $this->displayBlock('javascript', $context, $blocks);
-        // line 81
+        // line 90
         echo "</body>
 </html>
 ";
@@ -151,13 +157,13 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
         $macros = $this->macros;
     }
 
-    // line 70
+    // line 79
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 80
+    // line 89
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -168,14 +174,9 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
         return "index.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  161 => 80,  155 => 70,  149 => 10,  142 => 5,  136 => 81,  134 => 80,  123 => 71,  121 => 70,  86 => 38,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
+        return array (  167 => 89,  161 => 79,  155 => 10,  148 => 5,  142 => 90,  140 => 89,  129 => 80,  127 => 79,  57 => 11,  55 => 10,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -209,15 +210,19 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
             <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"/Article/Add\">Ajout d'un article</a>
             </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Categorie\">Liste des categories</a>
+            </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
+            </li>
             <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
                 <a class=\"nav-link\" href=\"/Article/Validation\">Valider un article</a>
             <li/>
-
         </ul>
 
 
-
-        <form class=\"form-inline\" method=\"post\" action=\"/Article/Show/{{ post.search }}\">
+        <form class=\"form-inline\" method=\"post\" action=\"/Article/Cherche\">
             <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Rechercher un article\" name=\"search\">
             <input type=\"submit\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Rechercher\" name=\"searchSubmit\">
         </form>
@@ -238,13 +243,18 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
                     Admin
                 </a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                    <a class=\"dropdown-item\" href=\"/?controller=Article&action=ListAll\">Liste</a>
-                    <a class=\"dropdown-item\" href=\"/?controller=Article&action=Add\">Ajout</a>
+                    <a class=\"dropdown-item\" href=\"/inscription\">Inscription</a>
+                    <a class=\"dropdown-item\" href=\"/login\">Connexion</a>
+                    <a class=\"dropdown-item\" href=\"/logout\">Deconnexion</a>
                     <div class=\"dropdown-divider\"></div>
                 </div>
             </li>
+            <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"/Api/Article/Last\">Affiche les 5 derniers articles</a>
+            </li>
         </ul>
     </div>
+
 </nav>
 
 

@@ -39,8 +39,7 @@ class Article extends Contenu implements \JsonSerializable {
 
     public function SqlAdd(\PDO $bdd) {
         try{
-            $requete = $bdd->prepare('INSERT INTO articles (Titre, Description, DateAjout, Auteur, ImageRepository, ImageFileName, Categorie)
-                VALUES(:Titre, :Description, :DateAjout, :Auteur, :ImageRepository, :ImageFileName, :Categorie)');
+            $requete = $bdd->prepare('INSERT INTO articles (Titre, Description, DateAjout, Auteur, ImageRepository, ImageFileName, Categorie, Etat) VALUES(:Titre, :Description, :DateAjout, :Auteur, :ImageRepository, :ImageFileName, :Categorie ,1)');
             $requete->execute([
                 "Titre" => $this->getTitre(),
                 "Description" => $this->getDescription(),
@@ -49,16 +48,27 @@ class Article extends Contenu implements \JsonSerializable {
                 "ImageRepository" => $this->getImageRepository(),
                 "ImageFileName" => $this->getImageFileName(),
                 "Categorie" => $this->getCategorie(),
-                //"Etat" => $this->getEtat(),
-            ]);
+                ]);
             return array("result"=>true,"message"=>$bdd->lastInsertId());
         }catch (\Exception $e){
             return array("result"=>false,"message"=>$e->getMessage());
         }
     }
 
+
+    public function SqlValider(\PDO $bdd) {
+        try{
+            $requete = $bdd->prepare('INSERT INTO articles (Etat) VALUES(2) where id = id.Article');
+            $requete->execute();
+            return array("result"=>true,"message"=>$bdd->lastInsertId());
+        }catch (\Exception $e){
+            return array("result"=>false,"message"=>$e->getMessage());
+        }
+    }
+
+
     public function SqlGetAll(\PDO $bdd){
-            $requete = $bdd->prepare('SELECT * FROM articles');
+        $requete = $bdd->prepare('SELECT * FROM articles WHERE Etat = 2');
             $requete->execute();
             $arrayArticle = $requete->fetchAll();
 
@@ -78,6 +88,35 @@ class Article extends Contenu implements \JsonSerializable {
                 $listArticle[] = $article;
             }
             return $listArticle;
+    }
+
+    public function SqlValidator(\PDO $bdd){
+        $requete = $bdd->prepare('SELECT * FROM articles WHERE Etat = 1');
+        $requete->execute();
+        $arrayArticle = $requete->fetchAll();
+
+        $listArticle = [];
+        foreach ($arrayArticle as $articleSQL){
+            $article = new Article();
+            $article->setId($articleSQL['Id']);
+            $article->setTitre($articleSQL['Titre']);
+            $article->setAuteur($articleSQL['Auteur']);
+            $article->setDescription($articleSQL['Description']);
+            $article->setDateAjout($articleSQL['DateAjout']);
+            $article->setImageRepository($articleSQL['ImageRepository']);
+            $article->setImageFileName($articleSQL['ImageFileName']);
+
+            $listArticle[] = $article;
+        }
+        return $listArticle;
+    }
+
+    //Update l'etat d'un article a
+    public function Sqlchange($bdd,$idArticle){
+        $requete = $bdd->prepare('update articles set Etat = 2 where Id=:idArticle');
+        $requete->execute([
+            'idArticle' => $idArticle
+        ]);
     }
 
     public function SqlGetCherche(\PDO $bdd,$MotCle){

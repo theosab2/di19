@@ -167,12 +167,44 @@ class __TwigTemplate_b014339fe7478616e5826bab8a606d5d22d28bd7afcbce3d9574dca317b
                 </div>
             </div>
 
+            <div class=\"form-group row\">
+                <label for=\"Categorie\" class=\"col-sm-2 col-form-label\">Categorie</label>
+                <div class=\"col-sm-10\">
+                    <select name=\"Categorie\" class=\"form-control\">
+                        ";
+        // line 75
+        $context["Categories"] = [0 => "1", 1 => "2", 2 => "3", 3 => "4", 4 => "5", 5 => "6", 6 => "7", 7 => "8"];
+        // line 76
+        echo "                        ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["Categories"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["Categorie"]) {
+            // line 77
+            echo "                            <option value=\"";
+            echo twig_escape_filter($this->env, $context["Categorie"], "html", null, true);
+            echo "\" ";
+            if (0 === twig_compare($context["Categorie"], twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Categorie", [], "any", false, false, false, 77))) {
+                echo "selected";
+            }
+            echo ">";
+            echo twig_escape_filter($this->env, $context["Categorie"], "html", null, true);
+            echo "</option>
+                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['Categorie'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 79
+        echo "                    </select>
+                </div>
+            </div>
+
             <input type=\"hidden\" name=\"imageAncienne\"
             value=\"";
-        // line 72
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 72), "html", null, true);
+        // line 84
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageRepository", [], "any", false, false, false, 84), "html", null, true);
         echo "/";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 72), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "ImageFileName", [], "any", false, false, false, 84), "html", null, true);
         echo "\"
             >
 
@@ -199,7 +231,7 @@ class __TwigTemplate_b014339fe7478616e5826bab8a606d5d22d28bd7afcbce3d9574dca317b
 
     public function getDebugInfo()
     {
-        return array (  173 => 72,  155 => 56,  140 => 54,  135 => 53,  133 => 52,  122 => 44,  112 => 37,  102 => 30,  89 => 20,  85 => 19,  81 => 17,  77 => 15,  69 => 13,  67 => 12,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  205 => 84,  198 => 79,  183 => 77,  178 => 76,  176 => 75,  155 => 56,  140 => 54,  135 => 53,  133 => 52,  122 => 44,  112 => 37,  102 => 30,  89 => 20,  85 => 19,  81 => 17,  77 => 15,  69 => 13,  67 => 12,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -271,6 +303,18 @@ class __TwigTemplate_b014339fe7478616e5826bab8a606d5d22d28bd7afcbce3d9574dca317b
                         <input type=\"file\" class=\"custom-file-input\" id=\"inputGroupFile01\">
                         <label class=\"custom-file-label\" for=\"inputGroupFile01\"></label>
                     </div>
+                </div>
+            </div>
+
+            <div class=\"form-group row\">
+                <label for=\"Categorie\" class=\"col-sm-2 col-form-label\">Categorie</label>
+                <div class=\"col-sm-10\">
+                    <select name=\"Categorie\" class=\"form-control\">
+                        {% set Categories = ['1','2','3','4','5','6','7','8'] %}
+                        {% for Categorie in Categories %}
+                            <option value=\"{{Categorie}}\" {% if Categorie == article.Categorie %}selected{% endif %}>{{ Categorie }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
 

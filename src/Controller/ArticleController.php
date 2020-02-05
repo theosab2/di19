@@ -22,6 +22,7 @@ class ArticleController extends AbstractController {
         );
     }
 
+    //Affiche la liste des articles qui ont l'Id 1
     public function ListValidator(){
         $article = new Article();
         $listArticle = $article->SqlValidator(Bdd::GetInstance());
@@ -34,7 +35,7 @@ class ArticleController extends AbstractController {
         );
     }
 
-
+    //Fonction d'affichage de la liste des articles qui possède l'état 2
     public function Validation(){
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
@@ -76,7 +77,6 @@ class ArticleController extends AbstractController {
                 ->setImageRepository($sqlRepository)
                 ->setImageFileName($nomImage)
                 ->setCategorie($_POST['Categorie'])
-                //->setEtat(1)
             ;
             $article->SqlAdd(BDD::getInstance());
             //var_dump($article);
@@ -206,6 +206,7 @@ class ArticleController extends AbstractController {
         ]);
     }
 
+    //Recupère les articles dans la base de donnée et les envoi vers l'onglet validation
     public function Val($articleID){
         //if(UserController::roleNeed('Administrateur')) {
             $articleSQL = new Article();

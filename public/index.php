@@ -52,9 +52,14 @@ $router->post('/inscription','User#inscriptionCheck');
 $router->get('/login', 'User#loginForm');
 $router->post('/login', 'User#loginCheck');
 
+
 $router->get('/Logout', 'User#logout');
 
 $router->get('/Api/Article/Last','Api#ArticleGetLast');
+
+$router->get('/Article/Validation', 'Article#ListValidator');
+
+$router->get('/Article/Val/:id', 'Article#Val#id');
 
 echo $router->run();
 

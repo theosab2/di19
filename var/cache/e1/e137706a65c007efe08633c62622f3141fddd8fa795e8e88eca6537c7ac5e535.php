@@ -24,58 +24,128 @@ class __TwigTemplate_47756b8761e502619451a8a536fe1a6c6edd9d758714fb0a5498685e2c2
 
         $this->source = $this->getSourceContext();
 
-        $this->blocks = [
-            'title' => [$this, 'block_title'],
-            'body' => [$this, 'block_body'],
-        ];
-    }
+        $this->parent = false;
 
-    protected function doGetParent(array $context)
-    {
-        // line 1
-        return "index.html.twig";
+        $this->blocks = [
+        ];
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "User/login.html.twig", 1);
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
-    }
+        // line 1
+        echo "<!DOCTYPE html>
 
-    // line 2
-    public function block_title($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $this->displayParentBlock("title", $context, $blocks);
-        echo " - Connectez vous ";
-    }
+<html lang=\"en\">
 
-    // line 3
-    public function block_body($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        // line 4
-        echo "
-    <div class=\"container-fluid mt-2\">
-        ";
-        // line 6
-        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", true, true, false, 6)) {
-            // line 7
-            echo "            <div class=\"alert alert-danger\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", false, false, false, 7), "html", null, true);
-            echo "</div>
-        ";
-        }
-        // line 9
-        echo "        <form method=\"post\" action=\"/Login\">
-            <input type=\"email\" name=\"email\">
-            <input type=\"password\" name=\"password\">
-            <input type=\"submit\">
-        </form>
+
+
+
+<head>
+
+    <meta charset=\"UTF-8\">
+
+    <title>HeartPlane - Connexion</title>
+
+    <link rel=\"stylesheet\" href=\"https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css\">
+
+    <link rel=\"stylesheet\" href=\"/assets/styleconnexion.css\">
+
+</head>
+
+
+
+
+<body id=\"connexion\">
+
+</a></div>
+
+<div class=\"content\">
+
+    <div class=\"container\">
+
+
+        <div class=\"menu\">
+
+            <a href=\"connexion\" class=\"btn-connexion\">
+
+                <h2>Se Connecter</h2>
+
+            </a>
+
+            <a href=\"inscription\" class=\"btn-enregistrer
+active\">
+
+                <h2>S'inscrire</h2>
+
+            </a>
+
+        </div>
+
+        <div class=\"connexion\">
+
+            <form class=\"contact-form\" name=\"connexion\" method=\"post\">
+
+                <label>Identifiant</label>
+
+                <input name=\"email\" placeholder=\"\" type=\"text\">
+
+
+                <label>Mot de passe</label>
+
+                <input name=\"password\" placeholder=\"\" type=\"password\">
+
+                <div class=\"check\">
+
+                    <label>
+
+                        <input id=\"check\" type=\"checkbox\" class=\"checkbox\">
+
+                        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26px\" height=\"23px\">
+
+                            <path class=\"path-back\"
+                                  d=\"M1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6\">
+
+                            </path>
+
+                            <path class=\"path-moving\"
+                                  d=\"M24.192,3.813L11.818,16.188L1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6\">
+
+                            </path>
+
+                        </svg>
+
+                    </label>
+
+                    <h3>Restez connecté</h3>
+
+                </div>
+
+                <input class=\"submit\" value=\"Connexion\" type=\"submit\">
+
+            </form>
+
+            <hr>
+
+            <a href=\"https://www.grandvincent-marion.fr/\" target=\"_blank\">
+
+                <h4>Mot de passe Oublié ? </h4>
+
+            </a>
+
+        </div>
+
+
+
     </div>
 
-";
+
+</body>
+
+
+
+
+</html>";
     }
 
     public function getTemplateName()
@@ -83,33 +153,124 @@ class __TwigTemplate_47756b8761e502619451a8a536fe1a6c6edd9d758714fb0a5498685e2c2
         return "User/login.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  71 => 9,  65 => 7,  63 => 6,  59 => 4,  55 => 3,  47 => 2,  36 => 1,);
+        return array (  37 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends \"index.html.twig\" %}
-{% block title %}{{ parent() }} - Connectez vous {% endblock %}
-{% block body %}
+        return new Source("<!DOCTYPE html>
 
-    <div class=\"container-fluid mt-2\">
-        {% if session.errorlogin is defined %}
-            <div class=\"alert alert-danger\">{{ session.errorlogin }}</div>
-        {% endif %}
-        <form method=\"post\" action=\"/Login\">
-            <input type=\"email\" name=\"email\">
-            <input type=\"password\" name=\"password\">
-            <input type=\"submit\">
-        </form>
+<html lang=\"en\">
+
+
+
+
+<head>
+
+    <meta charset=\"UTF-8\">
+
+    <title>HeartPlane - Connexion</title>
+
+    <link rel=\"stylesheet\" href=\"https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css\">
+
+    <link rel=\"stylesheet\" href=\"/assets/styleconnexion.css\">
+
+</head>
+
+
+
+
+<body id=\"connexion\">
+
+</a></div>
+
+<div class=\"content\">
+
+    <div class=\"container\">
+
+
+        <div class=\"menu\">
+
+            <a href=\"connexion\" class=\"btn-connexion\">
+
+                <h2>Se Connecter</h2>
+
+            </a>
+
+            <a href=\"inscription\" class=\"btn-enregistrer
+active\">
+
+                <h2>S'inscrire</h2>
+
+            </a>
+
+        </div>
+
+        <div class=\"connexion\">
+
+            <form class=\"contact-form\" name=\"connexion\" method=\"post\">
+
+                <label>Identifiant</label>
+
+                <input name=\"email\" placeholder=\"\" type=\"text\">
+
+
+                <label>Mot de passe</label>
+
+                <input name=\"password\" placeholder=\"\" type=\"password\">
+
+                <div class=\"check\">
+
+                    <label>
+
+                        <input id=\"check\" type=\"checkbox\" class=\"checkbox\">
+
+                        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26px\" height=\"23px\">
+
+                            <path class=\"path-back\"
+                                  d=\"M1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6\">
+
+                            </path>
+
+                            <path class=\"path-moving\"
+                                  d=\"M24.192,3.813L11.818,16.188L1.5,6.021V2.451C1.5,2.009,1.646,1.5,2.3,1.5h18.4c0.442,0,0.8,0.358,0.8,0.801v18.398c0,0.442-0.357,0.801-0.8,0.801H2.3c-0.442,0-0.8-0.358-0.8-0.801V6\">
+
+                            </path>
+
+                        </svg>
+
+                    </label>
+
+                    <h3>Restez connecté</h3>
+
+                </div>
+
+                <input class=\"submit\" value=\"Connexion\" type=\"submit\">
+
+            </form>
+
+            <hr>
+
+            <a href=\"https://www.grandvincent-marion.fr/\" target=\"_blank\">
+
+                <h4>Mot de passe Oublié ? </h4>
+
+            </a>
+
+        </div>
+
+
+
     </div>
 
-{% endblock %}", "User/login.html.twig", "C:\\dev\\www\\di19\\templates\\User\\login.html.twig");
+
+</body>
+
+
+
+
+</html>", "User/login.html.twig", "C:\\dev\\www\\di19\\templates\\User\\login.html.twig");
     }
 }
