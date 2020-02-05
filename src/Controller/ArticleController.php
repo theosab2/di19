@@ -25,7 +25,7 @@ class ArticleController extends AbstractController {
     }
 
     public function Cherche(){
-        // Moteur de recherche par mot cléf
+        /// Moteur de recherche par mot clé
         $article = new Article();
         $listArticle = $article->SqlGetCherche(Bdd::GetInstance(),$_POST['search']);
 

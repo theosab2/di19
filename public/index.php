@@ -16,6 +16,7 @@ function chargerClasse($classe){
 
 spl_autoload_register('chargerClasse');
 
+// article
 $router = new \src\Router\Router($_GET['url']);
 $router->get('/', "Article#ListAll");
 $router->get('/Article', "Article#ListAll");
@@ -34,7 +35,9 @@ $router->post('/Api/Article', "Api#ArticlePost");
 $router->put('/Api/Article/:id/:json', "Api#ArticlePut#id#json");
 $router->get('/Article/ListAll','Article#listAll');
 $router->post('/Article/Cherche', "Article#Cherche");
+$router->get('/Article/Val/:id', 'Article#Val#id');
 
+// categorie
 $router->get('/Categorie', "Categorie#ListAll");
 $router->get('/Categorie/Add','Categorie#add');
 $router->post('/Categorie/Add','Categorie#add');
@@ -43,6 +46,7 @@ $router->get('/Categorie/update/:id','Categorie#update#id');
 $router->post('/Categorie/update/:id','Categorie#update#id');
 $router->get('/Categorie/delete/:id','Categorie#delete#id');
 
+// Utilisateur
 $router->get('/Contact', 'Contact#showForm');
 $router->post('/Contact/sendMail', 'Contact#sendMail');
 
@@ -52,14 +56,13 @@ $router->post('/inscription','User#inscriptionCheck');
 $router->get('/login', 'User#loginForm');
 $router->post('/login', 'User#loginCheck');
 
-
 $router->get('/Logout', 'User#logout');
 
+// API
 $router->get('/Api/Article/Last','Api#ArticleGetLast');
 
 $router->get('/Article/Validation', 'Article#ListValidator');
 
-$router->get('/Article/Val/:id', 'Article#Val#id');
 
 echo $router->run();
 

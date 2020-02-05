@@ -2,6 +2,7 @@
 namespace src\Model;
 
 class Categorie {
+    // Classe categorie
     private $Id;
     private $Nom;
     private $Description;
