@@ -71,12 +71,12 @@ class Contenu {
         return $Categorie;
     }
 
-    public function getEtat(){
+    /*public function getEtat(){
         return $this->Etat;
     }
 
     public function setEtat($Etat){
         $this->Etat = $Etat;
         return $Etat;
-    }
+    }*/
 }

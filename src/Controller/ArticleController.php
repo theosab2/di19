@@ -75,9 +75,11 @@ class ArticleController extends AbstractController {
                 ->setDateAjout($_POST['DateAjout'])
                 ->setImageRepository($sqlRepository)
                 ->setImageFileName($nomImage)
+                ->setCategorie($_POST['Categorie'])
                 //->setEtat(1)
             ;
             $article->SqlAdd(BDD::getInstance());
+            //var_dump($article);
             header('Location:/Article');
         }else{
             // Génération d'un TOKEN
@@ -124,6 +126,7 @@ class ArticleController extends AbstractController {
                 ->setDateAjout($_POST['DateAjout'])
                 ->setImageRepository($sqlRepository)
                 ->setImageFileName($nomImage)
+                ->setCategorie($_POST['Categorie'])
             ;
 
             $article->SqlUpdate(BDD::getInstance());
