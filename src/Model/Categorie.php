@@ -95,7 +95,7 @@ class Categorie {
 
     /**
      * @param mixed $Id
-     * @return Contenu
+     * @return Categorie
      */
     public function setId($Id)
     {
@@ -113,7 +113,7 @@ class Categorie {
 
     /**
      * @param mixed $Description
-     * @return Contenu
+     * @return Categorie
      */
     public function setDescription($Description)
     {

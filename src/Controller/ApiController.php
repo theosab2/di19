@@ -49,7 +49,7 @@ class ApiController extends AbstractController
 
         return json_encode($result);
     }
-
+//Fonction récupérant les derniers articles dans la BDD
     public function ArticleGetLast()
     {
         $article = new Article();
