@@ -17,13 +17,29 @@ class Article extends Contenu implements \JsonSerializable {
 
     public function SqlGetLast(\PDO $bdd){
         // requete de lecture des 5 derniers articles
-        $requete = $bdd->prepare('SELECT * FROM articles ORDER BY Id DESC LIMIT 5');
+        $requete = $bdd->prepare('SELECT 
+                   articles.Id as \'Id\',
+                   articles.Titre as \'Titre\',
+                   articles.Description as \'Description\',
+                   articles.DateAjout as \'DateAjout\',
+                   articles.Auteur as \'Auteur\',
+                   articles.ImageRepository as \'ImageRepository\',
+                   articles.ImageFileName as \'ImageFileName\',
+                   articles.Categorie as \'Categorie\',                                    
+                   categories.Nom as \'NomC\'                                                    
+                   FROM articles inner join categories on categories.Id = articles.Categorie where Etat = 2 
+                   ORDER BY Id DESC LIMIT 5');
+
+
+
         $requete->execute();
         $arrayArticle = $requete->fetchAll();
 
         $listArticle = [];
         foreach ($arrayArticle as $articleSQL){
+            $categorie = new Categorie();
             $article = new Article();
+
             $article->setId($articleSQL['Id']);
             $article->setTitre($articleSQL['Titre']);
             $article->setAuteur($articleSQL['Auteur']);
@@ -31,7 +47,8 @@ class Article extends Contenu implements \JsonSerializable {
             $article->setDateAjout($articleSQL['DateAjout']);
             $article->setImageRepository($articleSQL['ImageRepository']);
             $article->setImageFileName($articleSQL['ImageFileName']);
-            $article->setCategorie($articleSQL['Categorie']);
+            $categorie->setNom($articleSQL['NomC']);
+            $article->setCategorie($categorie);
 
             $listArticle[] = $article;
         }
