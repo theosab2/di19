@@ -46,8 +46,12 @@ $router->get('/Categorie/delete/:id','Categorie#delete#id');
 $router->get('/Contact', 'Contact#showForm');
 $router->post('/Contact/sendMail', 'Contact#sendMail');
 
-$router->get('/Login', 'User#loginForm');
-$router->post('/Login', 'User#loginCheck');
+$router->get('/inscription','User#inscriptionForm');
+$router->post('/inscription','User#inscriptionCheck');
+
+$router->get('/login', 'User#loginForm');
+$router->post('/login', 'User#loginCheck');
+
 $router->get('/Logout', 'User#logout');
 
 echo $router->run();
