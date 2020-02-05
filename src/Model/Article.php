@@ -15,6 +15,28 @@ class Article extends Contenu implements \JsonSerializable {
     }
 
 
+    public function SqlGetLast(\PDO $bdd){
+        $requete = $bdd->prepare('SELECT * FROM articles ORDER BY Id DESC LIMIT 5');
+        $requete->execute();
+        $arrayArticle = $requete->fetchAll();
+
+        $listArticle = [];
+        foreach ($arrayArticle as $articleSQL){
+            $article = new Article();
+            $article->setId($articleSQL['Id']);
+            $article->setTitre($articleSQL['Titre']);
+            $article->setAuteur($articleSQL['Auteur']);
+            $article->setDescription($articleSQL['Description']);
+            $article->setDateAjout($articleSQL['DateAjout']);
+            $article->setImageRepository($articleSQL['ImageRepository']);
+            $article->setImageFileName($articleSQL['ImageFileName']);
+            $article->setCategorie($articleSQL['Categorie']);
+
+            $listArticle[] = $article;
+        }
+        return $listArticle;
+    }
+
     public function SqlAdd(\PDO $bdd) {
         try{
             $requete = $bdd->prepare('INSERT INTO articles (Titre, Description, DateAjout, Auteur, ImageRepository, ImageFileName, Categorie)
@@ -155,8 +177,8 @@ class Article extends Contenu implements \JsonSerializable {
             ,'ImageRepository' => $this->getImageRepository()
             ,'ImageFileName' => $this->getImageFileName()
             ,'Auteur' => $this->getAuteur()
-            ,"Categorie" => $this->getCategorie()
-            ,"Etat" => $this->getEtat()
+            ,'Categorie' => $this->getCategorie()
+            //,"Etat" => $this->getEtat()
         ];
     }
 
