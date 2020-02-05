@@ -1,2 +1,12 @@
-# di19
-https://trello.com/invite/b/LsdHRSGB/56c19777d8bbc864976b2f2e026af4b5/projet-blog
+create table user
+(
+    USER_ID           int auto_increment
+        primary key,
+    USER_NOM          varchar(50)  null,
+    USER_PRENOM       varchar(50)  null,
+    USER_EMAIL        varchar(250) null,
+    USER_PASSWORD     varchar(100) null,
+    USER_ISADMIN      tinyint(1)   null,
+    USER_ACCEPT_EMAIL tinyint(1)   null,
+    USER_STATUS       int          null
+);
