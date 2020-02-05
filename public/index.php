@@ -54,6 +54,8 @@ $router->post('/login', 'User#loginCheck');
 
 $router->get('/Logout', 'User#logout');
 
+$router->get('/Api/Article/Last','Api#ArticleGetLast');
+
 echo $router->run();
 
 
