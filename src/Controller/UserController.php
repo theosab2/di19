@@ -44,7 +44,6 @@ class UserController extends  AbstractController
         $user = new User();
         $userInfoLog = $user->SqlGetLogin(Bdd::GetInstance(), ($_POST['email']));
         $pwd_hashed_bdd = $userInfoLog['USER_PASSWORD'];
-
         if ($pwd_hashed_entry == $pwd_hashed_bdd) {
             $_SESSION['login'] = array("id"=>$userInfoLog['USER_ID'],
                 "roles"=>array("redacteur"));

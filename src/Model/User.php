@@ -192,8 +192,8 @@ class User implements \JsonSerializable
 
         $UserInfoLog = $query->fetch();
         $user = new User();
-        $user->setUSERPASSWORD($UserInfoLog['userpassword']);
-        $user->setUSERID($UserInfoLog['userpassword']);
+        $user->setUSERPASSWORD($UserInfoLog['USER_PASSWORD']);
+        $user->setUSERID($UserInfoLog['USER_PASSWORD']);
 
         $UserInfoLog[] = $user;
 
