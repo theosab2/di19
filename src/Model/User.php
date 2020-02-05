@@ -1,6 +1,7 @@
 <?php
 namespace src\Model;
 
+
 class User implements \JsonSerializable
 {
 

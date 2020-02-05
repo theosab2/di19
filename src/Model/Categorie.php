@@ -1,6 +1,7 @@
 <?php
 namespace src\Model;
 
+
 class Categorie {
     // Classe categorie
     private $Id;

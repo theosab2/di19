@@ -58,6 +58,7 @@ class Article extends Contenu implements \JsonSerializable {
         }
     }
 
+
     public function SqlGetAll(\PDO $bdd){
         /// requete de lecture de tout les articles
             $requete = $bdd->prepare('SELECT 

@@ -2,6 +2,7 @@
 namespace src\Router;
 
 
+
 class Route {
 
     private $path;

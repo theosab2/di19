@@ -4,6 +4,7 @@ use PDO;
 class Bdd {
     private static $_instance = null;
 
+
     public static function InitInstance(){
         $hostname="localhost";
         $username="root";

@@ -1,6 +1,7 @@
 <?php
 namespace src\Model;
 
+
 class Contenu {
     private $Id;
     private $Titre;

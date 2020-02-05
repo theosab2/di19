@@ -7,6 +7,7 @@ use src\Model\Categorie;
 
 class ArticleController extends AbstractController {
 
+
     public function Index(){
         return $this->ListAll();
     }
