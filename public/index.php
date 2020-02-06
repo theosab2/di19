@@ -74,6 +74,7 @@ $router->get('/Utilisateur', 'User#AfficherUtilisateur');
 $router->get('/Article/ValUtilisateur/:id', 'User#ValUtilisateur#id');
 $router->post('/Article/ValUtilisateur/:id', 'User#ValUtilisateur#id');
 
+
 $router->get('/ListUtilisateur.html.twig', 'User#AfficherTlm');
 
 echo $router->run();
