@@ -65,6 +65,7 @@ $router->get('/Api/Article/Last','Api#ArticleGetLast');
 
 $router->get('/Article/Validation', 'Article#ListValidator');
 
+$router->post('/Article/add','Article#add');
 
 echo $router->run();
 

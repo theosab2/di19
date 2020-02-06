@@ -199,5 +199,5 @@ class User implements \JsonSerializable
 
         return $UserInfoLog;
     }
-
 }
+
