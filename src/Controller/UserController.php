@@ -56,6 +56,7 @@ class UserController extends  AbstractController
             }
         }
 
+
        
         $options = [
             'salt' => md5(strtolower($_POST['email'])),

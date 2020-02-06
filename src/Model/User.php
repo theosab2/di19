@@ -194,6 +194,7 @@ class User implements \JsonSerializable
         return $arrayUser;
     }
 
+
     public function Sqltlm(\PDO $bdd)
     {
         $query = $bdd->prepare('SELECT USER_ID, USER_PRENOM, USER_NOM FROM user where USER_VALIDER = 1');
