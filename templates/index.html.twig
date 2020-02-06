@@ -73,11 +73,12 @@
                     <div class="dropdown-divider"></div>
                 </div>
             </li>
-
+            {% if session.login is defined %}
             <li class="nav-item">
                 <a class="nav-link" href="/Api/Article/Last">Affiche les 5 derniers articles</a>
             </li>
 
+            {% endif %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filtre Categorie
