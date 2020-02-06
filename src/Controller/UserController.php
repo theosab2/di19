@@ -77,6 +77,13 @@ class UserController extends  AbstractController
         return $this->twig->render('Article/Utilisateur.html.twig',['utilisateurlist' => $listUtilisateur]);
     }
 
+    public function Affichertlm(){
+        $utilisateur = new User();
+        $listUtilisateur = $utilisateur->Sqltlm(Bdd::GetInstance());
+
+        return $this->twig->render('Article/ListUtilisateur.html.twig',['utilisateurlist' => $listUtilisateur]);
+    }
+
     //Permet la validation d'un utilisateur
     public static function ValUtilisateur($id){
     $Utilisateur = new User();

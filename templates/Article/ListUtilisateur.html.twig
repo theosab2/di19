@@ -1,0 +1,33 @@
+{% extends "index.html.twig" %}
+{% block title %}Validation d'article{% endblock %}
+
+
+
+{% block body %}
+
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for Utilisateur in utilisateurlist %}
+
+        <tr>
+            <td>{{ Utilisateur.USER_ID }}</td>
+            <td>{{ Utilisateur.USER_NOM }}</td>
+            <td>{{ Utilisateur.USER_PRENOM }}</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+
+                </div>
+            </td>
+        </tr>
+
+    {% endfor %}
+    </tbody>
+
+{% endblock %}

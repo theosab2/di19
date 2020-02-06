@@ -176,6 +176,25 @@ class User implements \JsonSerializable
         return $arrayUser;
     }
 
+    public function Sqltlm(\PDO $bdd)
+    {
+        $query = $bdd->prepare('SELECT USER_ID, USER_PRENOM, USER_NOM FROM user where USER_VALIDER = 1');
+        $query->execute();
+        $arrayUser = $query->fetchAll();
+        $listUser = [];
+        foreach ($arrayUser as $UserSQL){
+
+            $User = new User();
+            $User->setUSERID($UserSQL['USER_ID']);
+            $User->setUSERNOM($UserSQL['USER_NOM']);
+            $User->setUSERPRENOM($UserSQL['USER_PRENOM']);
+
+            $listUser[] = $User;
+        }
+
+        return $arrayUser;
+    }
+
     public function SQlValUtilisateur(\PDO $bdd,$id){
         $query = $bdd->prepare('update user set USER_VALIDER = 1 where USER_ID = :id ');
         $query->execute([
