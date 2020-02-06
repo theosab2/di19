@@ -17,24 +17,46 @@ class UserController extends  AbstractController
     public function inscriptionForm()
     {
         unset($_SESSION['errinscription']);
+        unset($_SESSION['errinscriptionA']);
+        unset($_SESSION['errinscriptionB']);
         return $this->twig->render('User/inscription.html.twig');
     }
 
     public function loginCheck()
     {
 
-        if ($_POST['email'] == '') {
+        if (trim($_POST['email']) == '') {
             $_SESSION['errorlogin'] = "Veuillez entrer une adresse Email";
             header('Location:/login');
             return;
         }
 
-        if ($_POST['password'] == '') {
+        if (trim($_POST['password']) == '') {
             $_SESSION['errorlogin'] = "Veuillez entrer un mot de passe";
             header('Location:/login');
             return;
         }
+        if (trim($_POST['password']) != strip_tags(trim($_POST['password']))) {
+            $_SESSION['errorlogin'] = "Le mot de passe n'est pas valide";
+            header('Location:/login');
+            return;
+        }
+        if (trim($_POST['email']) != strip_tags(trim($_POST['email']))) {
+            $_SESSION['errorlogin'] = "L'adresse mail n'est pas valide";
+            header('Location:/login');
+            return;
+        }
 
+        $userall = new User();
+        $emails = $userall->SqlGetAllEmail(Bdd::GetInstance());
+        $email_exist = false;
+        foreach ($emails as $email) {
+            if (strtolower(trim($_POST['email'])) == $email) {
+                $email_exist = true;
+            }
+        }
+
+       
         $options = [
             'salt' => md5(strtolower($_POST['email'])),
             'cost' => 12 // the default cost is 10
@@ -45,8 +67,8 @@ class UserController extends  AbstractController
         $userInfoLog = $user->SqlGetLogin(Bdd::GetInstance(), ($_POST['email']));
         $pwd_hashed_bdd = $userInfoLog['USER_PASSWORD'];
         if ($pwd_hashed_entry == $pwd_hashed_bdd) {
-            $_SESSION['login'] = array("id"=>$userInfoLog['USER_ID'],
-                "roles"=>array("redacteur"));
+            $_SESSION['login'] = array("id" => $userInfoLog['USER_ID'],
+                "roles" => array("redacteur"), "isadmin" => $userInfoLog['USER_ISADMIN']);
             header('Location:/');
         } else {
             $_SESSION['errorlogin'] = "Email ou Mot de passe incorrect";
@@ -101,8 +123,11 @@ class UserController extends  AbstractController
                 FILTER_VALIDATE_REGEXP,
                 array(
                     "options" => array("regexp" => "/[a-zA-Z]{5,}/")
+                    )
                 )
-            )) {
+            )
+
+            {
                 $_SESSION['errinscription'] = "Le mot de passe ne peut être inférieur à 5 caractères";
                 header('Location:/inscription');
             } else {
@@ -110,38 +135,55 @@ class UserController extends  AbstractController
 
                     $_SESSION['errinscription'] = "Les mots de passe ne correspondent pas";
                     header('Location:/inscription');
-                } else {
+                    return;
+                }
+                $userall = new User();
+                $emails = $userall->SqlGetAllEmail(Bdd::GetInstance());
+                $email_exist = false;
+                foreach ($emails as $email) {
+                    if (strtolower(trim($_POST['email'])) == $email) {
+                        $email_exist = true;
+                    }
+                }
 
-                    $options = [
-                        'salt' => md5(strtolower($_POST['email'])),
-                        'cost' => 12 // the default cost is 10
-                    ];
-                    define('PEPPER', sha1(strtolower($_POST['email'])));
-                    $pwd_hashed = password_hash(($_POST['password']) . PEPPER, PASSWORD_DEFAULT, $options);
+                        if ($email_exist == true) {
+                            $_SESSION['errinscriptionB'] = '/login';
+                            $_SESSION['errinscriptionA'] = "Se connecter";
+                            $_SESSION['errinscription'] = "L'email est déja utilisé";
+                            header('Location:/inscription');
+                            return;
+                        } else {
+                            $options = [
+                                'salt' => md5(strtolower($_POST['email'])),
+                                'cost' => 12 // the default cost is 10
+                            ];
+                            define('PEPPER', sha1(strtolower($_POST['email'])));
+                            $pwd_hashed = password_hash(($_POST['password']) . PEPPER, PASSWORD_DEFAULT, $options);
 
-                    $user = new User();
-                    $user->setUSERPRENOM($_POST["prenom"]);
-                    $user->setUSERNOM($_POST["nom"]);
-                    $user->setUSEREMAIL(strtolower($_POST['email']));
-                    $user->setUSERPASSWORD($pwd_hashed);
-                    $user->SqlAdd(Bdd::GetInstance());
-                    unset($_SESSION['errinscription']);
-                    unset($_SESSION['errorlogin']);
-                    header('Location:/login');
+                            $user = new User();
+                            $user->setUSERPRENOM($_POST["prenom"]);
+                            $user->setUSERNOM($_POST["nom"]);
+                            $user->setUSEREMAIL(strtolower($_POST['email']));
+                            $user->setUSERPASSWORD($pwd_hashed);
+                            $user->SqlAdd(Bdd::GetInstance());
+                            unset($_SESSION['errinscription']);
+                            unset($_SESSION['errorlogin']);
+                            header('Location:/login');
+                        }
                 }
             }
         }
-    }
 
+        //fonction Deconnexion
+        public
+        function logout()
+        {
+            unset($_SESSION['login']);
+            unset($_SESSION['errorlogin']);
 
-    //fonction Deconnexion
-    public function logout()
-    {
-        unset($_SESSION['login']);
-        unset($_SESSION['errorlogin']);
+            header('Location:/');
+        }
 
-        header('Location:/');
-    }
 }
 
 

@@ -13,6 +13,23 @@ class User implements \JsonSerializable
     private $USERROLE;
     private $USERSTATUS;
     private $USERPASSWORD;
+    private $USERISADMIN;
+
+    /**
+     * @return mixed
+     */
+    public function getUSERISADMIN()
+    {
+        return $this->USERISADMIN;
+    }
+
+    /**
+     * @param mixed $USERISADMIN
+     */
+    public function setUSERISADMIN($USERISADMIN)
+    {
+        $this->USERISADMIN = $USERISADMIN;
+    }
 
     /**
      * @return mixed
@@ -153,7 +170,8 @@ class User implements \JsonSerializable
             'usertoken' => $this->getUSERTOKEN(),
             'userrole' => $this->getUSERROLE(),
             'userstatus' => $this->getUSERSTATUS(),
-            'userpassword' => $this->getUSERPASSWORD()
+            'userpassword' => $this->getUSERPASSWORD(),
+            'userisadmin' => $this->getUSERISADMIN(),
         ];
     }
 
@@ -225,21 +243,27 @@ class User implements \JsonSerializable
             $user = new User();
             $user->setUSEREMAIL(strtolower($userSQL['usermail']));
 
-            $emailUsers[] = $user;
+            $emailUsers[] = $user->getUSEREMAIL();
         }
         return $emailUsers;
     }
 
     public function SqlGetLogin(\PDO $bdd , $emailuser){
-        $query = $bdd->prepare('SELECT USER_PASSWORD, USER_ID FROM user WHERE USER_EMAIL = :useremail');
+        $query = $bdd->prepare('SELECT USER_PASSWORD,USER_ISADMIN, USER_NOM, USER_PRENOM, USER_STATUS, USER_ID FROM user WHERE USER_EMAIL = :useremail');
         $query->execute([
             'useremail' => $emailuser
+
         ]);
 
         $UserInfoLog = $query->fetch();
         $user = new User();
         $user->setUSERPASSWORD($UserInfoLog['USER_PASSWORD']);
-        $user->setUSERID($UserInfoLog['USER_PASSWORD']);
+        $user->setUSERID($UserInfoLog['USER_ID']);
+        $user->setUSERNOM($UserInfoLog["USER_NOM"]);
+        $user->setUSERPRENOM($UserInfoLog["USER_PRENOM"]);
+        $user->setUSERSTATUS($UserInfoLog["USER_STATUS"]);
+        $user->setUSERISADMIN($UserInfoLog["USER_ISADMIN"]);
+
 
         $UserInfoLog[] = $user;
 
