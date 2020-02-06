@@ -45,7 +45,7 @@ class __TwigTemplate_4b4d296cad7b5a8ddba3c4665ad21d733ea5613ddf63df1fa1cf82394b5
 
     <meta charset=\"UTF-8\">
 
-    <title>HeartPlane - Connexion</title>
+    <title> Connexion</title>
 
     <link rel=\"stylesheet\" href=\"https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css\">
 
@@ -70,6 +70,7 @@ class __TwigTemplate_4b4d296cad7b5a8ddba3c4665ad21d733ea5613ddf63df1fa1cf82394b5
 
 
         <div class=\"menu\">
+
 
             <a href=\"connexion\" class=\"btn-connexion\">
 
@@ -123,11 +124,21 @@ active\">
 
                     <h3>Restez connecté</h3>
 
-
                 </div>
 
-                <input class=\"submit\" value=\"login\" type=\"submit\">
-
+                <!-- Captcha -->
+                <head>
+                    <title>reCAPTCHA demo: Simple page</title>
+                    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+                </head>
+                <body>
+                <form action=\"?\" method=\"POST\">
+                    <div class=\"g-recaptcha\" data-sitekey=\"6LcNR9YUAAAAAB0P3Y5B0UdAlg_sVQYa5l0nQ6MC\"></div>
+                    <br/>
+                    <input class=\"submit\" value=\"login\" type=\"submit\">
+                </form>
+                </body>
+                <!-- -->
 
             </form>
 
@@ -177,7 +188,7 @@ active\">
 
     <meta charset=\"UTF-8\">
 
-    <title>HeartPlane - Connexion</title>
+    <title> Connexion</title>
 
     <link rel=\"stylesheet\" href=\"https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css\">
 
@@ -199,6 +210,7 @@ active\">
 
 
         <div class=\"menu\">
+
 
             <a href=\"connexion\" class=\"btn-connexion\">
 
@@ -252,11 +264,21 @@ active\">
 
                     <h3>Restez connecté</h3>
 
-
                 </div>
 
-                <input class=\"submit\" value=\"login\" type=\"submit\">
-
+                <!-- Captcha -->
+                <head>
+                    <title>reCAPTCHA demo: Simple page</title>
+                    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+                </head>
+                <body>
+                <form action=\"?\" method=\"POST\">
+                    <div class=\"g-recaptcha\" data-sitekey=\"6LcNR9YUAAAAAB0P3Y5B0UdAlg_sVQYa5l0nQ6MC\"></div>
+                    <br/>
+                    <input class=\"submit\" value=\"login\" type=\"submit\">
+                </form>
+                </body>
+                <!-- -->
 
             </form>
 

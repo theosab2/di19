@@ -96,8 +96,11 @@ class __TwigTemplate_90a34986ea647f6573a0b201549f4c741aac77c3829e7ca8866f21d9416
 
     <div class=\"container-fluid mt-2\">
         <form method=\"post\" action=\"/Contact/sendMail\">
-            <label>Nom de l'Article</label>
-            <input type=\"text\" name=\"nom\">
+            <label>";
+        // line 30
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Titre", [], "any", false, false, false, 30), "html", null, true);
+        echo "</label>
+
             <label>email</label>
             <input type=\"email\" name=\"email\">
             <label>Objet de la demande</label>
@@ -123,7 +126,7 @@ class __TwigTemplate_90a34986ea647f6573a0b201549f4c741aac77c3829e7ca8866f21d9416
 
     public function getDebugInfo()
     {
-        return array (  89 => 21,  85 => 20,  81 => 18,  77 => 16,  69 => 14,  67 => 13,  59 => 7,  55 => 6,  47 => 2,  36 => 1,);
+        return array (  101 => 30,  89 => 21,  85 => 20,  81 => 18,  77 => 16,  69 => 14,  67 => 13,  59 => 7,  55 => 6,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -157,8 +160,8 @@ class __TwigTemplate_90a34986ea647f6573a0b201549f4c741aac77c3829e7ca8866f21d9416
 
     <div class=\"container-fluid mt-2\">
         <form method=\"post\" action=\"/Contact/sendMail\">
-            <label>Nom de l'Article</label>
-            <input type=\"text\" name=\"nom\">
+            <label>{{article.Titre}}</label>
+
             <label>email</label>
             <input type=\"email\" name=\"email\">
             <label>Objet de la demande</label>

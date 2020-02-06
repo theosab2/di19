@@ -24,7 +24,9 @@ class UserController extends  AbstractController
 
     public function loginCheck()
     {
-
+        /* Fonction déclenchée par le clic sur bouton login.
+          renvoi sur la page d'accueil si ok sinon renvoi sur la page connexion
+        */
         if (trim($_POST['email']) == '') {
             $_SESSION['errorlogin'] = "Veuillez entrer une adresse Email";
             header('Location:/login');
@@ -56,8 +58,22 @@ class UserController extends  AbstractController
             }
         }
 
+      // Test du Captcha
+        // Ma clé privée
+        $secret = "6LcNR9YUAAAAANj9aeQhzcPHWc8pxjYlkQ63lhBy";
+        // Paramètre renvoyé par le recaptcha
+        $response = $_POST['g-recaptcha-response'];
+        // On récupère l'adresse IP de l'utilisateur
+        $remoteip = $_SERVER['REMOTE_ADDR'];
 
-       
+        $api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
+            . $secret
+            . "&response=" . $response
+            . "&remoteip=" . $remoteip ;
+
+        $decode = json_decode(file_get_contents($api_url), true);
+      //---
+
         $options = [
             'salt' => md5(strtolower($_POST['email'])),
             'cost' => 12 // the default cost is 10
@@ -67,7 +83,7 @@ class UserController extends  AbstractController
         $user = new User();
         $userInfoLog = $user->SqlGetLogin(Bdd::GetInstance(), ($_POST['email']));
         $pwd_hashed_bdd = $userInfoLog['USER_PASSWORD'];
-        if ($pwd_hashed_entry == $pwd_hashed_bdd) {
+        if ($pwd_hashed_entry == $pwd_hashed_bdd and $decode['success'] == true) {
             $_SESSION['login'] = array("id" => $userInfoLog['USER_ID'],
                 "roles" => array("redacteur"), "isadmin" => $userInfoLog['USER_ISADMIN']);
             header('Location:/');
