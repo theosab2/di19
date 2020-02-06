@@ -69,6 +69,21 @@ class UserController extends  AbstractController
         }
     }
 
+    //permet de visualiser les utilisateurs
+    public function AfficherUtilisateur(){
+        $utilisateur = new User();
+        $listUtilisateur = $utilisateur->SqlUtilisateur(Bdd::GetInstance());
+
+        return $this->twig->render('Article/Utilisateur.html.twig',['utilisateurlist' => $listUtilisateur]);
+    }
+
+    //Permet la validation d'un utilisateur
+    public static function ValUtilisateur($id){
+    $Utilisateur = new User();
+    $Utilisateur->SQlValUtilisateur(Bdd::GetInstance(),$id);
+
+        header('Location:/Utilisateur');
+    }
 
     //fonction Inscription
     public function InscriptionCheck()

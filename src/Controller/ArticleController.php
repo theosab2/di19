@@ -55,6 +55,8 @@ class ArticleController extends AbstractController {
         );
     }
 
+
+
     public function ListValidator(){
         $article = new Article();
         $listArticle = $article->SqlValidator(Bdd::GetInstance());

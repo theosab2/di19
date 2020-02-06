@@ -157,6 +157,32 @@ class User implements \JsonSerializable
         ];
     }
 
+    public function SqlUtilisateur(\PDO $bdd)
+    {
+        $query = $bdd->prepare('SELECT USER_ID, USER_PRENOM, USER_NOM FROM user where USER_VALIDER = 0');
+        $query->execute();
+        $arrayUser = $query->fetchAll();
+        $listUser = [];
+        foreach ($arrayUser as $UserSQL){
+
+            $User = new User();
+            $User->setUSERID($UserSQL['USER_ID']);
+            $User->setUSERNOM($UserSQL['USER_NOM']);
+            $User->setUSERPRENOM($UserSQL['USER_PRENOM']);
+
+            $listUser[] = $User;
+        }
+
+        return $arrayUser;
+    }
+
+    public function SQlValUtilisateur(\PDO $bdd,$id){
+        $query = $bdd->prepare('update user set USER_VALIDER = 1 where USER_ID = :id ');
+        $query->execute([
+            'id' => $id,
+        ]);
+    }
+
     public function SqlAdd(\PDO $bdd)
     {
         $query = $bdd->prepare('INSERT INTO user (USER_PRENOM, USER_NOM, USER_PASSWORD, USER_EMAIL) VALUES (:prenom, :nom, :password, :email)');
@@ -167,6 +193,7 @@ class User implements \JsonSerializable
             "email" => $this->getUSEREMAIL()
         ]);
     }
+
 
     public function SqlGetAllEmail(\PDO $bdd){
 
