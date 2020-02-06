@@ -69,13 +69,13 @@ $router->get('/Api/Article/Last','Api#ArticleGetLast');
 //Validation Article
 $router->get('/Article/Validation', 'Article#ListValidator');
 
-$router->get('/Utilisateur', 'User#AfficherUtilisateur');
+//$router->get('/Utilisateur', 'User#AfficherUtilisateur');
 
-$router->get('/Article/ValUtilisateur/:id', 'User#ValUtilisateur#id');
-$router->post('/Article/ValUtilisateur/:id', 'User#ValUtilisateur#id');
+//$router->get('/Article/ValUtilisateur/:id', 'User#ValUtilisateur#id');
+//$router->post('/Article/ValUtilisateur/:id', 'User#ValUtilisateur#id');
 
 
-$router->get('/ListUtilisateur.html.twig', 'User#AfficherTlm');
+//$router->get('/ListUtilisateur.html.twig', 'User#AfficherTlm');
 
 echo $router->run();
 
