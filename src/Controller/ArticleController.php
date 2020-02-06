@@ -249,7 +249,7 @@ class ArticleController extends AbstractController {
         $datas = file_get_contents('./uploads/file/'.$file);
         $contenu = json_decode($datas);
 
-        return $this->twig->render('Article/readfile.html.twig', [
+        return $this->twig->render('Article/readFile.html.twig', [
             'fileData' => $contenu
         ]);
     }

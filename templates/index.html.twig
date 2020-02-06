@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css">
     <link rel="stylesheet" href="/assets/index.css">
     {% block css %}{% endblock %}
-
+    <link rel="icon" href="book.ico" />
+</head>
 <body>
 
 <nav class="navbar sticky-top nav-pills navbar-expand-lg navbar-dark bg-dark">
@@ -32,16 +33,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="/Categorie">Liste des categories</a>
             </li>
+                {% if session.login.isadmin == 1 %}
             <li class="nav-item">
                 <a class="nav-link" href="/Categorie/Add">Ajout d'une categorie</a>
             </li>
+                {% endif %}
                  {% if session.login is defined  %}
                      {% if session.login.isadmin == 1 %}
             <li class="nav-item mr-auto mt-2 mt-lg-0">
                 <a class="nav-link" href="/Article/Validation">Valider un article</a>
             <li/>
                 <li class="nav-item mr-auto mt-2 mt-lg-0">
-                    <a class="nav-link" href="/Admin/Css">Changer le design</a>
+                    <a class="nav-link" href="/User">Changer le design</a>
                 <li/>
                 {% endif %}
                     {% endif %}
@@ -89,13 +92,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/Api/Article/Last">Affiche les 5 derniers articles</a>
             </li>
+            {% if session.login.isadmin == 1 %}
                 <li class="nav-item">
                     <a class="nav-link" href="/Utilisateur">Valider un utilisateur</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/ListUtilisateur">Liste des utilisateur</a>
                 </li>
-
+            {% endif %}
 
             {% endif %}
             <li class="nav-item dropdown">

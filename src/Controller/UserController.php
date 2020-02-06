@@ -201,6 +201,24 @@ class UserController extends  AbstractController
             header('Location:/');
         }
 
+        //Afficher la page d'édition css
+        public function readFile(){
+            $file='test.css';
+            $dataCss = file_get_contents('assets/'.$file);
+            return $this->twig->render('User/readFile.html.twig', [
+                //contenu du fichier css envoyé dans la vue
+                'cssFileData' => $dataCss   ]);
+        }
+
+
+        //Afficher la page d'édition css
+        public function writeFile(){
+
+
+        }
+
+
+
 }
 
 

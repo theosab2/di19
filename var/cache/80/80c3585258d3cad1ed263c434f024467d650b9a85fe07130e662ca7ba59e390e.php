@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* Article/readfile.html.twig */
+/* Article/readFile.html.twig */
 class __TwigTemplate_32e8501692b1d12394f238936f26fdd93d4b64716f143bd99fc47f1ec3ab7302 extends Template
 {
     private $source;
@@ -38,7 +38,7 @@ class __TwigTemplate_32e8501692b1d12394f238936f26fdd93d4b64716f143bd99fc47f1ec3a
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/readfile.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig", "Article/readFile.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -58,7 +58,7 @@ class __TwigTemplate_32e8501692b1d12394f238936f26fdd93d4b64716f143bd99fc47f1ec3a
 
     public function getTemplateName()
     {
-        return "Article/readfile.html.twig";
+        return "Article/readFile.html.twig";
     }
 
     public function isTraitable()
@@ -79,6 +79,6 @@ class __TwigTemplate_32e8501692b1d12394f238936f26fdd93d4b64716f143bd99fc47f1ec3a
 
     {{ dump(fileData) }}
 
-{% endblock %}", "Article/readfile.html.twig", "C:\\dev\\www\\tp\\templates\\Article\\readfile.html.twig");
+{% endblock %}", "Article/readFile.html.twig", "C:\\dev\\www\\tp\\templates\\Article\\readFile.html.twig");
     }
 }
