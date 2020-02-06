@@ -88,6 +88,7 @@ class ArticleController extends AbstractController {
         header('Location:/Article/Validation');
     }
 
+
     public function Ref($articleID){
         $articleSQL = new Article();
         $article = $articleSQL->SqlchangeRef(Bdd::GetInstance(), $articleID);
