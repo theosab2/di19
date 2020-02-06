@@ -57,13 +57,15 @@
 </nav>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Menu</a>
+    {% if session.login is defined %}
+    <a class="navbar-brand" href="#">{{ session.login.prenom }}</a>
+    {%  else %}
+        <a class="navbar-brand" href="#">Visiteur</a>
+    {% endif %}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <?php
-            echo 'Bonjour' .$_SESSION['USER_PRENOM']
-    ?>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">

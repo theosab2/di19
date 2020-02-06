@@ -85,7 +85,7 @@ class UserController extends  AbstractController
         $pwd_hashed_bdd = $userInfoLog['USER_PASSWORD'];
         if ($pwd_hashed_entry == $pwd_hashed_bdd and $decode['success'] == true) {
             $_SESSION['login'] = array("id" => $userInfoLog['USER_ID'],
-                "roles" => array("redacteur"), "isadmin" => $userInfoLog['USER_ISADMIN']);
+                "roles" => array("redacteur"), "isadmin" => $userInfoLog['USER_ISADMIN'], "prenom" => $userInfoLog['USER_PRENOM']);
             header('Location:/');
         } else {
             $_SESSION['errorlogin'] = "Email, Mot de passe ou captcha incorrect";
