@@ -305,7 +305,7 @@ input {
 
     display: block;
 
-    width: 93%;
+    width: 10%;
 
     margin: auto;
 
@@ -317,7 +317,7 @@ input {
 
     font-family: "Roboto",sans-serif;
 
-    opacity: 0.40;
+    opacity: 1;
 
 }
 
@@ -328,7 +328,7 @@ input p {
 
     color: #fff;
 
-    opacity: 1;
+    opacity: 0;
 
 }
 
@@ -337,7 +337,7 @@ input p {
 
 input.submit {
 
-    width: 100%;
+    width: 10%;
 
     padding: 10px;
 

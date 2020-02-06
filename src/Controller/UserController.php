@@ -207,13 +207,21 @@ class UserController extends  AbstractController
             $dataCss = file_get_contents('assets/'.$file);
             return $this->twig->render('User/readFile.html.twig', [
                 //contenu du fichier css envoyé dans la vue
-                'cssFileData' => $dataCss   ]);
+                'cssFileData' => $dataCss]);
         }
 
 
         //Afficher la page d'édition css
         public function writeFile(){
-
+            if((strip_tags($_POST['cssContent']))!=($_POST['cssContent'])){
+                $_SESSION['errorcsschange']="Ce code CSS n'est pas conforme";
+                header("location/admin");
+            }
+            $monfichier = fopen('./asset/test.css', 'w');
+            fputs($monfichier, $_POST['cssContent']);
+            fclose($monfichier);
+            header('location:/User');
+            return;
 
         }
 
