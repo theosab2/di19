@@ -232,6 +232,13 @@ class User implements \JsonSerializable
         ]);
     }
 
+    public function Message(\PDO $bdd)
+    {
+        $query = $bdd->prepare('INSERT INTO articles (message) VALUES (:message)');
+        $query->execute([
+            "message" => $this->getMESSAGE(),
+        ]);
+    }
 
     public function SqlGetAllEmail(\PDO $bdd){
 
@@ -250,7 +257,7 @@ class User implements \JsonSerializable
     }
 
     public function SqlGetLogin(\PDO $bdd , $emailuser){
-        $query = $bdd->prepare('SELECT USER_PASSWORD,USER_ISADMIN, USER_NOM, USER_PRENOM, USER_STATUS, USER_ID FROM user WHERE USER_EMAIL = :useremail');
+        $query = $bdd->prepare('SELECT USER_PASSWORD,USER_ISADMIN, USER_EMAIL,USER_NOM, USER_PRENOM, USER_STATUS, USER_ID FROM user WHERE USER_EMAIL = :useremail');
         $query->execute([
             'useremail' => $emailuser
 
@@ -270,5 +277,7 @@ class User implements \JsonSerializable
 
         return $UserInfoLog;
     }
+
+
 }
 

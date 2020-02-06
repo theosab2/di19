@@ -144,6 +144,7 @@ class ArticleController extends AbstractController {
         }
     }
 
+
     public function update($articleID){
         // modification d'un article
         $articleSQL = new Article();

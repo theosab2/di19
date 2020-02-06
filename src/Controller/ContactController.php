@@ -2,6 +2,8 @@
 namespace src\Controller;
 
 
+use src\Model\Bdd;
+
 class ContactController extends AbstractController{
     private $mailer;
     private $transport;
