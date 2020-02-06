@@ -31,7 +31,7 @@ class ContactController extends AbstractController{
                     ])
                 ,'text/html'
             );
-
+        header('Location:/Article');
         $result = $this->mailer->send($mail);
 
         return $result;

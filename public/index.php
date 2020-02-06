@@ -39,7 +39,7 @@ $router->get('/Article/Val/:id', 'Article#Val#id');
 $router->get('/Article/FiltreCategorie/:id', 'Article#FiltreCategorie#id');
 
 
-// categorie
+//categorie
 $router->get('/Categorie', "Categorie#ListAll");
 $router->get('/Categorie/Add','Categorie#add');
 $router->post('/Categorie/Add','Categorie#add');
@@ -48,23 +48,26 @@ $router->get('/Categorie/update/:id','Categorie#update#id');
 $router->post('/Categorie/update/:id','Categorie#update#id');
 $router->get('/Categorie/delete/:id','Categorie#delete#id');
 
-// Utilisateur
+//Utilisateur
 $router->get('/Contact', 'Contact#showForm');
 $router->post('/Contact/sendMail', 'Contact#sendMail');
 
+//Inscription
 $router->get('/inscription','User#inscriptionForm');
 $router->post('/inscription','User#inscriptionCheck');
 
+//Connexion
 $router->get('/login','User#loginForm');
 $router->post('/login','User#loginCheck');
 
+//Déconnexion
 $router->get('/Logout', 'User#logout');
 
 // API
 $router->get('/Api/Article/Last','Api#ArticleGetLast');
 
+//Validation Article
 $router->get('/Article/Validation', 'Article#ListValidator');
-
 
 
 echo $router->run();
