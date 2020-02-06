@@ -151,6 +151,13 @@ class Article extends Contenu implements \JsonSerializable {
         ]);
     }
 
+    public function SqlchangeRef($bdd,$idArticle){
+        $requete = $bdd->prepare('update articles set Etat = 0 where Id=:idArticle');
+        $requete->execute([
+            'idArticle' => $idArticle
+        ]);
+    }
+
     public function SqlGetCherche(\PDO $bdd,$MotCle){
         // requete de recherche par mot clé dans titre
         $requete = $bdd->prepare('SELECT * FROM articles where Etat = 2 and Titre LIKE :search');

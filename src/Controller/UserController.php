@@ -88,7 +88,7 @@ class UserController extends  AbstractController
                 "roles" => array("redacteur"), "isadmin" => $userInfoLog['USER_ISADMIN']);
             header('Location:/');
         } else {
-            $_SESSION['errorlogin'] = "Email ou Mot de passe incorrect";
+            $_SESSION['errorlogin'] = "Email, Mot de passe ou captcha incorrect";
             header('Location:/login');
             return;
         }
@@ -116,7 +116,7 @@ class UserController extends  AbstractController
         return $this->twig->render('Article/Utilisateur.html.twig',['utilisateurlist' => $listUtilisateur]);
     }
 
-    public function Affichertlm(){
+    public function AfficherTlm(){
         $utilisateur = new User();
         $listUtilisateur = $utilisateur->Sqltlm(Bdd::GetInstance());
 

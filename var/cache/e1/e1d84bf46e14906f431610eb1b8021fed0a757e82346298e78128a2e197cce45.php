@@ -51,11 +51,11 @@ class __TwigTemplate_078c4a5b4ee9150d8eccd32f036b9ec88cbfd7f389995eda2896e022221
         $this->displayParentBlock("title", $context, $blocks);
     }
 
-    // line 4
+    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 5
+        // line 6
         echo "
     <div class=\"jumbotron\">
         <h1 class=\"display-4\">Liste des categories</h1>
@@ -71,39 +71,39 @@ class __TwigTemplate_078c4a5b4ee9150d8eccd32f036b9ec88cbfd7f389995eda2896e022221
             </thead>
             <tbody>
             ";
-        // line 19
+        // line 20
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["categorieList"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["categorie"]) {
-            // line 20
+            // line 21
             echo "                <tr>
                     <th scope=\"row\"><a href=\"/Categorie/Show/";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 21), "html", null, true);
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 22), "html", null, true);
             echo "\">#";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 21), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 22), "html", null, true);
             echo "</a></th>
                     <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "Nom", [], "any", false, false, false, 22), "html", null, true);
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "Nom", [], "any", false, false, false, 23), "html", null, true);
             echo "</td>
                     <td>";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "Description", [], "any", false, false, false, 23), "html", null, true);
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "Description", [], "any", false, false, false, 24), "html", null, true);
             echo "</td>
                     <td>
                         <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
                             <a class=\"btn btn-success\" href=\"/Categorie/Show/";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 26), "html", null, true);
-            echo "\"><i class=\"far fa-eye\"></i></a>
-                            <a class=\"btn btn-warning\" href=\"/Categorie/Update/";
             // line 27
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 27), "html", null, true);
-            echo "\"><i class=\"fas fa-edit\"></i></a>
-                            <a class=\"btn btn-danger\" href=\"/Categorie/Delete/";
+            echo "\"><i class=\"far fa-eye\"></i></a>
+                            <a class=\"btn btn-warning\" href=\"/Categorie/Update/";
             // line 28
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 28), "html", null, true);
+            echo "\"><i class=\"fas fa-edit\"></i></a>
+                            <a class=\"btn btn-danger\" href=\"/Categorie/Delete/";
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["categorie"], "id", [], "any", false, false, false, 29), "html", null, true);
             echo "\"><i class=\"far fa-trash-alt\"></i></a>
                         </div>
                     </td>
@@ -113,7 +113,7 @@ class __TwigTemplate_078c4a5b4ee9150d8eccd32f036b9ec88cbfd7f389995eda2896e022221
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 34
         echo "
             </tbody>
         </table>
@@ -134,13 +134,14 @@ class __TwigTemplate_078c4a5b4ee9150d8eccd32f036b9ec88cbfd7f389995eda2896e022221
 
     public function getDebugInfo()
     {
-        return array (  117 => 33,  106 => 28,  102 => 27,  98 => 26,  92 => 23,  88 => 22,  82 => 21,  79 => 20,  75 => 19,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  117 => 34,  106 => 29,  102 => 28,  98 => 27,  92 => 24,  88 => 23,  82 => 22,  79 => 21,  75 => 20,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"index.html.twig\" %}
 {% block title %} Liste des categories - {{ parent() }}{% endblock %}
+
 
 {% block body %}
 

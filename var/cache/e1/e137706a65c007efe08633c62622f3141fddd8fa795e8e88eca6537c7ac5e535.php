@@ -45,7 +45,7 @@ class __TwigTemplate_47756b8761e502619451a8a536fe1a6c6edd9d758714fb0a5498685e2c2
 
     <meta charset=\"UTF-8\">
 
-    <title>HeartPlane - Connexion</title>
+    <title> Connexion</title>
 
     <link rel=\"stylesheet\" href=\"https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css\">
 
@@ -63,7 +63,7 @@ class __TwigTemplate_47756b8761e502619451a8a536fe1a6c6edd9d758714fb0a5498685e2c2
 <div class=\"content\">
 
     <div class=\"container\">
-        <p>";
+        <p class=\"perror\">";
         // line 30
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", false, false, false, 30), "html", null, true);
         echo "</p>
@@ -124,11 +124,21 @@ active\">
 
                     <h3>Restez connecté</h3>
 
-
                 </div>
 
-                <input class=\"submit\" value=\"login\" type=\"submit\">
-
+                <!-- Captcha -->
+                <head>
+                    <title>reCAPTCHA demo: Simple page</title>
+                    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+                </head>
+                <body>
+                <form action=\"?\" method=\"POST\">
+                    <div class=\"g-recaptcha\" data-sitekey=\"6LcNR9YUAAAAAB0P3Y5B0UdAlg_sVQYa5l0nQ6MC\"></div>
+                    <br/>
+                    <input class=\"submit\" value=\"login\" type=\"submit\">
+                </form>
+                </body>
+                <!-- -->
 
             </form>
 
@@ -178,7 +188,7 @@ active\">
 
     <meta charset=\"UTF-8\">
 
-    <title>HeartPlane - Connexion</title>
+    <title> Connexion</title>
 
     <link rel=\"stylesheet\" href=\"https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css\">
 
@@ -196,7 +206,7 @@ active\">
 <div class=\"content\">
 
     <div class=\"container\">
-        <p>{{ session.errorlogin }}</p>
+        <p class=\"perror\">{{ session.errorlogin }}</p>
 
 
         <div class=\"menu\">
@@ -254,11 +264,21 @@ active\">
 
                     <h3>Restez connecté</h3>
 
-
                 </div>
 
-                <input class=\"submit\" value=\"login\" type=\"submit\">
-
+                <!-- Captcha -->
+                <head>
+                    <title>reCAPTCHA demo: Simple page</title>
+                    <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>
+                </head>
+                <body>
+                <form action=\"?\" method=\"POST\">
+                    <div class=\"g-recaptcha\" data-sitekey=\"6LcNR9YUAAAAAB0P3Y5B0UdAlg_sVQYa5l0nQ6MC\"></div>
+                    <br/>
+                    <input class=\"submit\" value=\"login\" type=\"submit\">
+                </form>
+                </body>
+                <!-- -->
 
             </form>
 

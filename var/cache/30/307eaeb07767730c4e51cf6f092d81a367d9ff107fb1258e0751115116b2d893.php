@@ -95,7 +95,7 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
             echo "</td>
             <td>
                 <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                    <a class=\"btn btn-success\" href=\"/Article/Show/";
+                    <a class=\"btn btn-primary\" href=\"/Article/Show/";
             // line 26
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 26), "html", null, true);
             echo "\"><i class=\"far fa-eye\"></i></a>
@@ -103,6 +103,10 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
             // line 27
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 27), "html", null, true);
             echo "\"><i class=\"fas fa-check-circle\"></i></a>
+                    <a class=\"btn btn-danger\" href=\"/Article/Ref/";
+            // line 28
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 28), "html", null, true);
+            echo "\"><i class=\"fas fa-times-circle\"></i></a>
                 </div>
             </td>
         </tr>
@@ -112,7 +116,7 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 34
         echo "    </tbody>
 
     ";
@@ -130,7 +134,7 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
 
     public function getDebugInfo()
     {
-        return array (  116 => 33,  104 => 27,  100 => 26,  94 => 23,  90 => 22,  86 => 21,  80 => 20,  76 => 18,  72 => 17,  58 => 5,  54 => 4,  47 => 2,  36 => 1,);
+        return array (  120 => 34,  108 => 28,  104 => 27,  100 => 26,  94 => 23,  90 => 22,  86 => 21,  80 => 20,  76 => 18,  72 => 17,  58 => 5,  54 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -160,8 +164,9 @@ class __TwigTemplate_e99555185c683be66ac8c6fa976fb197d45add16ff84598acd9423a5f31
             <td>{{ article.DateAjout | date(\"d/m/Y\") }}</td>
             <td>
                 <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                    <a class=\"btn btn-success\" href=\"/Article/Show/{{ article.id }}\"><i class=\"far fa-eye\"></i></a>
+                    <a class=\"btn btn-primary\" href=\"/Article/Show/{{ article.id }}\"><i class=\"far fa-eye\"></i></a>
                     <a class=\"btn btn-success\" href=\"/Article/Val/{{ article.id }}\"><i class=\"fas fa-check-circle\"></i></a>
+                    <a class=\"btn btn-danger\" href=\"/Article/Ref/{{ article.id }}\"><i class=\"fas fa-times-circle\"></i></a>
                 </div>
             </td>
         </tr>
