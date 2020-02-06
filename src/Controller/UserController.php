@@ -210,10 +210,10 @@ class UserController extends  AbstractController
                 'cssFileData' => $dataCss]);
         }
 
-
         //Afficher la page d'édition css
         public function writeFile(){
-            if((strip_tags($_POST['cssContent']))!=($_POST['cssContent'])){
+
+        if((strip_tags($_POST['cssContent']))!=($_POST['cssContent'])){
                 $_SESSION['errorcsschange']="Ce code CSS n'est pas conforme";
                 header("location/admin");
             }
@@ -222,11 +222,7 @@ class UserController extends  AbstractController
             fclose($monfichier);
             header('location:/User');
             return;
-
         }
-
-
-
 }
 
 
