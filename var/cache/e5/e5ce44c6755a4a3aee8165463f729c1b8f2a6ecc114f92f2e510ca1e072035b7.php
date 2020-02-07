@@ -56,6 +56,7 @@ class __TwigTemplate_4b4d296cad7b5a8ddba3c4665ad21d733ea5613ddf63df1fa1cf82394b5
 
 
 
+
 <body id=\"connexion\">
 
 </a></div>
@@ -63,28 +64,20 @@ class __TwigTemplate_4b4d296cad7b5a8ddba3c4665ad21d733ea5613ddf63df1fa1cf82394b5
 <div class=\"content\">
 
     <div class=\"container\">
-        <p>";
-        // line 30
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", false, false, false, 30), "html", null, true);
+        <p class=\"perror\">";
+        // line 31
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", false, false, false, 31), "html", null, true);
         echo "</p>
 
 
         <div class=\"menu\">
-
-
-            <a href=\"connexion\" class=\"btn-connexion\">
-
+            <a href=\"login\" class=\"btn-connexion\">
                 <h2>Se Connecter</h2>
-
             </a>
 
-            <a href=\"inscription\" class=\"btn-enregistrer
-active\">
-
+            <a href=\"inscription\" class=\"btn-enregistrer active\">
                 <h2>S'inscrire</h2>
-
             </a>
-
         </div>
 
         <div class=\"connexion\">
@@ -172,7 +165,7 @@ active\">
 
     public function getDebugInfo()
     {
-        return array (  68 => 30,  37 => 1,);
+        return array (  69 => 31,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -199,6 +192,7 @@ active\">
 
 
 
+
 <body id=\"connexion\">
 
 </a></div>
@@ -206,25 +200,17 @@ active\">
 <div class=\"content\">
 
     <div class=\"container\">
-        <p>{{ session.errorlogin }}</p>
+        <p class=\"perror\">{{ session.errorlogin }}</p>
 
 
         <div class=\"menu\">
-
-
-            <a href=\"connexion\" class=\"btn-connexion\">
-
+            <a href=\"login\" class=\"btn-connexion\">
                 <h2>Se Connecter</h2>
-
             </a>
 
-            <a href=\"inscription\" class=\"btn-enregistrer
-active\">
-
+            <a href=\"inscription\" class=\"btn-enregistrer active\">
                 <h2>S'inscrire</h2>
-
             </a>
-
         </div>
 
         <div class=\"connexion\">

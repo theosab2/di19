@@ -113,23 +113,30 @@ class __TwigTemplate_5594611804591bf302d30b8920bcb97a79de24b28411f2ce215e3438463
                 echo "                        <a class=\"btn btn-warning\" href=\"/Article/Update/";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 35), "html", null, true);
                 echo "\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"/Article/Delete/";
-                // line 36
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 36), "html", null, true);
-                echo "\"><i class=\"far fa-trash-alt\"></i></a>
+
                         ";
+                // line 37
+                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 37), "isadmin", [], "any", false, false, false, 37), 1)) {
+                    // line 38
+                    echo "                        <a class=\"btn btn-danger\" href=\"/Article/Delete/";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 38), "html", null, true);
+                    echo "\"><i class=\"fas fa-times-circle\"></i></a>
+                        ";
+                }
+                // line 40
+                echo "                        ";
             }
-            // line 38
+            // line 41
             echo "                    </div>
                     <!--<a class=\"btn btn-secondary\" href=\"/Article/WriteOne/";
-            // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 39), "html", null, true);
+            // line 42
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 42), "html", null, true);
             echo "\"><i class=\"fas fa-file-download\"></i></a>
                     -->
                 </td>
                 <td>";
-            // line 42
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "Categorie", [], "any", false, false, false, 42), "Nom", [], "any", false, false, false, 42), "html", null, true);
+            // line 45
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "Categorie", [], "any", false, false, false, 45), "Nom", [], "any", false, false, false, 45), "html", null, true);
             echo "</td>
 
             </tr>
@@ -139,7 +146,7 @@ class __TwigTemplate_5594611804591bf302d30b8920bcb97a79de24b28411f2ce215e3438463
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 47
+        // line 50
         echo "
         </tbody>
     </table>
@@ -161,7 +168,7 @@ class __TwigTemplate_5594611804591bf302d30b8920bcb97a79de24b28411f2ce215e3438463
 
     public function getDebugInfo()
     {
-        return array (  143 => 47,  132 => 42,  126 => 39,  123 => 38,  118 => 36,  113 => 35,  111 => 34,  107 => 33,  101 => 30,  97 => 29,  93 => 28,  87 => 27,  83 => 25,  79 => 24,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  150 => 50,  139 => 45,  133 => 42,  130 => 41,  127 => 40,  121 => 38,  119 => 37,  113 => 35,  111 => 34,  107 => 33,  101 => 30,  97 => 29,  93 => 28,  87 => 27,  83 => 25,  79 => 24,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -201,7 +208,10 @@ class __TwigTemplate_5594611804591bf302d30b8920bcb97a79de24b28411f2ce215e3438463
                         <a class=\"btn btn-success\" href=\"/Article/Show/{{ article.id }}\"><i class=\"far fa-eye\"></i></a>
                         {% if session.login is defined %}
                         <a class=\"btn btn-warning\" href=\"/Article/Update/{{ article.id }}\"><i class=\"fas fa-edit\"></i></a>
-                        <a class=\"btn btn-danger\" href=\"/Article/Delete/{{ article.id }}\"><i class=\"far fa-trash-alt\"></i></a>
+
+                        {% if session.login.isadmin == 1 %}
+                        <a class=\"btn btn-danger\" href=\"/Article/Delete/{{ article.id }}\"><i class=\"fas fa-times-circle\"></i></a>
+                        {% endif %}
                         {% endif %}
                     </div>
                     <!--<a class=\"btn btn-secondary\" href=\"/Article/WriteOne/{{ article.id }}\"><i class=\"fas fa-file-download\"></i></a>

@@ -9,20 +9,23 @@
 
     <title> ReadFile</title>
 
+    <link rel="stylesheet" href="/assets/index.css">
     <link rel="stylesheet" href="/assets/test.css">
 
 </head>
 
 <body>
-<label for="story">Code css à modifier</label>
+    <form name="addArticle" method="post" enctype="multipart/form-data">
+        <label for="cssFileData">Editeur CSS</label>
 
-<textarea id="cssContent" name="cssContent" rows="20" cols="100">
-    {{ cssFileData }}
-</textarea>
+        <textarea id="cssFileData" name="cssFileData"
+                  rows="25" cols="185">{{ cssFileData }}
+        </textarea>
 
-<input class="submit" type="submit" >
-
+        <div>
+            <center><input type="submit" value=Valider class="btn-warning"></center>
+        </div>
+    </form>
 </body>
-
 
 </html>

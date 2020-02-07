@@ -108,12 +108,13 @@ class __TwigTemplate_9e1ac094aec04766240ddb7e699e5326b6ca75d0b3da47750359de2aa1e
                         </div>
                     </td>
                 </tr>
+
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 34
+        // line 35
         echo "
             </tbody>
         </table>
@@ -134,7 +135,7 @@ class __TwigTemplate_9e1ac094aec04766240ddb7e699e5326b6ca75d0b3da47750359de2aa1e
 
     public function getDebugInfo()
     {
-        return array (  117 => 34,  106 => 29,  102 => 28,  98 => 27,  92 => 24,  88 => 23,  82 => 22,  79 => 21,  75 => 20,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  118 => 35,  106 => 29,  102 => 28,  98 => 27,  92 => 24,  88 => 23,  82 => 22,  79 => 21,  75 => 20,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -171,6 +172,7 @@ class __TwigTemplate_9e1ac094aec04766240ddb7e699e5326b6ca75d0b3da47750359de2aa1e
                         </div>
                     </td>
                 </tr>
+
             {% endfor %}
 
             </tbody>

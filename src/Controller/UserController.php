@@ -116,7 +116,7 @@ class UserController extends  AbstractController
         return $this->twig->render('Article/Utilisateur.html.twig',['utilisateurlist' => $listUtilisateur]);
     }
 
-    public function AfficherTlm(){
+    public function Affichertlm(){
         $utilisateur = new User();
         $listUtilisateur = $utilisateur->Sqltlm(Bdd::GetInstance());
 
@@ -205,6 +205,7 @@ class UserController extends  AbstractController
         public function readFile(){
             $file='test.css';
             $dataCss = file_get_contents('assets/'.$file);
+
             return $this->twig->render('User/readFile.html.twig', [
                 //contenu du fichier css envoyé dans la vue
                 'cssFileData' => $dataCss]);
@@ -213,14 +214,13 @@ class UserController extends  AbstractController
         //Afficher la page d'édition css
         public function writeFile(){
 
-        if((strip_tags($_POST['cssContent']))!=($_POST['cssContent'])){
+        /*if((strip_tags($_POST['cssFileData']))!=($_POST['cssFileData'])){
                 $_SESSION['errorcsschange']="Ce code CSS n'est pas conforme";
-                header("location/admin");
-            }
-            $monfichier = fopen('./asset/test.css', 'w');
-            fputs($monfichier, $_POST['cssContent']);
-            fclose($monfichier);
-            header('location:/User');
+                header("location:/");
+            }*/
+            $file='test.css';
+            file_put_contents('assets/'.$file,$_POST['cssFileData']);
+            header("location:/User");
             return;
         }
 }
