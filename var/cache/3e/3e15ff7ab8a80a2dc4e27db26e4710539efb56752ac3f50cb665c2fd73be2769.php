@@ -56,7 +56,7 @@ class __TwigTemplate_bdaf0abc0f58324459bd0445a5160a6753f70f6d8f2baa1b9d123a2702f
     {
         $macros = $this->macros;
         // line 5
-        echo "
+        echo "    <script src=\"https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js\"></script>
     <div class=\"container-fluid mt-2\">
 
         <h2 class=\"display-3\">Ajout d'un article</h2>
@@ -73,6 +73,9 @@ class __TwigTemplate_bdaf0abc0f58324459bd0445a5160a6753f70f6d8f2baa1b9d123a2702f
                 <label for=\"Description\" class=\"col-sm-2 col-form-label\">Description</label>
                 <div class=\"col-sm-10\">
                     <textarea name=\"Description\" class=\"form-control\" rows=\"9\"></textarea>
+                    <script>
+                        CKEDITOR.replace( 'Description');
+                    </script>
                 </div>
             </div>
             <div class=\"form-group row\">
@@ -106,28 +109,28 @@ class __TwigTemplate_bdaf0abc0f58324459bd0445a5160a6753f70f6d8f2baa1b9d123a2702f
                 <div class=\"col-sm-10\">
                     <select name=\"Categorie\" class=\"form-control\">
                         ";
-        // line 54
+        // line 57
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listCat"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["Categorie"]) {
-            // line 55
+            // line 58
             echo "                            <option value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 55), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 58), "html", null, true);
             echo "\" >";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Nom", [], "any", false, false, false, 55), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Nom", [], "any", false, false, false, 58), "html", null, true);
             echo "</option>
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['Categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 57
+        // line 60
         echo "                    </select>
                 </div>
             </div>
 
             <input type=\"hidden\" name=\"token\" value=\"";
-        // line 61
+        // line 64
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
             <input type=\"submit\" class=\"btn btn-primary my-1\">
@@ -149,7 +152,7 @@ class __TwigTemplate_bdaf0abc0f58324459bd0445a5160a6753f70f6d8f2baa1b9d123a2702f
 
     public function getDebugInfo()
     {
-        return array (  131 => 61,  125 => 57,  114 => 55,  110 => 54,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  134 => 64,  128 => 60,  117 => 58,  113 => 57,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -158,7 +161,7 @@ class __TwigTemplate_bdaf0abc0f58324459bd0445a5160a6753f70f6d8f2baa1b9d123a2702f
 {% block title %}{{ parent() }} - Ajout d'un article {% endblock %}
 
 {% block body %}
-
+    <script src=\"https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js\"></script>
     <div class=\"container-fluid mt-2\">
 
         <h2 class=\"display-3\">Ajout d'un article</h2>
@@ -175,6 +178,9 @@ class __TwigTemplate_bdaf0abc0f58324459bd0445a5160a6753f70f6d8f2baa1b9d123a2702f
                 <label for=\"Description\" class=\"col-sm-2 col-form-label\">Description</label>
                 <div class=\"col-sm-10\">
                     <textarea name=\"Description\" class=\"form-control\" rows=\"9\"></textarea>
+                    <script>
+                        CKEDITOR.replace( 'Description');
+                    </script>
                 </div>
             </div>
             <div class=\"form-group row\">
