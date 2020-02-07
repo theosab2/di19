@@ -207,9 +207,16 @@ class UserController extends  AbstractController
                             unset($_SESSION['errinscription']);
                             unset($_SESSION['errorlogin']);
                             header('Location:/login');
+
+                            if($email_exist==false){
+                                $_SESSION['errorlogin'] = "EMail ou Mot de passe incorrect";
+                                header('Location:/login');
+                                return;
+                            }
                         }
                 }
             }
+
         }
 
         //fonction Deconnexion
