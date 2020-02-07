@@ -114,29 +114,44 @@ class __TwigTemplate_5594611804591bf302d30b8920bcb97a79de24b28411f2ce215e3438463
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 35), "html", null, true);
                 echo "\"><i class=\"fas fa-edit\"></i></a>
 
-                        ";
+                            ";
                 // line 37
-                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 37), "isadmin", [], "any", false, false, false, 37), 1)) {
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 37), "roles", [], "any", false, false, false, 37));
+                foreach ($context['_seq'] as $context["_key"] => $context["role"]) {
                     // line 38
-                    echo "                        <a class=\"btn btn-danger\" href=\"/Article/Delete/";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 38), "html", null, true);
-                    echo "\"><i class=\"fas fa-times-circle\"></i></a>
+                    echo "
+                            ";
+                    // line 39
+                    if (0 === twig_compare($context["role"], "administrateur")) {
+                        // line 40
+                        echo "
+                                <a class=\"btn btn-danger\" href=\"/Article/Delete/";
+                        // line 41
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 41), "html", null, true);
+                        echo "\"><i class=\"fas fa-times-circle\"></i></a>
                         ";
+                    }
+                    // line 43
+                    echo "                            ";
                 }
-                // line 40
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['role'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 44
                 echo "                        ";
             }
-            // line 41
+            // line 45
             echo "                    </div>
                     <!--<a class=\"btn btn-secondary\" href=\"/Article/WriteOne/";
-            // line 42
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 42), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 46), "html", null, true);
             echo "\"><i class=\"fas fa-file-download\"></i></a>
                     -->
                 </td>
                 <td>";
-            // line 45
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "Categorie", [], "any", false, false, false, 45), "Nom", [], "any", false, false, false, 45), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "Categorie", [], "any", false, false, false, 49), "Nom", [], "any", false, false, false, 49), "html", null, true);
             echo "</td>
 
             </tr>
@@ -146,7 +161,7 @@ class __TwigTemplate_5594611804591bf302d30b8920bcb97a79de24b28411f2ce215e3438463
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 50
+        // line 54
         echo "
         </tbody>
     </table>
@@ -168,7 +183,7 @@ class __TwigTemplate_5594611804591bf302d30b8920bcb97a79de24b28411f2ce215e3438463
 
     public function getDebugInfo()
     {
-        return array (  150 => 50,  139 => 45,  133 => 42,  130 => 41,  127 => 40,  121 => 38,  119 => 37,  113 => 35,  111 => 34,  107 => 33,  101 => 30,  97 => 29,  93 => 28,  87 => 27,  83 => 25,  79 => 24,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
+        return array (  165 => 54,  154 => 49,  148 => 46,  145 => 45,  142 => 44,  136 => 43,  131 => 41,  128 => 40,  126 => 39,  123 => 38,  119 => 37,  113 => 35,  111 => 34,  107 => 33,  101 => 30,  97 => 29,  93 => 28,  87 => 27,  83 => 25,  79 => 24,  59 => 6,  55 => 5,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -209,9 +224,13 @@ class __TwigTemplate_5594611804591bf302d30b8920bcb97a79de24b28411f2ce215e3438463
                         {% if session.login is defined %}
                         <a class=\"btn btn-warning\" href=\"/Article/Update/{{ article.id }}\"><i class=\"fas fa-edit\"></i></a>
 
-                        {% if session.login.isadmin == 1 %}
-                        <a class=\"btn btn-danger\" href=\"/Article/Delete/{{ article.id }}\"><i class=\"fas fa-times-circle\"></i></a>
+                            {% for role in session.login.roles %}
+
+                            {% if role == 'administrateur' %}
+
+                                <a class=\"btn btn-danger\" href=\"/Article/Delete/{{ article.id }}\"><i class=\"fas fa-times-circle\"></i></a>
                         {% endif %}
+                            {% endfor %}
                         {% endif %}
                     </div>
                     <!--<a class=\"btn btn-secondary\" href=\"/Article/WriteOne/{{ article.id }}\"><i class=\"fas fa-file-download\"></i></a>

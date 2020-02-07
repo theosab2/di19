@@ -73,7 +73,7 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
 <body>
     <form name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
         <textarea id=\"cssFileData\" name=\"cssFileData\"
-                  rows=\"15\" cols=\"185\">";
+                  rows=\"14\" cols=\"150\">";
         // line 22
         echo twig_escape_filter($this->env, ($context["cssFileData"] ?? null), "html", null, true);
         echo "
@@ -128,7 +128,7 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
 <body>
     <form name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
         <textarea id=\"cssFileData\" name=\"cssFileData\"
-                  rows=\"15\" cols=\"185\">{{ cssFileData }}
+                  rows=\"14\" cols=\"150\">{{ cssFileData }}
         </textarea>
 
         <div>

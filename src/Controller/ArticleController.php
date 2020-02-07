@@ -133,7 +133,10 @@ class ArticleController extends AbstractController {
             }
             $article = new Article();
             $article->setTitre(strip_tags($_POST['Titre']))
-                ->setDescription(strip_tags($_POST['Description']))
+                ->setDescription(strip_tags($_POST['Description'],'<p></p>
+                                                                                <s></s>
+                                                                                <strong></strong>
+                                                                                <em></em>'))
                 ->setAuteur(strip_tags($_POST['Auteur']))
                 ->setDateAjout(strip_tags($_POST['DateAjout']))
                 ->setImageRepository($sqlRepository)
@@ -141,7 +144,7 @@ class ArticleController extends AbstractController {
                 ->setCategorie(strip_tags($_POST['Categorie']))
             ;
             $article->SqlAdd(BDD::getInstance());
-            var_dump($_POST["Description"]);
+            //var_dump('Description');
             header('Location:/Article');
         }else{
             // Génération d'un TOKEN
