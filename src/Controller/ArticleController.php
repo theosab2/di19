@@ -34,9 +34,12 @@ class ArticleController extends AbstractController {
         $listArticle = $article->SqlGetCherche(Bdd::GetInstance(),$MotCle);
 
         //Lancer la vue TWIG
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
         return $this->twig->render(
             'Article/list.html.twig',[
                 'articleList' => $listArticle
+                ,'listCat' => $listCategorie
             ]
         );
     }
@@ -47,10 +50,14 @@ class ArticleController extends AbstractController {
         $article = new Article();
         $listArticle = $article->SqlGetFiltreCategorie(Bdd::GetInstance(),$IdCategorie);
 
+
         //Lancer la vue TWIG
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
         return $this->twig->render(
             'Article/list.html.twig',[
                 'articleList' => $listArticle
+                ,'listCat' => $listCategorie
             ]
         );
     }
@@ -62,9 +69,12 @@ class ArticleController extends AbstractController {
         $listArticle = $article->SqlValidator(Bdd::GetInstance());
 
         //Lancer la vue TWIG
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
         return $this->twig->render(
-            'Article/Validation.html.twig',[
+            'Article/list.html.twig',[
                 'articleList' => $listArticle
+                ,'listCat' => $listCategorie
             ]
         );
     }
@@ -74,9 +84,12 @@ class ArticleController extends AbstractController {
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 
         //Lancer la vue TWIG
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
         return $this->twig->render(
-            'Article/Validation.html.twig',[
+            'Article/list.html.twig',[
                 'articleList' => $listArticle
+                ,'listCat' => $listCategorie
             ]
         );
     }
@@ -203,7 +216,6 @@ class ArticleController extends AbstractController {
         if($article->getImageFileName() != ''){
             unlink('./uploads/images/'.$article->getImageRepository().'/'.$article->getImageFileName());
         }
-
         header('Location:/');
     }
 
@@ -250,8 +262,12 @@ class ArticleController extends AbstractController {
         $datas = file_get_contents('./uploads/file/'.$file);
         $contenu = json_decode($datas);
 
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
+
         return $this->twig->render('Article/readFile.html.twig', [
             'fileData' => $contenu
+            ,'listCat' => $listCategorie
         ]);
     }
 
@@ -261,8 +277,12 @@ class ArticleController extends AbstractController {
         $articleSQL = new Article();
         $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
 
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
+
         return $this->twig->render('Article/view.html.twig',[
             'article' => $article
+            ,'listCat' => $listCategorie
         ]);
     }
 

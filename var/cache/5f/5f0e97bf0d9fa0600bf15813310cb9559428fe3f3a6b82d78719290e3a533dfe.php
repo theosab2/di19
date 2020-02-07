@@ -24,20 +24,40 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
 
         $this->source = $this->getSourceContext();
 
-        $this->parent = false;
-
         $this->blocks = [
+            'title' => [$this, 'block_title'],
+            'body' => [$this, 'block_body'],
         ];
+    }
+
+    protected function doGetParent(array $context)
+    {
+        // line 1
+        return "index.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 1
-        echo "<!DOCTYPE html>
+        $this->parent = $this->loadTemplate("index.html.twig", "User/readFile.html.twig", 1);
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
 
+    // line 2
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        echo " Editeur CSS - ";
+        $this->displayParentBlock("title", $context, $blocks);
+    }
+
+    // line 4
+    public function block_body($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 5
+        echo "
 <html lang=\"fr\">
-
 
 <head>
 
@@ -52,10 +72,8 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
 
 <body>
     <form name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
-        <label for=\"cssFileData\">Editeur CSS</label>
-
         <textarea id=\"cssFileData\" name=\"cssFileData\"
-                  rows=\"25\" cols=\"185\">";
+                  rows=\"15\" cols=\"185\">";
         // line 22
         echo twig_escape_filter($this->env, ($context["cssFileData"] ?? null), "html", null, true);
         echo "
@@ -67,7 +85,9 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
     </form>
 </body>
 
-</html>";
+</html>
+
+";
     }
 
     public function getTemplateName()
@@ -82,15 +102,17 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
 
     public function getDebugInfo()
     {
-        return array (  60 => 22,  37 => 1,);
+        return array (  78 => 22,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<!DOCTYPE html>
+        return new Source("{% extends \"index.html.twig\" %}
+{% block title %} Editeur CSS - {{ parent() }}{% endblock %}
+
+{% block body %}
 
 <html lang=\"fr\">
-
 
 <head>
 
@@ -105,10 +127,8 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
 
 <body>
     <form name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
-        <label for=\"cssFileData\">Editeur CSS</label>
-
         <textarea id=\"cssFileData\" name=\"cssFileData\"
-                  rows=\"25\" cols=\"185\">{{ cssFileData }}
+                  rows=\"15\" cols=\"185\">{{ cssFileData }}
         </textarea>
 
         <div>
@@ -117,6 +137,8 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
     </form>
 </body>
 
-</html>", "User/readFile.html.twig", "C:\\dev\\www\\tp\\templates\\User\\readFile.html.twig");
+</html>
+
+{% endblock %}", "User/readFile.html.twig", "C:\\dev\\www\\tp\\templates\\User\\readFile.html.twig");
     }
 }

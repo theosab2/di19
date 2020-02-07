@@ -58,7 +58,7 @@ class __TwigTemplate_e53904ebd0a9dd084df5d90f73bb9f6d2291471d2548b628be8138997e0
         // line 5
         echo "    <div class=\"container-fluid mt-2\">
 
-        <h2 class=\"display-3\">Article n°";
+        <h2 class=\"display-3\">Categorie n°";
         // line 7
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["categorie"] ?? null), "Id", [], "any", false, false, false, 7), "html", null, true);
         echo "</h2>
@@ -106,7 +106,7 @@ class __TwigTemplate_e53904ebd0a9dd084df5d90f73bb9f6d2291471d2548b628be8138997e0
 {% block body %}
     <div class=\"container-fluid mt-2\">
 
-        <h2 class=\"display-3\">Article n°{{ categorie.Id }}</h2>
+        <h2 class=\"display-3\">Categorie n°{{ categorie.Id }}</h2>
         <hr class=\"my-4\">
         <div class=\"row\">
             <div class=\"card col-lg-4 ml\" style=\"width: 15rem;\">

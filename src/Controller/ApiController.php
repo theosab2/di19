@@ -3,7 +3,7 @@ namespace src\Controller;
 
 use src\Model\Article;
 use src\Model\Bdd;
-
+use src\Model\Categorie;
 
 class ApiController extends AbstractController
 {
@@ -57,9 +57,12 @@ class ApiController extends AbstractController
         //return json_encode($listArticle);
 
         //Lancer la vue TWIG
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
         return $this->twig->render(
             'Article/list.html.twig',[
                 'articleList' => $listArticle
+                ,'listCat' => $listCategorie
             ]
         );
     }

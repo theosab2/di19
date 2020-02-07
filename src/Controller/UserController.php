@@ -3,6 +3,7 @@ namespace src\Controller;
 
 
 use src\Model\Bdd;
+use src\Model\Categorie;
 use src\Model\User;
 
 class UserController extends  AbstractController
@@ -197,7 +198,6 @@ class UserController extends  AbstractController
         {
             unset($_SESSION['login']);
             unset($_SESSION['errorlogin']);
-
             header('Location:/');
         }
 
@@ -206,18 +206,23 @@ class UserController extends  AbstractController
             $file='test.css';
             $dataCss = file_get_contents('assets/'.$file);
 
+            $Categorie = new Categorie();
+            $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
             return $this->twig->render('User/readFile.html.twig', [
                 //contenu du fichier css envoyé dans la vue
-                'cssFileData' => $dataCss]);
+                'cssFileData' => $dataCss
+                ,'listCat' => $listCategorie
+            ]);
+
         }
 
         //Afficher la page d'édition css
         public function writeFile(){
 
-        /*if((strip_tags($_POST['cssFileData']))!=($_POST['cssFileData'])){
+        if(strip_tags($_POST['cssFileData'])!=($_POST['cssFileData'])){
                 $_SESSION['errorcsschange']="Ce code CSS n'est pas conforme";
                 header("location:/");
-            }*/
+            }
             $file='test.css';
             file_put_contents('assets/'.$file,$_POST['cssFileData']);
             header("location:/User");

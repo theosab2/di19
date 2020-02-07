@@ -83,7 +83,7 @@ class __TwigTemplate_3772ce1ea742990c513b2563c504279e5c6f24f016849cecb5cc942b2b3
                     </div>
                 </div>
 
-                <input type=\"submit\" class=\"btn btn-primary my-1\">
+                <input type=\"submit\" value=\"Valider\" class=\"btn btn-primary my-1\">
             </form>
         </div>
 
@@ -134,7 +134,7 @@ class __TwigTemplate_3772ce1ea742990c513b2563c504279e5c6f24f016849cecb5cc942b2b3
                     </div>
                 </div>
 
-                <input type=\"submit\" class=\"btn btn-primary my-1\">
+                <input type=\"submit\" value=\"Valider\" class=\"btn btn-primary my-1\">
             </form>
         </div>
 

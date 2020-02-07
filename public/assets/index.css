@@ -1,5 +1,5 @@
 .btn-success{
-    background-color: #246F34;
+    background-color: green;
     border-color: #246F34;
 }
 
@@ -7,6 +7,7 @@
     background-color: #264480;
     border-color:#264480;
     color: white;
+    background-position: center;
 }
 
 .jumbotron{
@@ -40,8 +41,4 @@
 
 .bg-light {
     background-color:#cebd9f !important;
-}
-
-body{
-    background:url(background.jpg);
 }

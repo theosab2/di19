@@ -15,6 +15,7 @@ class CategorieController extends AbstractController{
         return $this->twig->render(
             'Categorie/list.html.twig',[
                 'categorieList' => $listCategorie
+                ,'listCat' => $listCategorie
             ]
         );
     }
@@ -23,10 +24,16 @@ class CategorieController extends AbstractController{
     public function Show($categorieID){
         $categorieSQL = new Categorie();
         $categorie = $categorieSQL->SqlGet(BDD::getInstance(),$categorieID);
+        $listCategorie = $categorieSQL->SqlGetCateg(Bdd::GetInstance());
 
         //Lancer la vue TWIG
-        return $this->twig->render('Categorie/show.html.twig',['categorie' => $categorie]
+        return $this->twig->render('Categorie/show.html.twig',[
+            'categorie' => $categorie
+             ,'listCat' => $listCategorie
+            ]
+
         );
+
     }
 
     public function add(){
@@ -43,9 +50,12 @@ class CategorieController extends AbstractController{
             // Génération d'un TOKEN
             $token = bin2hex(random_bytes(32));
             $_SESSION['token'] = $token;
+            $Categorie = new Categorie();
+            $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
             return $this->twig->render('Categorie/add.html.twig',
                 [
                     'token' => $token
+                    ,'listCat' => $listCategorie
                 ]);
         }
     }
@@ -53,6 +63,7 @@ class CategorieController extends AbstractController{
     public function update($categorieID){
         $categorieSQL = new Categorie();
         $categorie = $categorieSQL->SqlGet(BDD::getInstance(),$categorieID);
+        $listCategorie = $categorieSQL->SqlGetCateg(Bdd::GetInstance());
 
         if($_POST){
             $categorie->setNom(strip_tags($_POST['Nom']));
@@ -64,6 +75,7 @@ class CategorieController extends AbstractController{
 
         return $this->twig->render('Categorie/update.html.twig',[
             'categorie' => $categorie
+            ,'listCat' => $listCategorie
         ]);
     }
 
