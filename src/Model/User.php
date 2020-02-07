@@ -264,7 +264,7 @@ class User implements \JsonSerializable
     }
 
     public function SqlGetLogin(\PDO $bdd , $emailuser){
-        $query = $bdd->prepare('SELECT USER_PASSWORD,USER_ROLE, USER_EMAIL,USER_NOM, USER_PRENOM, USER_STATUS, USER_ID FROM user WHERE USER_EMAIL = :useremail');
+        $query = $bdd->prepare('SELECT USER_PASSWORD,USER_ROLE, USER_EMAIL,USER_NOM, USER_PRENOM, USER_STATUS, USER_ID, USER_VALIDER FROM user WHERE USER_EMAIL = :useremail');
         $query->execute([
             'useremail' => $emailuser
 
