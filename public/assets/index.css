@@ -45,3 +45,17 @@
 body{
     background-color: #cebd9f;
 }
+
+.form-control {
+    background: none;
+    border-color: #293133;
+}
+
+.form-control:hover{
+    border-color: #343a40;
+}
+
+input{
+    background:none;
+    border-color: #343a40;
+}
