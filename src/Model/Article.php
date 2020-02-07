@@ -76,6 +76,7 @@ class Article extends Contenu implements \JsonSerializable {
     }
 
     public function SqlValider(\PDO $bdd) {
+        // requete pour la validation d'un article.
         try{
             $requete = $bdd->prepare('INSERT INTO articles (Etat) VALUES(2) where  id = id.Article');
             $requete->execute();
@@ -124,6 +125,7 @@ class Article extends Contenu implements \JsonSerializable {
     }
 
     public function SqlValidator(\PDO $bdd){
+        // requete renvoyant tout les articles non validés
         $requete = $bdd->prepare('SELECT * FROM articles WHERE Etat = 1');
         $requete->execute();
         $arrayArticle = $requete->fetchAll();
@@ -143,7 +145,7 @@ class Article extends Contenu implements \JsonSerializable {
         return $listArticle;
     }
 
-    //Update l'etat d'un article a
+    //Update l'etat d'un article validé
     public function Sqlchange($bdd,$idArticle){
         $requete = $bdd->prepare('update articles set Etat = 2 where Id=:idArticle');
         $requete->execute([
@@ -157,6 +159,7 @@ class Article extends Contenu implements \JsonSerializable {
             'idArticle' => $idArticle
         ]);
     }
+
 
     public function SqlGetCherche(\PDO $bdd,$MotCle){
         // requete de recherche par mot clé dans titre
@@ -185,7 +188,6 @@ class Article extends Contenu implements \JsonSerializable {
 
     public function SqlGetFiltreCategorie(\PDO $bdd,$IdCategorie){
         // requete de recherche par categorie
-        //$requete = $bdd->prepare('SELECT * FROM articles where Categorie = :IdCategorie');
         $requete = $bdd->prepare('SELECT 
                    articles.Id as \'Id\',
                    articles.Titre as \'Titre\',
@@ -290,7 +292,7 @@ class Article extends Contenu implements \JsonSerializable {
     }
 
     public function SqlTruncate (\PDO $bdd){
-        // requete de suppression d'un article
+        // requete de suppression de la table article
         try{
             $requete = $bdd->prepare('TRUNCATE TABLE articles');
             $requete->execute();
@@ -302,6 +304,7 @@ class Article extends Contenu implements \JsonSerializable {
 
     public function jsonSerialize()
     {
+        // défini tout les champs de la table article pour les fichiers json
         return [
             'Id' => $this->getId()
             ,'Titre' => $this->getTitre()
@@ -314,7 +317,7 @@ class Article extends Contenu implements \JsonSerializable {
         ];
     }
 
-
+// geteurs / seteurs
     /**
      * @return mixed
      */

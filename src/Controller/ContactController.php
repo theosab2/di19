@@ -1,7 +1,6 @@
 <?php
 namespace src\Controller;
 
-
 use src\Model\Bdd;
 
 class ContactController extends AbstractController{
@@ -22,6 +21,7 @@ class ContactController extends AbstractController{
         return $this->twig->render('Article/view.html.twig');
     }
 
+    // Envoi du mail
     public function sendMail(){
         $mail = (new \Swift_Message('Contact depuis le formulaire'))
             ->setFrom([$_POST["email"] => $_POST["nom"]])
@@ -38,5 +38,4 @@ class ContactController extends AbstractController{
 
         return $result;
     }
-
 }

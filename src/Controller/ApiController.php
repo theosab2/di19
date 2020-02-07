@@ -7,7 +7,6 @@ use src\Model\Categorie;
 
 class ApiController extends AbstractController
 {
-
     public function ArticleGet()
     {
         $article = new Article();
@@ -49,12 +48,13 @@ class ApiController extends AbstractController
 
         return json_encode($result);
     }
-//Fonction récupérant les derniers articles dans la BDD
+
+//Fonction récupérant les 5 derniers articles dans la BDD
     public function ArticleGetLast()
     {
         $article = new Article();
         $listArticle = $article->SqlGetLast(Bdd::GetInstance());
-        //return json_encode($listArticle);
+        return json_encode($listArticle);
 
         //Lancer la vue TWIG
         $Categorie = new Categorie();
@@ -66,5 +66,4 @@ class ApiController extends AbstractController
             ]
         );
     }
-
 }

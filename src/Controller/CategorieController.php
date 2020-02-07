@@ -4,10 +4,12 @@ namespace src\Controller;
 use src\Model\Bdd;
 use src\Model\Categorie;
 
-
 class CategorieController extends AbstractController{
 
+    // CRUD categorie
+
     public function ListAll(){
+        //affiche la liste des categories
         $categorie = new Categorie();
         $listCategorie = $categorie->SqlGetCateg(Bdd::GetInstance());
 
@@ -20,8 +22,8 @@ class CategorieController extends AbstractController{
         );
     }
 
-
     public function Show($categorieID){
+        // Affiche une categorie
         $categorieSQL = new Categorie();
         $categorie = $categorieSQL->SqlGet(BDD::getInstance(),$categorieID);
         $listCategorie = $categorieSQL->SqlGetCateg(Bdd::GetInstance());
@@ -37,7 +39,7 @@ class CategorieController extends AbstractController{
     }
 
     public function add(){
-
+        // Ajoute une categorie
         if($_POST AND $_SESSION['token'] == $_POST['token']){
 
             $categorie = new categorie();
@@ -61,6 +63,7 @@ class CategorieController extends AbstractController{
     }
 
     public function update($categorieID){
+        // Modification d'une categorie
         $categorieSQL = new Categorie();
         $categorie = $categorieSQL->SqlGet(BDD::getInstance(),$categorieID);
         $listCategorie = $categorieSQL->SqlGetCateg(Bdd::GetInstance());
@@ -80,6 +83,7 @@ class CategorieController extends AbstractController{
     }
 
     public function delete($categorieID){
+        // Supprime une categorie
         $categorieSQL = new Categorie();
         $categorie = $categorieSQL->SqlGet(BDD::getInstance(),$categorieID);
         $categorie->SqlDelete(BDD::getInstance(),$categorieID);

@@ -6,6 +6,7 @@ use DateTime;
 use src\Model\Categorie;
 
 class ArticleController extends AbstractController {
+    // Classe contenant le CRUD, la validation, le moteur de recherche, le filtre par categorie des articles
 
     public function Index(){
         return $this->ListAll();
@@ -63,7 +64,7 @@ class ArticleController extends AbstractController {
     }
 
 
-    //affiche les articles a valider
+    //affiche les articles à valider
     public function ListValidator(){
         $article = new Article();
         $listArticle = $article->SqlValidator(Bdd::GetInstance());
@@ -79,7 +80,7 @@ class ArticleController extends AbstractController {
         );
     }
 
-    //affiche les article a valider
+    //affiche les articles validés
     public function Validation(){
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
@@ -95,7 +96,7 @@ class ArticleController extends AbstractController {
         );
     }
 
-    //valide les article
+    //valide un article
     public function Val($articleID){
         $articleSQL = new Article();
         $article = $articleSQL->Sqlchange(Bdd::GetInstance(), $articleID);
@@ -111,7 +112,7 @@ class ArticleController extends AbstractController {
         header('Location:/Article/Validation');
     }
 
-
+    // CRUD articles
     public function add(){
         // Ajout d'un article
 
@@ -225,6 +226,20 @@ class ArticleController extends AbstractController {
         header('Location:/');
     }
 
+    public function Show($articleID){
+        // affiche un article seul
+        $articleSQL = new Article();
+        $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
+
+        $Categorie = new Categorie();
+        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
+
+        return $this->twig->render('Article/view.html.twig',[
+            'article' => $article
+            ,'listCat' => $listCategorie
+        ]);
+    }
+
     public function fixtures(){
         // Génère des articles pour test
         $arrayAuteur = array('Fabien', 'Brice', 'Bruno', 'Jean-Pierre', 'Benoit', 'Emmanuel', 'Sylvie', 'Marion');
@@ -249,7 +264,9 @@ class ArticleController extends AbstractController {
     }
 
 
+    // Fichiers Json (plus utilisé : vue en cours, refait dans ApiController.php)
     public function Write(){
+        // Ecrit la liste des articles dans un fichier json
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
 
@@ -259,11 +276,11 @@ class ArticleController extends AbstractController {
             mkdir('./uploads/file/', 0777, true);
         }
         file_put_contents('./uploads/file/'.$file, json_encode($listArticle));
-
         header('location:/Article/');
     }
 
     public function Read(){
+        // Lit la liste des articles à partir du fichier json
         $file='article.json';
         $datas = file_get_contents('./uploads/file/'.$file);
         $contenu = json_decode($datas);
@@ -277,24 +294,8 @@ class ArticleController extends AbstractController {
         ]);
     }
 
-
-    public function Show($articleID){
-        // affiche un article seul
-        $articleSQL = new Article();
-        $article = $articleSQL->SqlGet(BDD::getInstance(),$articleID);
-
-        $Categorie = new Categorie();
-        $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
-
-        return $this->twig->render('Article/view.html.twig',[
-            'article' => $article
-            ,'listCat' => $listCategorie
-        ]);
-    }
-
-
-
     public function WriteOne($idArticle){
+        // Ecrit le contenu d'un article dans un fichier json
         $article = new Article();
         $articleData = $article->SqlGet(Bdd::GetInstance(), $idArticle);
 

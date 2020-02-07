@@ -5,7 +5,6 @@ class AbstractController {
     protected $loader;
     protected $twig;
 
-
     public function __construct()
     {
         //Configuration de TWIG

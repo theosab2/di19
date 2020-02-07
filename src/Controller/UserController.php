@@ -80,7 +80,6 @@ class UserController extends  AbstractController
             . "&remoteip=" . $remoteip ;
 
         $decode = json_decode(file_get_contents($api_url), true);
-        var_dump($decode);
       //---
 
         $options = [
@@ -92,6 +91,7 @@ class UserController extends  AbstractController
         $user = new User();
         $userInfoLog = $user->SqlGetLogin(Bdd::GetInstance(), ($_POST['email']));
         $pwd_hashed_bdd = $userInfoLog['USER_PASSWORD'];
+
         if ($pwd_hashed_entry == $pwd_hashed_bdd and $decode['success'] == true) {
             $arrayRole = explode(" ", $userInfoLog['USER_ROLE']);
             $_SESSION['login'] = array("id" => $userInfoLog['USER_ID'],
@@ -112,6 +112,7 @@ class UserController extends  AbstractController
     }
 
 
+    //Roles utilisateurs : administrateur ou redacteur
     public static function roleNeed($roleATester)
     {
         if (isset($_SESSION['login'])) {
@@ -125,7 +126,7 @@ class UserController extends  AbstractController
         }
     }
 
-    //permet de visualiser les utilisateurs
+    //permet de visualiser les utilisateurs non validé
     public function AfficherUtilisateur(){
         $utilisateur = new User();
         $listUtilisateur = $utilisateur->SqlUtilisateur(Bdd::GetInstance());
@@ -133,6 +134,7 @@ class UserController extends  AbstractController
         return $this->twig->render('User/Utilisateur.html.twig',['utilisateurlist' => $listUtilisateur]);
     }
 
+    //permet de visualiser les utilisateurs validé
     public function Affichertlm(){
         $utilisateur = new User();
         $listUtilisateur = $utilisateur->Sqltlm(Bdd::GetInstance());
@@ -148,6 +150,7 @@ class UserController extends  AbstractController
         header('Location:/Utilisateur');
     }
 
+    // Permet de supprimer un utilisateur
     public static function delUtilisateur($id){
         $Utilisateur = new User();
         $Utilisateur->SQldel(Bdd::GetInstance(),$id);
@@ -155,7 +158,7 @@ class UserController extends  AbstractController
         header('Location:/Utilisateur');
     }
 
-    //fonction Inscription
+    //fonction Inscription utilisateur
     public function InscriptionCheck()
     {
         if ($_POST) {
@@ -232,7 +235,7 @@ class UserController extends  AbstractController
             header('Location:/');
         }
 
-        //Afficher la page d'édition css
+        //Afficher le fichier test.css dans la page d'édition css
         public function readFile(){
             $file='test.css';
             $dataCss = file_get_contents('assets/'.$file);
@@ -244,16 +247,10 @@ class UserController extends  AbstractController
                 'cssFileData' => $dataCss
                 ,'listCat' => $listCategorie
             ]);
-
         }
 
-        //Afficher la page d'édition css
+        //Ecrit les modification CSS dans le fichier test.css
         public function writeFile(){
-
-        /*if((strip_tags($_POST['cssFileData']))!=($_POST['cssFileData'])){
-                $_SESSION['errorcsschange']="Ce code CSS n'est pas conforme";
-                header("location:/");
-            }*/
             $file='test.css';
             file_put_contents('assets/'.$file,$_POST['cssFileData']);
             header("location:/User");
