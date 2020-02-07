@@ -39,7 +39,7 @@ class __TwigTemplate_8866767f2c490c0c0458ad3a63c2649943d10f191fc66e2e08ea8f1d6f7
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/ListUtilisateur.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig", "User/ListUtilisateur.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -87,7 +87,10 @@ class __TwigTemplate_8866767f2c490c0c0458ad3a63c2649943d10f191fc66e2e08ea8f1d6f7
             echo "</td>
             <td>
                 <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-
+                    <a class=\"btn btn-danger\" href=\"/User/delUtilisateur/";
+            // line 25
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Utilisateur"], "USER_ID", [], "any", false, false, false, 25), "html", null, true);
+            echo "\"><i class=\"fas fa-times-circle\"></i></a>
                 </div>
             </td>
         </tr>
@@ -105,7 +108,7 @@ class __TwigTemplate_8866767f2c490c0c0458ad3a63c2649943d10f191fc66e2e08ea8f1d6f7
 
     public function getTemplateName()
     {
-        return "Article/ListUtilisateur.html.twig";
+        return "User/ListUtilisateur.html.twig";
     }
 
     public function isTraitable()
@@ -115,7 +118,7 @@ class __TwigTemplate_8866767f2c490c0c0458ad3a63c2649943d10f191fc66e2e08ea8f1d6f7
 
     public function getDebugInfo()
     {
-        return array (  101 => 31,  86 => 22,  82 => 21,  78 => 20,  74 => 18,  70 => 17,  58 => 7,  54 => 6,  47 => 2,  36 => 1,);
+        return array (  104 => 31,  92 => 25,  86 => 22,  82 => 21,  78 => 20,  74 => 18,  70 => 17,  58 => 7,  54 => 6,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -144,7 +147,7 @@ class __TwigTemplate_8866767f2c490c0c0458ad3a63c2649943d10f191fc66e2e08ea8f1d6f7
             <td>{{ Utilisateur.USER_PRENOM }}</td>
             <td>
                 <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-
+                    <a class=\"btn btn-danger\" href=\"/User/delUtilisateur/{{ Utilisateur.USER_ID }}\"><i class=\"fas fa-times-circle\"></i></a>
                 </div>
             </td>
         </tr>
@@ -152,6 +155,6 @@ class __TwigTemplate_8866767f2c490c0c0458ad3a63c2649943d10f191fc66e2e08ea8f1d6f7
     {% endfor %}
     </tbody>
 
-{% endblock %}", "Article/ListUtilisateur.html.twig", "C:\\dev\\www\\di19\\templates\\Article\\ListUtilisateur.html.twig");
+{% endblock %}", "User/ListUtilisateur.html.twig", "C:\\dev\\www\\di19\\templates\\Article\\ListUtilisateur.html.twig");
     }
 }

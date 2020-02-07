@@ -39,7 +39,7 @@ class __TwigTemplate_94e968031255b241dcf6c649425d76040b87fe0e9dd788b65136f139713
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/ListUtilisateur.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig", "User/ListUtilisateur.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -105,7 +105,7 @@ class __TwigTemplate_94e968031255b241dcf6c649425d76040b87fe0e9dd788b65136f139713
 
     public function getTemplateName()
     {
-        return "Article/ListUtilisateur.html.twig";
+        return "User/ListUtilisateur.html.twig";
     }
 
     public function isTraitable()
@@ -152,6 +152,6 @@ class __TwigTemplate_94e968031255b241dcf6c649425d76040b87fe0e9dd788b65136f139713
     {% endfor %}
     </tbody>
 
-{% endblock %}", "Article/ListUtilisateur.html.twig", "C:\\xampp\\htdocs\\ProjetBlog\\templates\\Article\\ListUtilisateur.html.twig");
+{% endblock %}", "User/ListUtilisateur.html.twig", "C:\\xampp\\htdocs\\ProjetBlog\\templates\\Article\\ListUtilisateur.html.twig");
     }
 }
