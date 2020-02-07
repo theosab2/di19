@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <title>{% block title %}CESI BLOG{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css">
+    <link rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css">
     <link rel="stylesheet" href="/assets/index.css">
@@ -34,16 +35,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Categorie">Liste des categories</a>
                 </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Categorie/Add">Ajout d'une categorie</a>
+                    </li>
 
-                {% if session.login is defined %}
-                    {% if session.login.isadmin == 1 %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Categorie/Add">Ajout d'une categorie</a>
-                        </li>
-                {% endif %}
+{% for role in session.login.roles %}
 
-                 {% if session.login is defined  %}
-                     {% if session.login.isadmin == 1 %}
+            {% if role == 'administrateur' %}
 
                         <li class="nav-item mr-auto mt-2 mt-lg-0">
                             <a class="nav-link" href="/Article/Validation">Valider un article</a>
@@ -51,12 +49,10 @@
                         <li class="nav-item mr-auto mt-2 mt-lg-0">
                             <a class="nav-link" href="/User">Changer le design</a>
                         <li/>
-
-                        {% endif %}
-
-                    {% endif %}
-                {% endif %}
+    {% endif %}
+            {% endfor %}
             {% endif %}
+
         </ul>
 
         <form class="form-inline" method="post" action="/Article/Cherche">
@@ -93,6 +89,7 @@
                         <a class="dropdown-item" href="/login">Connexion</a>
                     {% endif %}
                     {% if session.login is defined %}
+                        <a class="dropdown-item">{{session.login.role}}</a>
                         <a class="dropdown-item">{{session.login.email}}</a>
                         <a class="dropdown-item">{{session.login.nom}}</a>
                         <a class="dropdown-item" href="/logout">Deconnexion</a>
@@ -104,14 +101,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Api/Article/Last">Affiche les 5 derniers articles</a>
                 </li>
-                {% if session.login.isadmin == 1 %}
+
                     <li class="nav-item">
                         <a class="nav-link" href="/Utilisateur">Valider un utilisateur</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/ListUtilisateur">Liste des utilisateurs</a>
                     </li>
-                {% endif %}
+
 
             {% endif %}
             <li class="nav-item dropdown">
@@ -121,20 +118,14 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% for Categorie in listCat %}
-                        <a class="dropdown-item" name="FiltreCategorie"
-                           href="/Article/FiltreCategorie/{{ Categorie.Id }}">{{ Categorie.Nom }}</a>
+                        <a class="dropdown-item" name="FiltreCategorie" href="/Article/FiltreCategorie/{{ Categorie.Id }}">{{ Categorie.Nom }}</a>
                     {% endfor %}
-                    <div class="dropdown-divider"></div>
                 </div>
             </li>
         </ul>
     </div>
 </nav>
-
-
 {% block body %}{% endblock %}
-
-
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -144,3 +135,4 @@
 {% block javascript %}{% endblock %}
 </body>
 </html>
+

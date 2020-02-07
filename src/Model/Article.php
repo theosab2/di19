@@ -77,7 +77,7 @@ class Article extends Contenu implements \JsonSerializable {
 
     public function SqlValider(\PDO $bdd) {
         try{
-            $requete = $bdd->prepare('INSERT INTO articles (Etat) VALUES(2) where id = id.Article');
+            $requete = $bdd->prepare('INSERT INTO articles (Etat) VALUES(2) where  id = id.Article');
             $requete->execute();
             return array("result"=>true,"message"=>$bdd->lastInsertId());
         }catch (\Exception $e){

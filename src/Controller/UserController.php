@@ -54,9 +54,15 @@ class UserController extends  AbstractController
         $emails = $userall->SqlGetAllEmail(Bdd::GetInstance());
         $email_exist = false;
         foreach ($emails as $email) {
-            if (strtolower(trim($_POST['email'])) == $email) {
+            if (strtolower(trim($_POST['email'])) == (strtolower(trim( $email)))) {
                 $email_exist = true;
             }
+        }
+
+        if($email_exist==false){
+            $_SESSION['errorlogin'] = "EMail ou Mot de passe incorrect";
+            header('Location:/login');
+            return;
         }
 
       // Test du Captcha
@@ -84,10 +90,17 @@ class UserController extends  AbstractController
         $user = new User();
         $userInfoLog = $user->SqlGetLogin(Bdd::GetInstance(), ($_POST['email']));
         $pwd_hashed_bdd = $userInfoLog['USER_PASSWORD'];
-        if ($pwd_hashed_entry == $pwd_hashed_bdd and $decode['success'] == true) {
+        if ($pwd_hashed_entry == $pwd_hashed_bdd) {
+            $arrayRole = explode(" ", $userInfoLog['USER_ROLE']);
             $_SESSION['login'] = array("id" => $userInfoLog['USER_ID'],
-                "roles" => array("redacteur"), "isadmin" => $userInfoLog['USER_ISADMIN'], "prenom" => $userInfoLog['USER_PRENOM'], "email" => $userInfoLog['USER_EMAIL'],"nom" => $userInfoLog['USER_NOM']);
+                "roles" => $arrayRole,
+                "status" => $userInfoLog['USER_STATUS'],
+                "prenom" => $userInfoLog['USER_PRENOM'],
+                "email" => $userInfoLog['USER_EMAIL'],
+                "nom" => $userInfoLog['USER_NOM'],
+                "role" => $userInfoLog['USER_ROLE']);
             header('Location:/');
+
         } else {
             $_SESSION['errorlogin'] = "Email, Mot de passe ou captcha incorrect";
             header('Location:/login');

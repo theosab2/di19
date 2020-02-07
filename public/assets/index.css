@@ -1,14 +1,12 @@
 .btn-success{
-    background-color: green;
+    background-color: #246F34;
     border-color: #246F34;
 }
-
 
 .btn-warning{
     background-color: #264480;
     border-color:#264480;
     color: white;
-    background-position: center;
 }
 
 .jumbotron{

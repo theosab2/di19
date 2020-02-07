@@ -55,8 +55,8 @@ $router->get('/Article/FiltreCategorie/:id', 'Article#FiltreCategorie#id');
 
 //categorie
 $router->get('/Categorie', "Categorie#ListAll");
-$router->get('/Categorie/Add','Categorie#add');
-$router->post('/Categorie/Add','Categorie#add');
+$router->get('/Categorie/Add','Categorie#Add');
+$router->post('/Categorie/Add','Categorie#Add');
 $router->get('/Categorie/show/:id','Categorie#show#id');
 $router->get('/Categorie/update/:id','Categorie#update#id');
 $router->post('/Categorie/update/:id','Categorie#update#id');

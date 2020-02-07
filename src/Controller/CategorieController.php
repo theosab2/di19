@@ -37,7 +37,7 @@ class CategorieController extends AbstractController{
     }
 
     public function add(){
-        UserController::roleNeed('redacteur');
+
         if($_POST AND $_SESSION['token'] == $_POST['token']){
 
             $categorie = new categorie();

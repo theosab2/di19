@@ -25,15 +25,18 @@
     </div>
 
 
-    <div class="container-fluid mt-2">
+
+    <div class="form_group field">
         <form method="post" action="/Contact/sendMail">
-            <label>{{article.Titre}}</label>
-
-            <label>email</label>
-            <input type="email" name="email">
-            <label>Objet de la demande</label>
-                <textarea name="content"></textarea>
-
+            <br>
+            <label for="email" class="form_label">{{article.Titre}}</label>
+            <br>
+            <br>
+            <input type="email" class="form__field" placeholder="Entrez votre adresse email" name="email" required />
+            <br><br>
+            <i class="fas fa-pencil-alt prefix"></i>
+            <textarea name="content" id="form24" class="md-textarea form-control" placeholder="Ecrivez votre texte ici" cols="50" rows="3"></textarea>
+            <br>
             <input type="submit">
         </form>
     </div>
