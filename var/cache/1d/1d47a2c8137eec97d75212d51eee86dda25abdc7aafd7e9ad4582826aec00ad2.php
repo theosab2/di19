@@ -94,18 +94,21 @@ class __TwigTemplate_aec24ed1b876e5e4a370c21da53fc8e855b01c366343533a033b9def01a
     </div>
 
 
-    <div class=\"container-fluid mt-2\">
+
+    <div class=\"form_group field\">
         <form method=\"post\" action=\"/Contact/sendMail\">
-            <label>";
-        // line 30
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Titre", [], "any", false, false, false, 30), "html", null, true);
+            <br>
+            <label for=\"email\" class=\"form_label\">";
+        // line 32
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["article"] ?? null), "Titre", [], "any", false, false, false, 32), "html", null, true);
         echo "</label>
-
-            <label>email</label>
-            <input type=\"email\" name=\"email\">
-            <label>Objet de la demande</label>
-                <textarea name=\"content\"></textarea>
-
+            <br>
+            <br>
+            <input type=\"email\" class=\"form__field\" placeholder=\"Entrez votre adresse email\" name=\"email\" required />
+            <br><br>
+            <i class=\"fas fa-pencil-alt prefix\"></i>
+            <textarea name=\"content\" id=\"form24\" class=\"md-textarea form-control\" placeholder=\"Ecrivez votre texte ici\" cols=\"50\" rows=\"3\"></textarea>
+            <br>
             <input type=\"submit\">
         </form>
     </div>
@@ -126,7 +129,7 @@ class __TwigTemplate_aec24ed1b876e5e4a370c21da53fc8e855b01c366343533a033b9def01a
 
     public function getDebugInfo()
     {
-        return array (  101 => 30,  89 => 21,  85 => 20,  81 => 18,  77 => 16,  69 => 14,  67 => 13,  59 => 7,  55 => 6,  47 => 2,  36 => 1,);
+        return array (  103 => 32,  89 => 21,  85 => 20,  81 => 18,  77 => 16,  69 => 14,  67 => 13,  59 => 7,  55 => 6,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -158,15 +161,18 @@ class __TwigTemplate_aec24ed1b876e5e4a370c21da53fc8e855b01c366343533a033b9def01a
     </div>
 
 
-    <div class=\"container-fluid mt-2\">
+
+    <div class=\"form_group field\">
         <form method=\"post\" action=\"/Contact/sendMail\">
-            <label>{{article.Titre}}</label>
-
-            <label>email</label>
-            <input type=\"email\" name=\"email\">
-            <label>Objet de la demande</label>
-                <textarea name=\"content\"></textarea>
-
+            <br>
+            <label for=\"email\" class=\"form_label\">{{article.Titre}}</label>
+            <br>
+            <br>
+            <input type=\"email\" class=\"form__field\" placeholder=\"Entrez votre adresse email\" name=\"email\" required />
+            <br><br>
+            <i class=\"fas fa-pencil-alt prefix\"></i>
+            <textarea name=\"content\" id=\"form24\" class=\"md-textarea form-control\" placeholder=\"Ecrivez votre texte ici\" cols=\"50\" rows=\"3\"></textarea>
+            <br>
             <input type=\"submit\">
         </form>
     </div>

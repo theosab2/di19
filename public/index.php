@@ -90,6 +90,9 @@ $router->get('/Article/Validation', 'Article#ListValidator');
 //Afficher les utilisateur devant être validé
 $router->get('/Utilisateur', 'User#AfficherUtilisateur');
 
+//delete utilisateur
+$router->get('/User/delUtilisateur/:id', 'User#delUtilisateur#id');
+
 //Valider un utilisateur
 $router->get('/User/ValUtilisateur/:id', 'User#ValUtilisateur#id');
 $router->post('/User/ValUtilisateur/:id', 'User#ValUtilisateur#id');

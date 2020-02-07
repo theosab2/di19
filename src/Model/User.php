@@ -221,6 +221,13 @@ class User implements \JsonSerializable
         ]);
     }
 
+    public function SQlDel(\PDO $bdd,$id){
+        $query = $bdd->prepare('DELETE FROM user WHERE USER_ID = :id;');
+        $query->execute([
+            'id' => $id,
+        ]);
+    }
+
     public function SqlAdd(\PDO $bdd)
     {
         $query = $bdd->prepare('INSERT INTO user (USER_PRENOM, USER_NOM, USER_PASSWORD, USER_EMAIL) VALUES (:prenom, :nom, :password, :email)');
