@@ -79,6 +79,7 @@ class ArticleController extends AbstractController {
         );
     }
 
+    //affiche les article a valider
     public function Validation(){
         $article = new Article();
         $listArticle = $article->SqlGetAll(Bdd::GetInstance());
@@ -94,6 +95,7 @@ class ArticleController extends AbstractController {
         );
     }
 
+    //valide les article
     public function Val($articleID){
         $articleSQL = new Article();
         $article = $articleSQL->Sqlchange(Bdd::GetInstance(), $articleID);
@@ -101,13 +103,14 @@ class ArticleController extends AbstractController {
         header('Location:/Article/Validation');
     }
 
-
+    //refuse un article
     public function Ref($articleID){
         $articleSQL = new Article();
         $article = $articleSQL->SqlchangeRef(Bdd::GetInstance(), $articleID);
 
         header('Location:/Article/Validation');
     }
+
 
     public function add(){
         // Ajout d'un article

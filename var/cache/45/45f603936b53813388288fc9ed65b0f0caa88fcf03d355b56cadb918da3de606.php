@@ -88,36 +88,33 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
                         <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
                     </li>
 
-";
+                ";
             // line 42
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 42), "roles", [], "any", false, false, false, 42));
             foreach ($context['_seq'] as $context["_key"] => $context["role"]) {
                 // line 43
-                echo "
-            ";
-                // line 44
+                echo "                    ";
                 if (0 === twig_compare($context["role"], "administrateur")) {
-                    // line 45
-                    echo "
-                        <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
-                            <a class=\"nav-link\" href=\"/Article/Validation\">Valider un article</a>
-                        <li/>
-                        <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
-                            <a class=\"nav-link\" href=\"/User\">Changer le design</a>
-                        <li/>
-    ";
+                    // line 44
+                    echo "                            <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
+                                <a class=\"nav-link\" href=\"/Article/Validation\">Valider un article</a>
+                            <li/>
+                            <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
+                                <a class=\"nav-link\" href=\"/User\">Changer le design</a>
+                            <li/>
+                    ";
                 }
-                // line 53
-                echo "            ";
+                // line 51
+                echo "                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['role'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 54
+            // line 52
             echo "            ";
         }
-        // line 55
+        // line 53
         echo "
         </ul>
 
@@ -132,19 +129,19 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
 
 <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
     ";
-        // line 68
-        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 68)) {
-            // line 69
+        // line 66
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 66)) {
+            // line 67
             echo "        <a class=\"navbar-brand\" href=\"#\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 69), "prenom", [], "any", false, false, false, 69), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 67), "prenom", [], "any", false, false, false, 67), "html", null, true);
             echo "</a>
     ";
         } else {
-            // line 71
+            // line 69
             echo "        <a class=\"navbar-brand\" href=\"#\">Visiteur</a>
     ";
         }
-        // line 73
+        // line 71
         echo "    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"
             aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
         <span class=\"navbar-toggler-icon\"></span>
@@ -160,53 +157,53 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
 
                     ";
-        // line 87
-        if ( !twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 87)) {
-            // line 88
+        // line 85
+        if ( !twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 85)) {
+            // line 86
             echo "                        <a class=\"dropdown-item\" href=\"/inscription\">Inscription</a>
                         <a class=\"dropdown-item\" href=\"/login\">Connexion</a>
                     ";
         }
-        // line 91
+        // line 89
         echo "                    ";
-        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 91)) {
-            // line 92
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 89)) {
+            // line 90
             echo "                        <a class=\"dropdown-item\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 92), "role", [], "any", false, false, false, 92), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 90), "role", [], "any", false, false, false, 90), "html", null, true);
             echo "</a>
                         <a class=\"dropdown-item\">";
-            // line 93
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 93), "email", [], "any", false, false, false, 93), "html", null, true);
+            // line 91
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 91), "email", [], "any", false, false, false, 91), "html", null, true);
             echo "</a>
                         <a class=\"dropdown-item\">";
-            // line 94
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 94), "nom", [], "any", false, false, false, 94), "html", null, true);
+            // line 92
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 92), "nom", [], "any", false, false, false, 92), "html", null, true);
             echo "</a>
                         <a class=\"dropdown-item\" href=\"/logout\">Deconnexion</a>
                     ";
         }
-        // line 97
+        // line 95
         echo "                    <div class=\"dropdown-divider\"></div>
                 </div>
             </li>
             ";
-        // line 100
-        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 100)) {
-            // line 101
+        // line 98
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", true, true, false, 98)) {
+            // line 99
             echo "                <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"/Api/Article/Last\">Affiche les 5 derniers articles</a>
                 </li>
             ";
-            // line 104
+            // line 102
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 104), "roles", [], "any", false, false, false, 104));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "login", [], "any", false, false, false, 102), "roles", [], "any", false, false, false, 102));
             foreach ($context['_seq'] as $context["_key"] => $context["role"]) {
-                // line 105
+                // line 103
                 echo "
             ";
-                // line 106
+                // line 104
                 if (0 === twig_compare($context["role"], "administrateur")) {
-                    // line 107
+                    // line 105
                     echo "                    <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"/Utilisateur\">Valider un utilisateur</a>
                     </li>
@@ -219,10 +216,10 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['role'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 115
+            // line 113
             echo "            ";
         }
-        // line 116
+        // line 114
         echo "            <li class=\"nav-item dropdown\">
                 <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\"
                    aria-haspopup=\"true\" aria-expanded=\"false\">
@@ -230,31 +227,31 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
                 </a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                     ";
-        // line 122
+        // line 120
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listCat"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["Categorie"]) {
-            // line 123
+            // line 121
             echo "                        <a class=\"dropdown-item\" name=\"FiltreCategorie\" href=\"/Article/FiltreCategorie/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 123), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Id", [], "any", false, false, false, 121), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Nom", [], "any", false, false, false, 123), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Categorie"], "Nom", [], "any", false, false, false, 121), "html", null, true);
             echo "</a>
                     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['Categorie'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 125
+        // line 123
         echo "                </div>
             </li>
         </ul>
     </div>
 </nav>
 ";
-        // line 130
+        // line 128
         $this->displayBlock('body', $context, $blocks);
-        // line 131
+        // line 129
         echo "<script src=\"https://code.jquery.com/jquery-3.4.0.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"></script>
 <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>
@@ -262,9 +259,9 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
 <script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js\"></script>
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js\"></script>
 ";
-        // line 137
+        // line 135
         $this->displayBlock('javascript', $context, $blocks);
-        // line 138
+        // line 136
         echo "</body>
 </html>
 
@@ -284,13 +281,13 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
         $macros = $this->macros;
     }
 
-    // line 130
+    // line 128
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
     }
 
-    // line 137
+    // line 135
     public function block_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -308,7 +305,7 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
 
     public function getDebugInfo()
     {
-        return array (  294 => 137,  288 => 130,  282 => 12,  275 => 5,  268 => 138,  266 => 137,  258 => 131,  256 => 130,  249 => 125,  238 => 123,  234 => 122,  226 => 116,  223 => 115,  210 => 107,  208 => 106,  205 => 105,  201 => 104,  196 => 101,  194 => 100,  189 => 97,  183 => 94,  179 => 93,  174 => 92,  171 => 91,  166 => 88,  164 => 87,  148 => 73,  144 => 71,  138 => 69,  136 => 68,  121 => 55,  118 => 54,  112 => 53,  102 => 45,  100 => 44,  97 => 43,  93 => 42,  81 => 32,  79 => 31,  59 => 13,  57 => 12,  47 => 5,  41 => 1,);
+        return array (  291 => 135,  285 => 128,  279 => 12,  272 => 5,  265 => 136,  263 => 135,  255 => 129,  253 => 128,  246 => 123,  235 => 121,  231 => 120,  223 => 114,  220 => 113,  207 => 105,  205 => 104,  202 => 103,  198 => 102,  193 => 99,  191 => 98,  186 => 95,  180 => 92,  176 => 91,  171 => 90,  168 => 89,  163 => 86,  161 => 85,  145 => 71,  141 => 69,  135 => 67,  133 => 66,  118 => 53,  115 => 52,  109 => 51,  100 => 44,  97 => 43,  93 => 42,  81 => 32,  79 => 31,  59 => 13,  57 => 12,  47 => 5,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -354,18 +351,16 @@ class __TwigTemplate_7f1ec3debd5ab760c71d7e5d73587642f64bd13349c8fd87c191d8cdff4
                         <a class=\"nav-link\" href=\"/Categorie/Add\">Ajout d'une categorie</a>
                     </li>
 
-{% for role in session.login.roles %}
-
-            {% if role == 'administrateur' %}
-
-                        <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
-                            <a class=\"nav-link\" href=\"/Article/Validation\">Valider un article</a>
-                        <li/>
-                        <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
-                            <a class=\"nav-link\" href=\"/User\">Changer le design</a>
-                        <li/>
-    {% endif %}
-            {% endfor %}
+                {% for role in session.login.roles %}
+                    {% if role == 'administrateur' %}
+                            <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
+                                <a class=\"nav-link\" href=\"/Article/Validation\">Valider un article</a>
+                            <li/>
+                            <li class=\"nav-item mr-auto mt-2 mt-lg-0\">
+                                <a class=\"nav-link\" href=\"/User\">Changer le design</a>
+                            <li/>
+                    {% endif %}
+                {% endfor %}
             {% endif %}
 
         </ul>

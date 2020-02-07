@@ -50,6 +50,7 @@ class UserController extends  AbstractController
             return;
         }
 
+
         $userall = new User();
         $emails = $userall->SqlGetAllEmail(Bdd::GetInstance());
         $email_exist = false;
@@ -98,7 +99,8 @@ class UserController extends  AbstractController
                 "prenom" => $userInfoLog['USER_PRENOM'],
                 "email" => $userInfoLog['USER_EMAIL'],
                 "nom" => $userInfoLog['USER_NOM'],
-                "role" => $userInfoLog['USER_ROLE']);
+                "role" => $userInfoLog['USER_ROLE'],
+                "valider" => $userInfoLog['USER_VALIDER']);
             header('Location:/');
 
         } else {
