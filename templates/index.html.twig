@@ -101,15 +101,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Api/Article/Last">Affiche les 5 derniers articles</a>
                 </li>
+            {% for role in session.login.roles %}
 
+            {% if role == 'administrateur' %}
                     <li class="nav-item">
                         <a class="nav-link" href="/Utilisateur">Valider un utilisateur</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/ListUtilisateur">Liste des utilisateurs</a>
                     </li>
-
-
+{% endif %}
+{% endfor %}
             {% endif %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
