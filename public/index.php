@@ -66,6 +66,7 @@ $router->get('/Categorie/delete/:id','Categorie#delete#id');
 $router->get('/Contact', 'Contact#showForm');
 $router->post('/Contact/sendMail', 'Contact#sendMail');
 
+//lecture écriture du css
 $router->get('/User', 'User#readFile');
 $router->post('/User', 'User#writeFile');
 

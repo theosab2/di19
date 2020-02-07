@@ -17,7 +17,7 @@
 
                 <div class="card-body">
                     <h5 class="card-title">{{ article.Titre }}</h5>
-                    <p class="card-text">{{ article.Description }}</p>
+                    <p class="card-text">{{ article.Description | raw }}</p>
                     <h5> {{ article.Auteur }}  .  {{ article.DateAjout }}</h5>
                 </div>
             </div>

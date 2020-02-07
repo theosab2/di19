@@ -3,6 +3,7 @@
     border-color: #246F34;
 }
 
+
 .btn-warning{
     background-color: #264480;
     border-color:#264480;
@@ -41,4 +42,8 @@
 
 .bg-light {
     background-color:#cebd9f !important;
+}
+
+body{
+    background-color: #cebd9f;
 }

@@ -1,9 +1,7 @@
-{% extends "index.html.twig" %}
-{% block title %} Editeur CSS - {{ parent() }}{% endblock %}
-
-{% block body %}
+<!DOCTYPE html>
 
 <html lang="fr">
+
 
 <head>
 
@@ -18,8 +16,10 @@
 
 <body>
     <form name="addArticle" method="post" enctype="multipart/form-data">
+        <label for="cssFileData">Editeur CSS</label>
+
         <textarea id="cssFileData" name="cssFileData"
-                  rows="15" cols="185">{{ cssFileData }}
+                  rows="25" cols="150">{{ cssFileData }}
         </textarea>
 
         <div>
@@ -29,5 +29,3 @@
 </body>
 
 </html>
-
-{% endblock %}

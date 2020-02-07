@@ -198,6 +198,7 @@ class UserController extends  AbstractController
         {
             unset($_SESSION['login']);
             unset($_SESSION['errorlogin']);
+
             header('Location:/');
         }
 
@@ -219,10 +220,10 @@ class UserController extends  AbstractController
         //Afficher la page d'édition css
         public function writeFile(){
 
-        if(strip_tags($_POST['cssFileData'])!=($_POST['cssFileData'])){
+        /*if((strip_tags($_POST['cssFileData']))!=($_POST['cssFileData'])){
                 $_SESSION['errorcsschange']="Ce code CSS n'est pas conforme";
                 header("location:/");
-            }
+            }*/
             $file='test.css';
             file_put_contents('assets/'.$file,$_POST['cssFileData']);
             header("location:/User");

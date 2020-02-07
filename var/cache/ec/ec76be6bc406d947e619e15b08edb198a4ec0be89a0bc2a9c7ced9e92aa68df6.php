@@ -80,7 +80,7 @@ class __TwigTemplate_fcd6d8634e0738983dff96a4406c338815229c70bce3d80a09ba3bce7e1
         // line 25
         echo twig_escape_filter($this->env, ($context["token"] ?? null), "html", null, true);
         echo "\">
-            <input type=\"submit\" class=\"btn btn-primary my-1\">
+            <input type=\"submit\" value=\"Valider\" class=\"btn btn-primary my-1\">
         </form>
     </div>
 
@@ -129,7 +129,7 @@ class __TwigTemplate_fcd6d8634e0738983dff96a4406c338815229c70bce3d80a09ba3bce7e1
             </div>
 
             <input type=\"hidden\" name=\"token\" value=\"{{ token }}\">
-            <input type=\"submit\" class=\"btn btn-primary my-1\">
+            <input type=\"submit\" value=\"Valider\" class=\"btn btn-primary my-1\">
         </form>
     </div>
 

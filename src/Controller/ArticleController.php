@@ -63,7 +63,7 @@ class ArticleController extends AbstractController {
     }
 
 
-
+    //affiche les articles a valider
     public function ListValidator(){
         $article = new Article();
         $listArticle = $article->SqlValidator(Bdd::GetInstance());
@@ -72,7 +72,7 @@ class ArticleController extends AbstractController {
         $Categorie = new Categorie();
         $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
         return $this->twig->render(
-            'Article/list.html.twig',[
+            'Article/Validation.html.twig',[
                 'articleList' => $listArticle
                 ,'listCat' => $listCategorie
             ]
@@ -87,7 +87,7 @@ class ArticleController extends AbstractController {
         $Categorie = new Categorie();
         $listCategorie = $Categorie->SqlGetCateg(Bdd::GetInstance());
         return $this->twig->render(
-            'Article/list.html.twig',[
+            'Article/Validation.html.twig',[
                 'articleList' => $listArticle
                 ,'listCat' => $listCategorie
             ]
@@ -141,7 +141,7 @@ class ArticleController extends AbstractController {
                 ->setCategorie(strip_tags($_POST['Categorie']))
             ;
             $article->SqlAdd(BDD::getInstance());
-
+            var_dump($_POST["Description"]);
             header('Location:/Article');
         }else{
             // Génération d'un TOKEN
