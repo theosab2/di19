@@ -91,8 +91,8 @@ $router->get('/Article/Validation', 'Article#ListValidator');
 $router->get('/Utilisateur', 'User#AfficherUtilisateur');
 
 //Valider un utilisateur
-$router->get('/Article/ValUtilisateur/:id', 'User#ValUtilisateur#id');
-$router->post('/Article/ValUtilisateur/:id', 'User#ValUtilisateur#id');
+$router->get('/User/ValUtilisateur/:id', 'User#ValUtilisateur#id');
+$router->post('/User/ValUtilisateur/:id', 'User#ValUtilisateur#id');
 
 //Afficher les utilisateurs validé
 $router->get('/ListUtilisateur', 'User#AfficherTlm');

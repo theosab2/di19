@@ -127,7 +127,7 @@ class UserController extends  AbstractController
         $utilisateur = new User();
         $listUtilisateur = $utilisateur->SqlUtilisateur(Bdd::GetInstance());
 
-        return $this->twig->render('Article/Utilisateur.html.twig',['utilisateurlist' => $listUtilisateur]);
+        return $this->twig->render('User/Utilisateur.html.twig',['utilisateurlist' => $listUtilisateur]);
     }
 
     public function Affichertlm(){
