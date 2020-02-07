@@ -39,7 +39,7 @@ class __TwigTemplate_49d140817e4718651f383cbcfa6cc75b60eca1a8cae3d2b403638f9b9ff
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("index.html.twig", "Article/Utilisateur.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig", "User/Utilisateur.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -93,7 +93,7 @@ class __TwigTemplate_49d140817e4718651f383cbcfa6cc75b60eca1a8cae3d2b403638f9b9ff
             echo "</td>
             <td>
                 <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                    <a class=\"btn btn-success\" href=\"/Article/ValUtilisateur/";
+                    <a class=\"btn btn-success\" href=\"/User/ValUtilisateur/";
             // line 26
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["Utilisateur"], "USER_ID", [], "any", false, false, false, 26), "html", null, true);
             echo "\"><i class=\"fas fa-check-circle\"></i></a>
@@ -114,7 +114,7 @@ class __TwigTemplate_49d140817e4718651f383cbcfa6cc75b60eca1a8cae3d2b403638f9b9ff
 
     public function getTemplateName()
     {
-        return "Article/Utilisateur.html.twig";
+        return "User/Utilisateur.html.twig";
     }
 
     public function isTraitable()
@@ -154,7 +154,7 @@ class __TwigTemplate_49d140817e4718651f383cbcfa6cc75b60eca1a8cae3d2b403638f9b9ff
             <td>{{ Utilisateur.USER_PRENOM }}</td>
             <td>
                 <div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">
-                    <a class=\"btn btn-success\" href=\"/Article/ValUtilisateur/{{ Utilisateur.USER_ID }}\"><i class=\"fas fa-check-circle\"></i></a>
+                    <a class=\"btn btn-success\" href=\"/User/ValUtilisateur/{{ Utilisateur.USER_ID }}\"><i class=\"fas fa-check-circle\"></i></a>
                 </div>
             </td>
         </tr>
@@ -162,6 +162,6 @@ class __TwigTemplate_49d140817e4718651f383cbcfa6cc75b60eca1a8cae3d2b403638f9b9ff
     {% endfor %}
     </tbody>
 
-{% endblock %}", "Article/Utilisateur.html.twig", "C:\\xampp\\htdocs\\ProjetBlog\\templates\\Article\\Utilisateur.html.twig");
+{% endblock %}", "User/Utilisateur.html.twig", "C:\\xampp\\htdocs\\ProjetBlog\\templates\\Article\\Utilisateur.html.twig");
     }
 }
