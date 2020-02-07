@@ -120,6 +120,7 @@ class __TwigTemplate_9e1ac094aec04766240ddb7e699e5326b6ca75d0b3da47750359de2aa1e
         </table>
     </div>
 
+
 ";
     }
 
@@ -178,6 +179,7 @@ class __TwigTemplate_9e1ac094aec04766240ddb7e699e5326b6ca75d0b3da47750359de2aa1e
             </tbody>
         </table>
     </div>
+
 
 {% endblock %}", "Categorie/list.html.twig", "C:\\dev\\www\\tp\\templates\\Categorie\\list.html.twig");
     }

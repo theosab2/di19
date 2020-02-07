@@ -79,6 +79,7 @@ class UserController extends  AbstractController
             . "&remoteip=" . $remoteip ;
 
         $decode = json_decode(file_get_contents($api_url), true);
+        var_dump($decode);
       //---
 
         $options = [
@@ -90,7 +91,7 @@ class UserController extends  AbstractController
         $user = new User();
         $userInfoLog = $user->SqlGetLogin(Bdd::GetInstance(), ($_POST['email']));
         $pwd_hashed_bdd = $userInfoLog['USER_PASSWORD'];
-        if ($pwd_hashed_entry == $pwd_hashed_bdd) {
+        if ($pwd_hashed_entry == $pwd_hashed_bdd and $decode['success'] == true) {
             $arrayRole = explode(" ", $userInfoLog['USER_ROLE']);
             $_SESSION['login'] = array("id" => $userInfoLog['USER_ID'],
                 "roles" => $arrayRole,

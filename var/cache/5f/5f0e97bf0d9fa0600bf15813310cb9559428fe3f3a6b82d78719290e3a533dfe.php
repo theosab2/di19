@@ -65,7 +65,6 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
 
     <title> ReadFile</title>
 
-    <link rel=\"stylesheet\" href=\"/assets/index.css\">
     <link rel=\"stylesheet\" href=\"/assets/test.css\">
 
 </head>
@@ -74,7 +73,7 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
     <form name=\"addArticle\" method=\"post\" enctype=\"multipart/form-data\">
         <textarea id=\"cssFileData\" name=\"cssFileData\"
                   rows=\"14\" cols=\"150\">";
-        // line 22
+        // line 21
         echo twig_escape_filter($this->env, ($context["cssFileData"] ?? null), "html", null, true);
         echo "
         </textarea>
@@ -102,7 +101,7 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
 
     public function getDebugInfo()
     {
-        return array (  78 => 22,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
+        return array (  77 => 21,  59 => 5,  55 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -120,7 +119,6 @@ class __TwigTemplate_39d1e8b068baee265a641fd1fdedeb51ce1b1037781ca062502b9486d82
 
     <title> ReadFile</title>
 
-    <link rel=\"stylesheet\" href=\"/assets/index.css\">
     <link rel=\"stylesheet\" href=\"/assets/test.css\">
 
 </head>

@@ -62,7 +62,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 
 <nav class=\"navbar sticky-top nav-pills navbar-expand-lg navbar-dark bg-dark\">
 
-    <a class=\"navbar-brand\" href=\"/Article/ListAll\">Blog du CESI</a>
+    <a class=\"navbar-brand\" href=\"/Article/ListAll\">BlogBooks</a>
     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\"
             aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
         <span class=\"navbar-toggler-icon\"></span>
@@ -272,7 +272,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
-        echo "CESI BLOG";
+        echo "BlogBooks";
     }
 
     // line 12
@@ -314,7 +314,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 <html lang=\"fr\">
 <head>
     <meta charset=\"utf-8\">
-    <title>{% block title %}CESI BLOG{% endblock %}</title>
+    <title>{% block title %}BlogBooks{% endblock %}</title>
     <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">
     <link rel=\"stylesheet\"
           href=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/pepper-grinder/jquery-ui.css\">
@@ -328,7 +328,7 @@ class __TwigTemplate_f45414459dfda864b675e5c4687284599916b64043047572a14ef871ced
 
 <nav class=\"navbar sticky-top nav-pills navbar-expand-lg navbar-dark bg-dark\">
 
-    <a class=\"navbar-brand\" href=\"/Article/ListAll\">Blog du CESI</a>
+    <a class=\"navbar-brand\" href=\"/Article/ListAll\">BlogBooks</a>
     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\"
             aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
         <span class=\"navbar-toggler-icon\"></span>
