@@ -1,0 +1,62 @@
+body{
+	background: content-box url(https://image.noelshack.com/fichiers/2020/07/1/1581323637-web-1920-14.jpg);
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+
+form{
+	/*margin-top: 50px;
+	display: flex;
+	flex-direction: row;*/
+
+}
+
+.logo{
+	display: flex;
+	justify-content: center;
+	
+}
+
+.picture img{
+	border: 1px solid black;
+}
+
+.picture{
+	display: flex;
+	justify-content: center;
+	margin-top: 60px;
+	justify-content: space-around;
+}
+
+.form-row{
+	margin: 20px 0;
+}
+
+.cellule-vertical{
+	display: flex;
+	flex-direction: column;
+}
+
+
+.form-control{
+	color: black;
+	background-color: #CCE5EB;
+	border: 1px solid #CCE5EB;
+}
+
+label{
+	color: black;
+	font-family: ubuntu;
+}
+
+.custom-select{
+	color: black;
+	background-color: #CCE5EB;
+	border: 1px solid #CCE5EB;
+}
+
+.btn-primary{
+	background-color: #D23E79;
+
+}

@@ -161,7 +161,7 @@ class Article extends Contenu implements \JsonSerializable {
     }
 
 
-    public function SqlGetCherche(\PDO $bdd,$MotCle){
+  /*  public function SqlGetCherche(\PDO $bdd,$MotCle){
         // requete de recherche par mot clé dans titre
         $requete = $bdd->prepare('SELECT * FROM articles where Etat = 2 and Titre LIKE :search');
         $requete->execute(
@@ -184,7 +184,7 @@ class Article extends Contenu implements \JsonSerializable {
             $listArticle[] = $article;
         }
         return $listArticle;
-    }
+    }*/
 
     public function SqlGetFiltreCategorie(\PDO $bdd,$IdCategorie){
         // requete de recherche par categorie
@@ -248,6 +248,8 @@ class Article extends Contenu implements \JsonSerializable {
 
         return $article;
     }
+
+
 
     public function SqlUpdate(\PDO $bdd){
         // requete de modification d'un article

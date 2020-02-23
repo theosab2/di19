@@ -18,7 +18,7 @@ class ContactController extends AbstractController{
     }
 
     public function showForm(){
-        return $this->twig->render('Article/view.html.twig');
+        return $this->twig->render('Contact/form.html.twig');
     }
 
     // Envoi du mail
@@ -33,7 +33,7 @@ class ContactController extends AbstractController{
                     ])
                 ,'text/html'
             );
-        header('Location:/Article');
+        header('Location:/');
         $result = $this->mailer->send($mail);
 
         return $result;

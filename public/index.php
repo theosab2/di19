@@ -16,59 +16,31 @@ function chargerClasse($classe){
 
 spl_autoload_register('chargerClasse');
 
-// article
+//Accueil
 $router = new \src\Router\Router($_GET['url']);
-$router->get('/', "Article#ListAll");
-$router->get('/Article', "Article#ListAll");
-$router->get('/Article/Show/:id','Article#Show#id');
-$router->get('/Article/Update/:id', "Article#Update#id");
-$router->post('/Article/Update/:id', "Article#Update#id");
-$router->get('/Article/Add', "Article#Add");
-$router->post('/Article/Add', "Article#Add");
-$router->get('/Article/Delete/:id', "Article#Delete#id");
-$router->get('/Article/Fixtures', "Article#Fixtures");
-$router->get('/Article/Write', "Article#Write");
-$router->get('/Article/Read', "Article#Read");
-$router->get('/Article/WriteOne/:id', "Article#Read#id");
+$router->get('/', "User#Accueil");
 
+//Editer le profil
+$router->get('/User/:id','User#Edit#id');
+$router->post('/User/:id','User#Edit#id');
 
-//Api
-$router->get('/Api/Article', "Api#ArticleGet");
-$router->post('/Api/Article', "Api#ArticlePost");
-$router->put('/Api/Article/:id/:json', "Api#ArticlePut#id#json");
+//Match un utilisateur
+$router->get('/User/listMatch/:id', 'User#listMatch#id');
+$router->post('/User/listMatch/:id', 'User#listMatch#id');
 
-//affiche les articles après validation
-$router->get('/Article/ListAll','Article#listAll');
+//chercher un utilisateur
+$router->post('/Rechercher', 'User#Chercher');
 
-//cherche un article
-$router->post('/Article/Cherche', "Article#Cherche");
+//condition general d'utilisation
+$router->get('/condition', 'Article#condition');
 
-//valide un article
-$router->get('/Article/Val/:id', 'Article#Val#id');
-
-//refuse un article
-$router->get('/Article/Ref/:id', 'Article#Ref#id');
-
-//filtre les categories
-$router->get('/Article/FiltreCategorie/:id', 'Article#FiltreCategorie#id');
-
-
-//categorie
-$router->get('/Categorie', "Categorie#ListAll");
-$router->get('/Categorie/Add','Categorie#Add');
-$router->post('/Categorie/Add','Categorie#Add');
-$router->get('/Categorie/show/:id','Categorie#show#id');
-$router->get('/Categorie/update/:id','Categorie#update#id');
-$router->post('/Categorie/update/:id','Categorie#update#id');
-$router->get('/Categorie/delete/:id','Categorie#delete#id');
+//retour
+$router->get('/welcome','User#welcome');
+$router->post('/welcome','User#welcome');
 
 //Utilisateur
 $router->get('/Contact', 'Contact#showForm');
 $router->post('/Contact/sendMail', 'Contact#sendMail');
-
-//lecture écriture du css
-$router->get('/User', 'User#readFile');
-$router->post('/User', 'User#writeFile');
 
 //Inscription
 $router->get('/inscription','User#inscriptionForm');
@@ -81,11 +53,6 @@ $router->post('/login','User#loginCheck');
 //Déconnexion
 $router->get('/Logout', 'User#logout');
 
-// API
-$router->get('/Api/Article/Last','Api#ArticleGetLast');
-
-//Validation Article
-$router->get('/Article/Validation', 'Article#ListValidator');
 
 //Afficher les utilisateur devant être validé
 $router->get('/Utilisateur', 'User#AfficherUtilisateur');
@@ -97,9 +64,14 @@ $router->get('/User/delUtilisateur/:id', 'User#delUtilisateur#id');
 $router->get('/User/ValUtilisateur/:id', 'User#ValUtilisateur#id');
 $router->post('/User/ValUtilisateur/:id', 'User#ValUtilisateur#id');
 
-//Afficher les utilisateurs validé
+//Afficher les utilisateurs validés
 $router->get('/ListUtilisateur', 'User#AfficherTlm');
 
+//Afficher Match
+$router->get('/match', 'User#AfficherMatch');
+
+//Affiche Match
+$router->get('/Matching', 'User#AfficheMatch');
 
 
 echo $router->run();

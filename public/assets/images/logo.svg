@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43.361" height="61.413" viewBox="0 0 43.361 61.413">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-0.107" y1="0.276" x2="1.067" y2="0.755" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f15a24"/>
+      <stop offset="0.679" stop-color="#d23e79"/>
+    </linearGradient>
+  </defs>
+  <g id="Sans_titre_-_2" transform="translate(-499.6 -366.1)">
+    <g id="Groupe_1" data-name="Groupe 1" transform="translate(499.6 366.1)">
+      <path id="Tracé_11" data-name="Tracé 11" d="M525.086,386.276v-5.31c0-4.6-1.239-8.141-3.717-10.8a12.559,12.559,0,0,0-9.557-4.071c-3.894,0-6.9,1.239-9.026,3.54s-3.186,5.84-3.186,10.088v11.15h12.92v20.176q0,16.459,14.867,16.459c10.442,0,15.574-5.663,15.574-17.167V386.1H525.086Zm-21.061,0v-5.663c0-6.371,2.655-9.557,8.141-9.557a8.152,8.152,0,0,1,6.371,2.655c1.593,1.77,2.3,4.248,2.3,7.61v4.956H504.025Zm34.335,25.132c0,8.141-3.363,12.212-10.265,12.212-7.079,0-10.619-4.248-10.619-12.566V391.232h20.884Z" transform="translate(-499.6 -366.1)" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>

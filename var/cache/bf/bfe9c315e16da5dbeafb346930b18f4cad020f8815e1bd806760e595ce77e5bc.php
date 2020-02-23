@@ -50,11 +50,8 @@ class __TwigTemplate_37ef10cfc59c3a70dc1579a7e7f49afcf57492c85121f549bd5c91c31a6
     <link rel=\"stylesheet\" href=\"https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css\">
 
     <link rel=\"stylesheet\" href=\"/assets/styleconnexion.css\">
+    <link rel=\"icon\" href=\"/uploads/images/favicon.ico\"/>
 </head>
-
-
-
-
 
 <body id=\"connexion\">
 
@@ -64,8 +61,8 @@ class __TwigTemplate_37ef10cfc59c3a70dc1579a7e7f49afcf57492c85121f549bd5c91c31a6
 
     <div class=\"container\">
         <p class=\"perror\">";
-        // line 30
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", false, false, false, 30), "html", null, true);
+        // line 27
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "errorlogin", [], "any", false, false, false, 27), "html", null, true);
         echo "</p>
 
 
@@ -164,7 +161,7 @@ class __TwigTemplate_37ef10cfc59c3a70dc1579a7e7f49afcf57492c85121f549bd5c91c31a6
 
     public function getDebugInfo()
     {
-        return array (  68 => 30,  37 => 1,);
+        return array (  65 => 27,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -185,11 +182,8 @@ class __TwigTemplate_37ef10cfc59c3a70dc1579a7e7f49afcf57492c85121f549bd5c91c31a6
     <link rel=\"stylesheet\" href=\"https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css\">
 
     <link rel=\"stylesheet\" href=\"/assets/styleconnexion.css\">
+    <link rel=\"icon\" href=\"/uploads/images/favicon.ico\"/>
 </head>
-
-
-
-
 
 <body id=\"connexion\">
 

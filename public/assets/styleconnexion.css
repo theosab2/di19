@@ -1,5 +1,5 @@
 html{
-    background:content-box url("/assets/background.jpg")
+    background:content-box url(https://image.noelshack.com/fichiers/2020/07/1/1581323637-web-1920-14.jpg)
 }
 
 
@@ -161,8 +161,8 @@ hr {
     box-shadow: 1px 5px 10px 1px #333;
 
     overflow:hidden;
-    background-color: #293133;
-    border-radius: 10%;
+    background-color: #DE4858;
+    border-radius: 50%;
 }
 
 
@@ -200,7 +200,7 @@ img.bg-img {
 
     padding-bottom: 3px;
 
-    border-bottom: 3px solid #856D4D;
+    border-bottom: 3px solid #12C2E9;
 
 }
 
@@ -212,7 +212,7 @@ a:not(.active) {
 
 .menu .active h2 {
 
-    border-bottom: 0 solid #856D4D;
+    border-bottom: 0 solid #12C2E9;
 
     color: #AEAEAE;
 
@@ -249,7 +249,7 @@ a:not(.active) {
 
     padding-bottom: 3px;
 
-    border-bottom: 2px solid #856D4D;
+    border-bottom: 2px solid #12C2E9;
 
 }
 
@@ -349,7 +349,7 @@ input.submit {
 
     opacity: 1;
 
-    background-color: #856D4D;
+    background-color: #12C2E9;
 
     cursor: pointer;
 

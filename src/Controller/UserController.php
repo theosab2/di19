@@ -15,6 +15,14 @@ class UserController extends  AbstractController
         return $this->twig->render('User/login.html.twig');
     }
 
+    public function Accueil(){
+        return $this->twig->render('User/index.html.twig');
+    }
+
+    public function welcome(){
+        return $this->twig->render('Article/Accueil.html.twig');
+    }
+
     public function inscriptionForm()
     {
         unset($_SESSION['errinscription']);
@@ -96,20 +104,23 @@ class UserController extends  AbstractController
             $arrayRole = explode(" ", $userInfoLog['USER_ROLE']);
             $_SESSION['login'] = array("id" => $userInfoLog['USER_ID'],
                 "roles" => $arrayRole,
-                "status" => $userInfoLog['USER_STATUS'],
+                "projet" => $userInfoLog['USER_PROJET'],
                 "prenom" => $userInfoLog['USER_PRENOM'],
                 "email" => $userInfoLog['USER_EMAIL'],
                 "nom" => $userInfoLog['USER_NOM'],
                 "role" => $userInfoLog['USER_ROLE'],
-                "valider" => $userInfoLog['USER_VALIDER']);
-            header('Location:/');
+                "valider" => $userInfoLog['USER_VALIDER'],
+                "like" => $userInfoLog['USER_LIKE']);
+
+            return $this->twig->render('Article/Accueil.html.twig');
 
         } else {
             $_SESSION['errorlogin'] = "Email, Mot de passe ou captcha incorrect";
             header('Location:/login');
-            return;
+
         }
     }
+
 
 
     //Roles utilisateurs : administrateur ou redacteur
@@ -142,6 +153,22 @@ class UserController extends  AbstractController
         return $this->twig->render('User/ListUtilisateur.html.twig',['utilisateurlist' => $listUtilisateur]);
     }
 
+    public function AfficheMatch(){
+        $utilisateur = new User();
+        $listUtilisateur = $utilisateur->Matchtlm(Bdd::GetInstance());
+
+        return $this->twig->render('User/Matching.html.twig',['utilisateurlist' => $listUtilisateur]);
+    }
+
+    public function AfficherMatch(){
+        $utilisateur = new User();
+        $listUtilisateur = $utilisateur->SqlPersonne(Bdd::GetInstance());
+
+        return $this->twig->render('User/Match.html.twig',['utilisateurlist' => $listUtilisateur]);
+    }
+
+
+
     //Permet la validation d'un utilisateur
     public static function ValUtilisateur($id){
     $Utilisateur = new User();
@@ -156,6 +183,58 @@ class UserController extends  AbstractController
         $Utilisateur->SQldel(Bdd::GetInstance(),$id);
 
         header('Location:/Utilisateur');
+    }
+
+    public static function listMatch($id){
+        $Utilisateur = new User();
+        $Utilisateur->SQlMatch(Bdd::GetInstance(),$id);
+
+        header('Location:/match');
+    }
+
+     public function Edit()
+    {
+        $id = $_SESSION["login"]["id"];
+
+        if($_POST){
+
+            $Edit = new User;
+
+            $Edit->setUSERNOM($_POST["nom"]);
+            $Edit->setUSERPRENOM($_POST["prenom"]);
+            $Edit->setUSERAGE($_POST["age"]);
+            $Edit->setUSERVILLE($_POST["ville"]);
+            $Edit->setUSERSEXE($_POST["sexe"]);
+            $Edit->setUSERPROJET($_POST["projet"]);
+            $Edit->setUSERDESC($_POST["description"]);
+            $Edit->setUSERCENTRE($_POST["centre"]);
+            $Edit->setUSERPROFESSION($_POST["profession"]);
+            $Edit->setUSERMOI($_POST["moi"]);
+            $Edit->setUSERSITUATION($_POST["situation"]);
+            $Edit->setUSERCHERCHE($_POST["cherche"]);
+            $Edit->EditProfile(Bdd::GetInstance(),$id);
+
+        } else {
+
+            // Récupérer les données de l'utilisateur avec l'id => $id
+            $utilisateur = new User();
+            $datauser = $utilisateur->GetProfile(Bdd::GetInstance(), $id);
+
+            return $this->twig->render('User/readFile.html.twig', [ 'utilisateur' => $datauser ]);
+        }
+    }
+
+
+    public function Chercher()
+    {
+        // Moteur de recherche par mot clé
+        $Utilisateur = new User();
+        $MotCle = strip_tags($_POST['search']);
+        $listUtilisateur = $Utilisateur->SqlGetChercher(Bdd::GetInstance(), $MotCle);
+
+        return $this->twig->render(
+            'User/ListUtilisateur.html.twig',[
+            'utilisateurlist' => $listUtilisateur]);
     }
 
     //fonction Inscription utilisateur

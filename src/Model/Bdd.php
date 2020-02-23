@@ -6,10 +6,10 @@ class Bdd {
 
 
     public static function InitInstance(){
-        $hostname="localhost";
-        $username="root";
-        $password="";
-        $dbname="cesiblog";
+        $hostname="mysql-mamie-a-jour.alwaysdata.net";
+        $username="193283";
+        $password="59nathan494";
+        $dbname="mamie-a-jour_pullup";
 
         try
         {

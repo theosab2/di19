@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: none;
+}
+
+nav {
+    height: 100px;
+    margin-top: 0px;
+}
+
+.menu {
+    position: relative;
+    margin: 0 auto;
+    width: 138%;
+    overflow: hidden;
+    background: none;
+}
+
+.menu ul {
+    width: 100%;
+    margin: 40px;
+    padding-right: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu ul li {
+    list-style: none;
+}
+
+.menu ul li,
+.menu ul li a {
+    color: #DE4858;
+    line-height: 44px;
+    margin-left: 44px;
+    text-decoration: none;
+}
+
+.menu ul li a .fa.fa-user-circle-o {
+    font-size: 35px;
+}
+
+.menu ul li a .fa.fa-envelope {
+    font-size: 35px;
+    margin-right: 1em;
+}
+
+.fa-user-circle-o:before {
+    content: "\f2be";
+    margin-left: 18px;
+}
+
+.fa-envelope:before {
+    content: "\f0e0";
+    margin-right: 26em;
+}
