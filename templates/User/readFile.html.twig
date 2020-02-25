@@ -1,0 +1,32 @@
+{% extends "index.html.twig" %}
+{% block title %} Editeur CSS - {{ parent() }}{% endblock %}
+
+{% block body %}
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title> ReadFile</title>
+
+    <link rel="stylesheet" href="/assets/test.css">
+
+</head>
+
+<body>
+    <form name="addArticle" method="post" enctype="multipart/form-data">
+        <textarea id="cssFileData" name="cssFileData"
+                  rows="14" cols="150">{{ cssFileData }}
+        </textarea>
+
+        <div>
+            <center><input type="submit" value=Valider class="btn-warning"></center>
+        </div>
+    </form>
+</body>
+
+</html>
+
+{% endblock %}

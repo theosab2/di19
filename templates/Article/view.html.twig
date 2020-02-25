@@ -1,0 +1,45 @@
+{% extends "index.html.twig" %}
+{% block title %}{{ parent() }} - Mise à jour d'un article {% endblock %}
+
+
+
+{% block body %}
+    <div class="container-fluid mt-2">
+        <h2 class="display-3">Voir l'article</h2>
+        <hr class="my-4">
+        <div class="row">
+            <div class="card col-lg-4 ml" style="width: 15rem;">
+
+                {% if article.ImageFileName != '' and    file_exist('./uploads/images/'~article.ImageRepository~'/'~article.ImageFileName) %}
+                    <img class='card-img-top' alt='Article' src='/uploads/images/{{ article.ImageRepository }}/{{article.ImageFileName}}'/>
+                {% else %}
+                    <h6 class="display-4">Pas d'image</h6>
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.Titre }}</h5>
+                    <p class="card-text">{{ article.Description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form_group field">
+        <form method="post" action="/Contact/sendMail">
+            <br>
+            <label for="email" class="form_label">{{article.Titre}}</label>
+            <br>
+            <br>
+            <input type="email" class="form__field" placeholder="Entrez votre adresse email" name="email" required />
+            <br><br>
+            <i class="fas fa-pencil-alt prefix"></i>
+            <textarea name="content" id="form24" class="md-textarea form-control" placeholder="Ecrivez votre texte ici" cols="50" rows="3"></textarea>
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+
+
+{% endblock %}

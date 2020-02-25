@@ -1,0 +1,41 @@
+{% extends "index.html.twig" %}
+{% block title %} Liste des categories - {{ parent() }}{% endblock %}
+
+
+{% block body %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Liste des categories</h1>
+    </div>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for categorie in categorieList %}
+                <tr>
+                    <th scope="row"><a href="/Categorie/Show/{{ categorie.id }}">#{{ categorie.id }}</a></th>
+                    <td>{{ categorie.Nom }}</td>
+                    <td>{{ categorie.Description }}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-success" href="/Categorie/Show/{{ categorie.id }}"><i class="far fa-eye"></i></a>
+                            <a class="btn btn-warning" href="/Categorie/Update/{{ categorie.id }}"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-danger" href="/Categorie/Delete/{{ categorie.id }}"><i class="far fa-trash-alt"></i></a>
+                        </div>
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
